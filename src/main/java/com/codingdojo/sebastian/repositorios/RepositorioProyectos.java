@@ -9,4 +9,7 @@ import com.codingdojo.sebastian.modelos.Usuario;
 
 public interface RepositorioProyectos extends CrudRepository<Proyecto, Long>{
 
+	
+	List <Proyecto> findAll();
+	
 }

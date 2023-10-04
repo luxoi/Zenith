@@ -14,6 +14,13 @@ public class Servicio {
 	@Autowired
 	private RepositorioUsuarios repoUsuario;
 	
+    public Usuario encontrarUsuario(Long id) {
+        return repoUsuario.findById(id).orElse(null);
+    }
+
+    public Usuario guardarUsuario(Usuario usuario) {
+        return repoUsuario.save(usuario);
+    }
 	public Usuario registrar(Usuario nuevoUsuario,BindingResult result) {
 		
 		String contrasena = nuevoUsuario.getPassword();

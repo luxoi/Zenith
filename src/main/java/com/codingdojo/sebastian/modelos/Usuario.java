@@ -29,25 +29,25 @@ public class Usuario {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty(message="pone el nombre tontito")
-	@Size(min=2,message="el nombre tiene que tener al menos 2 caracteres,piensa bro")
+	@NotEmpty(message="pone el nombre ")
+	@Size(min=2,message="el nombre tiene que tener al menos 2 caracteres")
 	private String Nombre;
 	
-	@NotEmpty(message="pone el apellido tontito")
-	@Size(min=2,message="el apellido tiene que tener al menos 2 caracteres,piensa bro")
+	@NotEmpty(message="pone el apellido ")
+	@Size(min=2,message="el apellido tiene que tener al menos 2 caracteres")
 	private String apellido;
 	
-	@NotEmpty(message="pone el email tontito")
-	@Email(message="el Email tiene que ser valido,piensa bro")
+	@NotEmpty(message="pone el email ")
+	@Email(message="el Email tiene que ser valido")
 	private String email;
 	
-	@NotEmpty(message="pone la contraseña tontito")
-	@Size(min=8,message="la contraseña tiene que tener al menos 8 caracteres bobito")
+	@NotEmpty(message="pone la contraseña ")
+	@Size(min=8,message="la contraseña tiene que tener al menos 8 caracteres ")
 	private String password;
 	
 	@Transient
-	@NotEmpty(message="escribe bien la confirmacion tontito")
-	@Size(min=8,message="la confirmacion tiene que tener al menos 8 caracteres bobito")//no guarda la data en el sql
+	@NotEmpty(message="escribe bien la confirmacion ")
+	@Size(min=8,message="la confirmacion tiene que tener al menos 8 caracteres ")//no guarda la data en el sql
 	private String confirmPassword;
 	
 	@OneToMany(mappedBy="creador", fetch=FetchType.LAZY)

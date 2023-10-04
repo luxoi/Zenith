@@ -33,7 +33,7 @@ public class Proyecto {
 	
     private String contenido;
     
-    @NotNull(message="la fecha no puede ser vacia")
+
     @Future
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date fecha;

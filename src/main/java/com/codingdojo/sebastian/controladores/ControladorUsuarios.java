@@ -30,16 +30,6 @@ public class ControladorUsuarios {
 		
 	}
 	
-	@GetMapping("/dashboard")
-	public String dashboard(HttpSession session) {
-		
-		Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
-		if(usuarioTemporal == null) {
-			return "redirect:/";
-		}
-		
-		return "dashboard.jsp";
-	}
 	
 	@PostMapping("/registro")
 	public String registro(@Valid @ModelAttribute("nuevoUsuario") Usuario nuevoUsuario,
