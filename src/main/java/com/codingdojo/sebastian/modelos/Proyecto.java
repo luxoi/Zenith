@@ -1,6 +1,7 @@
 package com.codingdojo.sebastian.modelos;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -12,11 +13,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Future;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 @Entity
@@ -28,12 +30,12 @@ public class Proyecto {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
+	@NotEmpty
 	@Size(min=3, message="el nombre debe tener almenos 2 caracteres.")
     private String titulo;
 	
-    private String contenido;
+    private String plantilla;
     
-
     @Future
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date fecha;
@@ -41,7 +43,10 @@ public class Proyecto {
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="usuario_id")
     private Usuario creador;
-
+    
+    @OneToMany(mappedBy="tareasProyecto", fetch=FetchType.LAZY)
+	private List <Tarea> misTareas;
+    
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -67,13 +72,13 @@ public class Proyecto {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-
-	public String getContenido() {
-		return contenido;
+	
+	public String getPlantilla() {
+		return plantilla;
 	}
 
-	public void setContenido(String contenido) {
-		this.contenido = contenido;
+	public void setPlantilla(String plantilla) {
+		this.plantilla = plantilla;
 	}
 
 	public Date getFecha() {
@@ -106,6 +111,14 @@ public class Proyecto {
 
 	public void setCreador(Usuario creador) {
 		this.creador = creador;
+	}
+	
+	public List<Tarea> getMisTareas() {
+		return misTareas;
+	}
+
+	public void setMisTareas(List<Tarea> misTareas) {
+		this.misTareas = misTareas;
 	}
 
 	@PrePersist

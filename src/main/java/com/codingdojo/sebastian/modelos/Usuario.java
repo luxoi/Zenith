@@ -53,6 +53,9 @@ public class Usuario {
 	@OneToMany(mappedBy="creador", fetch=FetchType.LAZY)
     private List <Proyecto> misProyectos;
 	
+	@OneToMany(mappedBy="usuarioAsignado", fetch=FetchType.LAZY)
+	private List <Tarea> misTareas;
+	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date createdAt;
@@ -133,6 +136,14 @@ public class Usuario {
 
 	public void setMisProyectos(List<Proyecto> misProyectos) {
 		this.misProyectos = misProyectos;
+	}
+	
+	public List<Tarea> getMisTareas() {
+		return misTareas;
+	}
+
+	public void setMisTareas(List<Tarea> misTareas) {
+		this.misTareas = misTareas;
 	}
 
 	@PrePersist
