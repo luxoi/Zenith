@@ -101,9 +101,26 @@
     </nav>
 
     <section class="home">
-        <div class="text">Dashboard</div>
+        <div class="text">
+            <h1></h1>
+       
+
+                <div class="principal">
+                    <span><h1>Bienvenido a nuestro gestor de proyectos</h1></span>
+                    <p>Aprende a organizarte de manera muy facil y didactica con nosotros, podras hacer seguimiento a tus tareas y diferentes proyectos en equipo</p>
+                    <img src="/images/Blog-organizarequipo.png" class="org">
+                </div>
+                <div class="principalderecha">
+                                        <h3>Si es tu primera vez en la pagina, puedes empezar creando un proyecto nuevo!</h3>
+                                        <div class="boton">
+                                       	 <a href="" > <span>Click aqui para Empezar</span> </a>
+										</div>
+                </div>
+        
+        </div>
+        
     </section>
 
-    <script type="text/javascript" src="/js/script.js"></script>
+    <script src="/js/script.js"></script>
 </body>
 </html>

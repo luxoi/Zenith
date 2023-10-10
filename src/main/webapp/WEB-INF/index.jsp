@@ -3,62 +3,90 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>    
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
-<meta charset="ISO-8859-1">
-<title>formulario</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="csslogin/estilos.css">
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-6">
-				<h2>Registrate</h2>
-				<form:form method="Post" modelAttribute="nuevoUsuario" action="/registro">
-					<div>
-						<form:label path="nombre">nombre</form:label>
-						<form:input path="nombre" class="form-control"/>
-						<form:errors path="nombre" class="text-danger"/>
+
+    <div class="container">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="elegir"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Iniciar Sesion </button>
+                <button type="button" class="toggle-btn" onclick="registrar()">Registrar </button>
+            </div>
+            <div class="redes-sociales"> 
+                 <img src="imglogin/gp.png" alt="icono_Googleplus">           
+            </div>
+           <form action="/login" method="post" class="input-group" id="login">
+           
+                     <div>
+						
+						<input type="email" class="input-field" name="email" placeholder="Correo">
+						
 					</div>
 					<div>
-						<form:label path="apellido">apellido</form:label>
-						<form:input path="apellido" class="form-control"/>
-						<form:errors path="apellido" class="text-danger"/>
+					
+						<input type="password" class="input-field" name="password" placeholder="Contraseña">
 					</div>
-					<div>
-						<form:label path="email">email</form:label>
-						<form:input path="email" class="form-control"/>
-						<form:errors path="email" class="text-danger"/>
-					</div>
-					<div>
-						<form:label path="password">contraseña</form:label>
-						<form:password path="password" class="form-control"/>
-						<form:errors path="password" class="text-danger"/>
-					</div>
-					<div>
-						<form:label path="confirmPassword">confirmar contraseña</form:label>
-						<form:password path="confirmPassword" class="form-control"/>
-						<form:errors path="confirmPassword" class="text-danger"/>
-					</div>
-					<input type="submit" class="btn btn-success mt-3" value="Registrarme">	
-				</form:form>
-			</div>
-			<div class="col-6">
-				<h2>Inicia sesion</h2>
-				<p class="text-danger">${error_login}</p>
-				<form action="/login" method="post">
-					<div>
-						<label>E-mail</label>
-						<input type="email" class="form-control" name="email">
-					</div>
-					<div>
-						<label>contraseña</label>
-						<input type="password" class="form-control" name="password">
-					</div>
-					<input type="submit" class="btn btn-info mt-3" value="Inicia Sesion">
-				</form>
-			</div>
-		</div>
-	</div>
+                <button type="submit" class="submit-btn" >Acceder</button>
+            </form>
+            <form:form method="Post" modelAttribute="nuevoUsuario" action="/registro" class="input-group" id="registrar">
+            
+           
+				<form:input path="nombre" class="input-field" placeholder="Nombre de Usuario"/>
+				<form:errors path="nombre" class="text-danger"/>
+				
+				
+				<form:input path="apellido" class="input-field" placeholder="Apellido"/>
+				<form:errors path="apellido" class="text-danger"/>
+				
+				
+                
+             
+				<form:input path="email" class="input-field" placeholder="Correo"/>
+				<form:errors path="email" class="text-danger"/>
+                
+                
+           
+				<form:password path="password" class="input-field" placeholder="Contraseña" />
+				<form:errors path="password" class="text-danger"/>
+                
+                
+               
+				<form:password path="confirmPassword" class="input-field" placeholder="Confirmar Contraseña"/>
+				<form:errors path="confirmPassword" class="text-danger"/>
+                
+                
+                <input type="checkbox" class="check-box"><span>Acepto los términos y Condiciones.</span>
+                <button type="submit" class="submit-btn" >Registrar</button>
+            </form:form>
+        </div>
+    </div>
+
+    <script>
+        var x = document.getElementById("login");
+        var y = document.getElementById("registrar");
+        var z = document.getElementById("elegir");
+
+        function login(){
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0px";
+        }
+
+        function registrar(){
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "120px"; 
+        }
+
+
+    </script>
 </body>
 </html>

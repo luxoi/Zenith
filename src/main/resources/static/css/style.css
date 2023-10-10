@@ -277,6 +277,7 @@ body.dark .switch::before{
     width: calc(100% - 250px);
     background: var(--body-color);
     transition: var(--tran-05);
+  
 }
 
 .home .text{
@@ -284,9 +285,66 @@ body.dark .switch::before{
     font-weight: 500;
     color: var(--text-color);
     padding: 8px 40px;
+    display: flex;
+    height: 100%;
 }
+
 
 .sidebar.close ~ .home{
     left: 88px;
     height: 100vh;
+}
+
+
+
+.principal {
+  
+    width: 50%;
+    height: 100%;
+   
+}
+
+.home{
+    border: 1px solid gray;
+}
+
+.principal img{
+    width: 600px;
+}
+
+.principalderecha {
+    margin-left: 3px;
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+}
+.principalderecha a{
+    background: var(--body-color);
+    color: var(--text-color);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 0.1em;
+    font-weight: 150;
+    padding: 10px 30px;
+    transition: 0.5s;
+    margin: 30px;
+    border: 2px solid var(--primary-color);
+}
+a:hover{
+    background: var(--primary-color);
+    color: var(--text-color);
+    letter-spacing: 0.12em;
+    box-shadow: 0 0 35px var(--primary-color);
+}
+
+
+a span{
+    position: relative;
+    z-index: 1;
+}
+.boton{
+    margin-top: 200px;
 }
