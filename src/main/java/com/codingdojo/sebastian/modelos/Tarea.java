@@ -30,6 +30,8 @@ public class Tarea {
 	
 	private String contenido;
 	
+	private String dia;
+	
 	private String tipo;
 	
 	@Future
@@ -68,6 +70,14 @@ public class Tarea {
 
 	public void setContenido(String contenido) {
 		this.contenido = contenido;
+	}
+	
+	public String getDia() {
+		return dia;
+	}
+
+	public void setDia(String dia) {
+		this.dia = dia;
 	}
 
 	public String getTipo() {

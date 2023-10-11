@@ -1,5 +1,7 @@
 package com.codingdojo.sebastian.servicios;
 
+import java.util.Optional;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -60,6 +62,19 @@ public class Servicio {
 		
 		return null;
 		
+		
+	}
+	
+	public Usuario actualizarUsuario(Long id, Usuario usuarioModificado) {
+		Usuario usuarioExistente = repoUsuario.findById(id).orElse(null);
+		
+		if(usuarioExistente == null) {
+			return null;
+		}
+		
+		usuarioExistente.setNombre(usuarioModificado.getNombre());
+		usuarioExistente.setApellido(usuarioModificado.getApellido());
+		usuarioExistente.
 		
 	}
 	
