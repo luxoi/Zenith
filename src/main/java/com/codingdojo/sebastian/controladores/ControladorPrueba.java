@@ -35,4 +35,12 @@ public class ControladorPrueba {
 			return "redirect:/";
 		}
 	}
+	
+	//prueba a crear documento 
+	
+	@GetMapping("/documento")
+	public String doc() {
+		
+		return "documento.jsp";
+	}
 }

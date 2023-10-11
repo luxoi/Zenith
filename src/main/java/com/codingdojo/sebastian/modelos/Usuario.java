@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -55,6 +56,9 @@ public class Usuario {
 	
 	@OneToMany(mappedBy="usuarioAsignado", fetch=FetchType.LAZY)
 	private List <Tarea> misTareas;
+	
+    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+    private List<Pagina> paginas;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -144,6 +148,14 @@ public class Usuario {
 
 	public void setMisTareas(List<Tarea> misTareas) {
 		this.misTareas = misTareas;
+	}
+
+	public List<Pagina> getPaginas() {
+		return paginas;
+	}
+
+	public void setPaginas(List<Pagina> paginas) {
+		this.paginas = paginas;
 	}
 
 	@PrePersist

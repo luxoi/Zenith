@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
@@ -38,6 +39,13 @@ public class Tarea {
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private LocalDate fechaLimite;
 	
+	@Column(updatable=false)
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date createdAt;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd")
+	private Date updatedAt;
+	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="usuario_id")
 	private Usuario usuarioAsignado;
@@ -46,13 +54,10 @@ public class Tarea {
     @JoinColumn(name="proyecto_id")
     private Proyecto tareasProyecto;
 	
-	@Column(updatable=false)
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date createdAt;
-	
-	@DateTimeFormat(pattern="yyyy-MM-dd")
-	private Date updatedAt;
-	
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="pagina_id")
+    private Pagina pagina;
+    
 	public Tarea() {
 	}
 	
@@ -133,11 +138,20 @@ public class Tarea {
 		this.createdAt = new Date();
 	}
 	
+	public Pagina getPagina() {
+		return pagina;
+	}
+
+	public void setPagina(Pagina pagina) {
+		this.pagina = pagina;
+	}
+
 	@PreUpdate
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
 	
+
 	public String getFechaLimiteFormatted() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         return fechaLimite.format(formatter);

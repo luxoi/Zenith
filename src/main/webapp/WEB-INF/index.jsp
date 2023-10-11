@@ -21,9 +21,11 @@
                 <button type="button" class="toggle-btn" onclick="login()">Iniciar Sesion </button>
                 <button type="button" class="toggle-btn" onclick="registrar()">Registrar </button>
             </div>
-            <div class="redes-sociales"> 
-                 <img src="imglogin/gp.png" alt="icono_Googleplus">           
-            </div>
+         <div class="redes-sociales"> 
+		    <a href="/login/oauth2/authorization/google">
+		        <img src="imglogin/gp.png" alt="icono_Googleplus"> Iniciar sesión con Google
+		    </a>
+		</div>
            <form action="/login" method="post" class="input-group" id="login">
            
                      <div>
