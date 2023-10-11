@@ -1,7 +1,5 @@
 package com.codingdojo.sebastian.servicios;
 
-import java.util.Optional;
-
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,7 +63,7 @@ public class Servicio {
 		
 	}
 	
-	public Usuario actualizarUsuario(Long id, Usuario usuarioModificado) {
+	public Usuario actualizarUsuario(Long id, Usuario usuarioModificado,BindingResult result) {
 		Usuario usuarioExistente = repoUsuario.findById(id).orElse(null);
 		
 		if(usuarioExistente == null) {
@@ -74,7 +72,17 @@ public class Servicio {
 		
 		usuarioExistente.setNombre(usuarioModificado.getNombre());
 		usuarioExistente.setApellido(usuarioModificado.getApellido());
-		usuarioExistente.
+		if(!usuarioModificado.getPassword().equals(usuarioModificado.getConfirmPassword())) {
+			result.rejectValue("confirmacion","matches", "las contraseñas no coinciden");
+		}
+		
+		if(result.hasErrors()) {
+			return null;
+		} else {
+			String contraEncriptada = BCrypt.hashpw(usuarioModificado.getPassword(), BCrypt.gensalt());
+			usuarioExistente.setPassword(contraEncriptada);
+			return repoUsuario.save(usuarioExistente);
+		}
 		
 	}
 	
