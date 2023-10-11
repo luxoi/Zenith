@@ -22,6 +22,7 @@ public class ControladorUsuarios {
 	@Autowired
 	private Servicio servicio;
 	
+
 	
 	@GetMapping("/")
 	public String index(@ModelAttribute("nuevoUsuario") Usuario nuevoUsuario) {
