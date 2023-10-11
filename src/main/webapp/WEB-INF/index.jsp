@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="csslogin/estilos.css">
+    
 </head>
 <body>
 
@@ -38,32 +39,33 @@
             </form>
             <form:form method="Post" modelAttribute="nuevoUsuario" action="/registro" class="input-group" id="registrar">
             
-           
+           		<div>
 				<form:input path="nombre" class="input-field" placeholder="Nombre de Usuario"/>
-				<form:errors path="nombre" class="text-danger"/>
+				<p><form:errors path="nombre" class="text-danger"/></p>
+				</div>
 				
-				
+				<div>
 				<form:input path="apellido" class="input-field" placeholder="Apellido"/>
-				<form:errors path="apellido" class="text-danger"/>
-				
+				<p><form:errors path="apellido" class="text-danger"/></p>
+				</div>
 				
                 
-             
+             	<div>
 				<form:input path="email" class="input-field" placeholder="Correo"/>
-				<form:errors path="email" class="text-danger"/>
+				<p><form:errors path="email" class="text-danger"/></p>
+                </div>
                 
-                
-           
+          		<div>
 				<form:password path="password" class="input-field" placeholder="Contraseña" />
-				<form:errors path="password" class="text-danger"/>
+				<p><form:errors path="password" class="text-danger"/></p>
+                </div>
+				
                 
-                
-               
+              	<div>
 				<form:password path="confirmPassword" class="input-field" placeholder="Confirmar Contraseña"/>
-				<form:errors path="confirmPassword" class="text-danger"/>
+				<p><form:errors path="confirmPassword" class="text-danger"/></p>
+                </div>
                 
-                
-                <input type="checkbox" class="check-box"><span>Acepto los términos y Condiciones.</span>
                 <button type="submit" class="submit-btn" >Registrar</button>
             </form:form>
         </div>
