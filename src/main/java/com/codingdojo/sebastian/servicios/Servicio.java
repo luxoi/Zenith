@@ -1,11 +1,19 @@
 package com.codingdojo.sebastian.servicios;
 
+import java.util.List;
+
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
+import com.codingdojo.sebastian.modelos.Pagina;
+import com.codingdojo.sebastian.modelos.Proyecto;
+import com.codingdojo.sebastian.modelos.Tarea;
 import com.codingdojo.sebastian.modelos.Usuario;
+import com.codingdojo.sebastian.repositorios.RepositorioPaginas;
+import com.codingdojo.sebastian.repositorios.RepositorioProyectos;
+import com.codingdojo.sebastian.repositorios.RepositorioTareas;
 import com.codingdojo.sebastian.repositorios.RepositorioUsuarios;
 
 @Service
@@ -13,6 +21,15 @@ public class Servicio {
 	
 	@Autowired
 	private RepositorioUsuarios repoUsuario;
+	
+	@Autowired 
+    private RepositorioProyectos rp;
+    
+    @Autowired
+    private RepositorioTareas rt;
+    
+    @Autowired
+    private RepositorioPaginas rpag;
 	
     public Usuario encontrarUsuario(Long id) {
         return repoUsuario.findById(id).orElse(null);
@@ -84,6 +101,34 @@ public class Servicio {
 			return repoUsuario.save(usuarioExistente);
 		}
 		
+	}
+	
+	public void eliminarUsuario(Long id) {
+		Usuario usuarioEliminar = repoUsuario.findById(id).orElse(null);
+		
+		if(usuarioEliminar != null) {
+			List<Proyecto> proyectosEliminar = usuarioEliminar.getMisProyectos();
+			List<Tarea> tareasEliminar = usuarioEliminar.getMisTareas();
+			List<Pagina> paginasEliminar = usuarioEliminar.getPaginas();
+			
+			proyectosEliminar.clear();
+			tareasEliminar.clear();
+			paginasEliminar.clear();
+			
+			for(Tarea tarea:tareasEliminar) {
+				rt.delete(tarea);
+			}
+			
+			for(Pagina pagina:paginasEliminar) {
+				rpag.delete(pagina);
+			}
+			
+			for(Proyecto proyecto:proyectosEliminar) {
+				rp.delete(proyecto);
+			}
+			
+			repoUsuario.delete(usuarioEliminar);
+		}
 	}
 	
 }

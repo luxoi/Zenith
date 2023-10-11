@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.codingdojo.sebastian.modelos.Plantilla;
 import com.codingdojo.sebastian.modelos.Proyecto;
 import com.codingdojo.sebastian.modelos.Tarea;
+import com.codingdojo.sebastian.repositorios.RepositorioPaginas;
 import com.codingdojo.sebastian.repositorios.RepositorioProyectos;
 import com.codingdojo.sebastian.repositorios.RepositorioTareas;
 
@@ -21,6 +22,9 @@ public class ServicioProyectos {
     
     @Autowired
     private RepositorioTareas rt;
+    
+    @Autowired
+    private RepositorioPaginas rpag;
     
     
 
