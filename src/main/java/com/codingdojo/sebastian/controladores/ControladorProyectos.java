@@ -59,7 +59,7 @@ public class ControladorProyectos {
         //Verificar usuario en sesion//
         
 	    // guardar proyecto nuevo
-	    sp.guardarProyecto(nuevoProyecto);
+	    sp.crearProyectos(nuevoProyecto);
 
 	    // Obtener la lista de proyectos actualizada
 	    List<Proyecto> proyectos = sp.listaProyectos();
