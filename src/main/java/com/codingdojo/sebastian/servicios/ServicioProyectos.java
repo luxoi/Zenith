@@ -54,7 +54,10 @@ public class ServicioProyectos {
     	if(plantilla.equals("estudiante")) {
     		
     		return Plantilla.plantillaEstudianteAutomatica(nuevoProyecto,this);
-    	} else {
+    		
+    	} else if(plantilla.equals("gimnasio")) {
+    		return Plantilla.plantillaGimnasioAutomatica(nuevoProyecto,this);
+    	}else {
     		return null;
     	}
     }
