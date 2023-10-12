@@ -104,6 +104,6 @@
         
     </section>
 
-    <script src="/js/script.js"></script>
+    <script src="/jsproyecto/script.js"></script>
 </body>
 </html>

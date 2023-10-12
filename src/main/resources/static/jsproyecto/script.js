@@ -1,24 +1,50 @@
-const body = document.querySelector("body"),
-    sidebar = document.querySelector(".sidebar"),
-    toggle = document.querySelector(".toggle"),
-    searchBtn = document.querySelector(".search-box"),
-    modeSwitch = document.querySelector(".toggle-switch"),
-    modeText = document.querySelector(".mode-text");
+const body = document.querySelector("body");
+const sidebar = document.querySelector(".sidebar");
+const toggle = document.querySelector(".toggle");
+const searchBtn = document.querySelector(".search-box");
+const modeSwitch = document.querySelector(".toggle-switch");
+const modeText = document.querySelector(".mode-text");
 
+// Función para habilitar el modo oscuro
+function enableDarkMode() {
+    body.classList.add("dark");
+    modeText.innerText = "Light Mode";
+    localStorage.setItem('darkModeEnabled', 'true');
+}
+
+// Función para deshabilitar el modo oscuro
+function disableDarkMode() {
+    body.classList.remove("dark");
+    modeText.innerText = "Dark Mode";
+    localStorage.setItem('darkModeEnabled', 'false');
+}
+
+// Función para cargar el estado del modo oscuro al cargar la página
+function loadDarkModeState() {
+    const darkModeEnabled = localStorage.getItem('darkModeEnabled');
+    if (darkModeEnabled === 'true') {
+        enableDarkMode();
+    }
+}
+
+// Toggle para abrir y cerrar la barra lateral
 toggle.addEventListener("click", () => {
     sidebar.classList.toggle("close");
 });
 
+// Botón de búsqueda
 searchBtn.addEventListener("click", () => {
     sidebar.classList.remove("close");
 });
 
+// Toggle para cambiar entre modos oscuro y claro
 modeSwitch.addEventListener("click", () => {
-    body.classList.toggle("dark");
-
     if (body.classList.contains("dark")) {
-        modeText.innerText = "Light Mode"
+        disableDarkMode();
     } else {
-        modeText.innerText = "Dark Mode"
+        enableDarkMode();
     }
 });
+
+// Llama a la función para cargar el estado del modo oscuro al cargar la página
+loadDarkModeState();

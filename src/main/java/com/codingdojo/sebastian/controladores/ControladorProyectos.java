@@ -71,7 +71,14 @@ public class ControladorProyectos {
 	}
 
 	@GetMapping("/proyectos")
-	public String proyectos() {
+	public String proyectos(HttpSession session) {
+		
+		//Verificar usuario en sesion//
+        Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
+        if(usuarioTemporal == null) {
+            return "redirect:/";
+        }
+		
 		return "proyects.jsp";
 	}
 	
