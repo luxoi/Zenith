@@ -32,6 +32,8 @@ public class Proyecto {
 	
 	
     private String titulo;
+    
+    private String descripcion;
 	
     private String plantilla;
     
@@ -75,6 +77,14 @@ public class Proyecto {
 		this.titulo = titulo;
 	}
 	
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
 	public String getPlantilla() {
 		return plantilla;
 	}
