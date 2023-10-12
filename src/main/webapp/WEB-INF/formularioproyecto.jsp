@@ -119,7 +119,7 @@
 						<form:input type="date" path="fecha" class="form-control"/>
 						<form:errors path="fecha" class="text-danger"></form:errors>
 					</div>
-		               <form:hidden path="creador" value="${usuario.id}"/>
+		               <form:hidden path="creador" value="${usuarioEnSesion.id}"/>
                 <button type="submit">Enviar</button>
            
            </form:form>
