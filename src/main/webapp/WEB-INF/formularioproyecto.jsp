@@ -1,11 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isErrorPage="true" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title><!--Css-->
-<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/cssformulario/style.css">
 <!--boxicons-->
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -50,7 +54,7 @@
                             <span class="text nav-text">Proyects</span>
                         </a>
                     </li>
-                 
+                  
                     <li class="nav-link">
                         <a href="#">
                             <i class='bx bx-wallet icon' ></i>
@@ -84,26 +88,33 @@
     </nav>
 
     <section class="home">
-        <div class="text">
-            <h1></h1>
-       
+        <div class="text">Crea tu Proyecto</div>
+        <div class="form">
+           <form:form action="/save" method="POST" modelAttribute="nuevoProyecto">
+           
+             <label for="template">Plantilla:</label>
+                <select id="template" name="template">
+                    <option value="estudiante">Estudiante</option>
+                    <option value="gimnasio">Gimnasio</option>
+                    <option value="pyme">PYME</option>
+                    <option value="custom">Custom</option>
+                </select>
 
-                <div class="principal">
-                    <span><h1>Bienvenido a nuestro gestor de proyectos</h1></span>
-                    <p>Aprende a organizarte de manera muy facil y didactica con nosotros, podras hacer seguimiento a tus tareas y diferentes proyectos en equipo</p>
-                    <img src="/images/wewewe.png" class="org">
-                </div>
-                <div class="principalderecha">
-                                        <h3>Si es tu primera vez en la pagina, puedes empezar creando un proyecto nuevo!</h3>
-                                        <div class="boton">
-                                       	 <a href="/crear/proyectos" > <span>Click aqui para Empezar</span> </a>
-										</div>
-                </div>
-        
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required>
+                
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+                
+                <label for="fecha">Fecha de Finalización:</label>
+                <input type="date" id="fecha" name="fecha" required>
+                
+                <button type="submit">Enviar</button>
+           
+           </form:form>
         </div>
-        
     </section>
 
-    <script src="/jsproyecto/script.js"></script>
+    <script type="text/javascript" src="/jsproyecto/script.js"></script>
 </body>
 </html>

@@ -82,4 +82,18 @@ public class ControladorProyectos {
 		return "proyects.jsp";
 	}
 	
+	@GetMapping("/crear/proyectos")
+	public String crearProyectos(HttpSession session) {
+		
+		//Verificar usuario en sesion//
+        Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
+        if(usuarioTemporal == null) {
+            return "redirect:/";
+        }
+        
+        return "formularioproyecto.jsp";
+		
+	}
+	
+	
 }
