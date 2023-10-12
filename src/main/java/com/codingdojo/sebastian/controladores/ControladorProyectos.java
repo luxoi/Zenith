@@ -48,7 +48,7 @@ public class ControladorProyectos {
     }
 	
 	@GetMapping("/crear/proyectos")
-	public String crearProyectos(HttpSession session) {
+	public String crearProyectos(HttpSession session ,@ModelAttribute("nuevoProyecto") Proyecto nuevoProyecto ) {
 		
 		//Verificar usuario en sesion//
         Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");

@@ -97,9 +97,9 @@
 						<form:label path="plantilla">Plantilla</form:label>
 						<form:select path="plantilla">
 							<form:option value="estudiante">Estudiante</form:option>
-							<form:option value="gimnasio">Estudiante</form:option>
-							<form:option value="pyme">Estudiante</form:option>
-							<form:option value="custom">Estudiante</form:option>
+							<form:option value="gimnasio">Gimnasio</form:option>
+							<form:option value="pyme">PYME</form:option>
+							<form:option value="custom">Custom</form:option>
 						</form:select>
 					
 					</div>
