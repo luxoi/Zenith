@@ -18,22 +18,20 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+
 
 @Entity
 @Table(name="paginas")
 public class Pagina {
-    @Id
+    
+	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
-    @NotNull(message="El campo de direccion es obligatorio")
-	@Size(min=2, message="El nombre debe tener 2 caracteres min.")
+    
     private String nombre;
 	
-	@NotNull(message="El campo de direccion es obligatorio")
-	@Size(min=2, message="El descripcion debe tener 2 caracteres min.")
+	
     private String descripcion;
 	
 	@Column(updatable=false) //Este atributo solamente se ingresa una vez, y NUNCA se actualiza
@@ -45,14 +43,14 @@ public class Pagina {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "proyecto_id")
-    private Proyecto proyecto;
+    private Proyecto proyectoPagina;
     
-    @OneToMany(mappedBy = "pagina", cascade = CascadeType.ALL)
-    private List<Tarea> tareas;
+    @OneToMany(mappedBy = "paginaDeTarea", cascade = CascadeType.ALL)
+    private List<Tarea> tareasPagina;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id")
-    private Usuario usuario;
+    private Usuario usuarioPagina;
 
 	public Pagina() {
 	}
@@ -96,30 +94,30 @@ public class Pagina {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-
-	public Proyecto getProyecto() {
-		return proyecto;
+	
+	public Proyecto getProyectoPagina() {
+		return proyectoPagina;
 	}
 
-	public void setProyecto(Proyecto proyecto) {
-		this.proyecto = proyecto;
+	public void setProyectoPagina(Proyecto proyectoPagina) {
+		this.proyectoPagina = proyectoPagina;
 	}
 
-	public List<Tarea> getTareas() {
-		return tareas;
+	public List<Tarea> getTareasPagina() {
+		return tareasPagina;
 	}
 
-	public void setTareas(List<Tarea> tareas) {
-		this.tareas = tareas;
+	public void setTareasPagina(List<Tarea> tareasPagina) {
+		this.tareasPagina = tareasPagina;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public Usuario getUsuarioPagina() {
+		return usuarioPagina;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	} 
+	public void setUsuarioPagina(Usuario usuarioPagina) {
+		this.usuarioPagina = usuarioPagina;
+	}
 
 	@PrePersist //Antes de hacer la creación
 	protected void onCreate() {

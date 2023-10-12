@@ -109,7 +109,7 @@ public class Servicio {
 		if(usuarioEliminar != null) {
 			List<Proyecto> proyectosEliminar = usuarioEliminar.getMisProyectos();
 			List<Tarea> tareasEliminar = usuarioEliminar.getMisTareas();
-			List<Pagina> paginasEliminar = usuarioEliminar.getPaginas();
+			List<Pagina> paginasEliminar = usuarioEliminar.getMisPaginas();
 			
 			proyectosEliminar.clear();
 			tareasEliminar.clear();

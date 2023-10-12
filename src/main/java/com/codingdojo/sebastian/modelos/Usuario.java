@@ -57,8 +57,8 @@ public class Usuario {
 	@OneToMany(mappedBy="usuarioAsignado", fetch=FetchType.LAZY)
 	private List <Tarea> misTareas;
 	
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-    private List<Pagina> paginas;
+    @OneToMany(mappedBy = "usuarioPagina", cascade = CascadeType.ALL)
+    private List<Pagina> misPaginas;
 	
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -149,13 +149,13 @@ public class Usuario {
 	public void setMisTareas(List<Tarea> misTareas) {
 		this.misTareas = misTareas;
 	}
-
-	public List<Pagina> getPaginas() {
-		return paginas;
+	
+	public List<Pagina> getMisPaginas() {
+		return misPaginas;
 	}
 
-	public void setPaginas(List<Pagina> paginas) {
-		this.paginas = paginas;
+	public void setMisPaginas(List<Pagina> misPaginas) {
+		this.misPaginas = misPaginas;
 	}
 
 	@PrePersist

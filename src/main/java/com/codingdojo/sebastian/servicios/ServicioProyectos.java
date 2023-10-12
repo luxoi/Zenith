@@ -1,10 +1,12 @@
 package com.codingdojo.sebastian.servicios;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.codingdojo.sebastian.modelos.Pagina;
 import com.codingdojo.sebastian.modelos.Plantilla;
 import com.codingdojo.sebastian.modelos.Proyecto;
 import com.codingdojo.sebastian.modelos.Tarea;
@@ -47,13 +49,14 @@ public class ServicioProyectos {
     
     public Proyecto crearProyectos(Proyecto nuevoProyecto) {			//servicio para crear proyectos
     	
-    	List<Tarea> tareas = Plantilla.crearTareaPorProyecto(nuevoProyecto);   //llamamos al metodo de plantilla
-    	nuevoProyecto = rp.save(nuevoProyecto);
-    	for(Tarea tarea : tareas) {
-    		tarea.setTareasProyecto(nuevoProyecto);		//le asignamos a todas las tareas el proyeto que creamos
+    	String plantilla = nuevoProyecto.getPlantilla();
+    	
+    	if(plantilla.equals("estudiante")) {
+    		
+    		return Plantilla.plantillaEstudianteAutomatica(nuevoProyecto,this);
+    	} else {
+    		return null;
     	}
-    	rt.saveAll(tareas);								//hacemos un saveAll para guardar la lista y guardamos todo
-    	return rp.save(nuevoProyecto);			
     }
     
     public Tarea guardarTarea(Tarea nuevaTarea) {
@@ -70,5 +73,21 @@ public class ServicioProyectos {
     
     public List <Tarea> listaTarea(){
     	return rt.findAll();
+    }
+    
+    public Pagina guardarPagina(Pagina nuevaPagina) {
+    	return rpag.save(nuevaPagina);
+    }
+    
+    public Pagina encontrarPagina(Long id) {
+    	return rpag.findById(id).orElse(null);
+    }
+    
+    public void eliminarPagina(Long id) {
+    	rpag.deleteById(id);
+    }
+    
+    public List<Pagina> listaPagina(){
+    	return rpag.findAll();
     }
 }

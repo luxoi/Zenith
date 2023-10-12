@@ -56,7 +56,7 @@ public class Tarea {
 	
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="pagina_id")
-    private Pagina pagina;
+    private Pagina paginaDeTarea;
     
 	public Tarea() {
 	}
@@ -138,12 +138,12 @@ public class Tarea {
 		this.createdAt = new Date();
 	}
 	
-	public Pagina getPagina() {
-		return pagina;
+	public Pagina getPaginaDeTarea() {
+		return paginaDeTarea;
 	}
 
-	public void setPagina(Pagina pagina) {
-		this.pagina = pagina;
+	public void setPaginaDeTarea(Pagina paginaDeTarea) {
+		this.paginaDeTarea = paginaDeTarea;
 	}
 
 	@PreUpdate

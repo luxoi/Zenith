@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -18,8 +19,7 @@ import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Future;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+
 
 @Entity
 @Table(name="proyectos")
@@ -30,8 +30,7 @@ public class Proyecto {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotEmpty
-	@Size(min=3, message="el nombre debe tener almenos 2 caracteres.")
+	
     private String titulo;
 	
     private String plantilla;
@@ -44,8 +43,11 @@ public class Proyecto {
     @JoinColumn(name="usuario_id")
     private Usuario creador;
     
+    @OneToMany(mappedBy = "proyectoPagina", cascade = CascadeType.ALL)
+    private List<Pagina> proyectoPaginas;
+    
     @OneToMany(mappedBy="tareasProyecto", fetch=FetchType.LAZY)
-	private List <Tarea> misTareas;
+	private List <Tarea> proyectoTareas;
     
 	@Column(updatable=false)
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -113,12 +115,20 @@ public class Proyecto {
 		this.creador = creador;
 	}
 	
-	public List<Tarea> getMisTareas() {
-		return misTareas;
+	public List<Pagina> getProyectoPaginas() {
+		return proyectoPaginas;
 	}
 
-	public void setMisTareas(List<Tarea> misTareas) {
-		this.misTareas = misTareas;
+	public void setProyectoPaginas(List<Pagina> proyectoPaginas) {
+		this.proyectoPaginas = proyectoPaginas;
+	}
+
+	public List<Tarea> getProyectoTareas() {
+		return proyectoTareas;
+	}
+
+	public void setProyectoTareas(List<Tarea> proyectoTareas) {
+		this.proyectoTareas = proyectoTareas;
 	}
 
 	@PrePersist
