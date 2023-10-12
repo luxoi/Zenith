@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import com.codingdojo.sebastian.servicios.Servicio;
 import com.codingdojo.sebastian.servicios.ServicioProyectos;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 public class ControladorProyectos {
@@ -47,27 +49,37 @@ public class ControladorProyectos {
 	
 	@PostMapping("/crearProyecto")
 	public String crearProyecto(HttpSession session,
-								@ModelAttribute("nuevoProyecto") Proyecto nuevoProyecto,
-								Model model) {
+								@Valid @ModelAttribute("nuevoProyecto") Proyecto nuevoProyecto,
+								Model model,BindingResult result) {
 		//Verificar usuario en sesion//
         Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
         if(usuarioTemporal == null) {
             return "redirect:/";
         }
-        Usuario miUsuario = su.encontrarUsuario(usuarioTemporal.getId());
-        model.addAttribute("usuario", miUsuario);
-        //Verificar usuario en sesion//
+        if(result.hasErrors()) {
+        	Usuario miUsuario = su.encontrarUsuario(usuarioTemporal.getId());
+            model.addAttribute("usuario", miUsuario);
+            
+            List<Proyecto> proyectos = sp.listaProyectos();
+            model.addAttribute("proyectos", proyectos);
+
+            return "dashboard.jsp";
+        } else {
+        	Usuario miUsuario = su.encontrarUsuario(usuarioTemporal.getId());
+        	model.addAttribute("usuario", miUsuario);
+        	//Verificar usuario en sesion//
         
-	    // guardar proyecto nuevo
-	    sp.crearProyectos(nuevoProyecto);
+        	// guardar proyecto nuevo
+        	sp.crearProyectos(nuevoProyecto);
 
-	    // Obtener la lista de proyectos actualizada
-	    List<Proyecto> proyectos = sp.listaProyectos();
+        	// Obtener la lista de proyectos actualizada
+        	List<Proyecto> proyectos = sp.listaProyectos();
 
-	    // Agregar la lista actualizada de proyectos al modelo
-	    model.addAttribute("proyectos", proyectos);
+        	// Agregar la lista actualizada de proyectos al modelo
+        	model.addAttribute("proyectos", proyectos);
 
-	    return "dashboard.jsp"; 
+        	return "redirect:/dashboard"; 
+        }
 	}
 
 	@GetMapping("/proyectos")
