@@ -90,25 +90,36 @@
     <section class="home">
         <div class="text">Crea tu Proyecto</div>
         <div class="form">
-           <form:form action="/save" method="POST" modelAttribute="nuevoProyecto">
+           <form:form action="/crearProyecto" method="POST" modelAttribute="nuevoProyecto">
            
-             <label for="template">Plantilla:</label>
-                <select id="template" name="template">
-                    <option value="estudiante">Estudiante</option>
-                    <option value="gimnasio">Gimnasio</option>
-                    <option value="pyme">PYME</option>
-                    <option value="custom">Custom</option>
-                </select>
-
-                <label for="titulo">Título:</label>
-                <input type="text" id="titulo" name="titulo" required>
-                
-                <label for="descripcion">Descripción:</label>
-                <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-                
-                <label for="fecha">Fecha de Finalización:</label>
-                <input type="date" id="fecha" name="fecha" required>
-                
+            		<div>
+            		
+						<form:label path="plantilla">Plantilla</form:label>
+						<form:select path="plantilla">
+							<form:option value="estudiante">Estudiante</form:option>
+							<form:option value="gimnasio">Estudiante</form:option>
+							<form:option value="pyme">Estudiante</form:option>
+							<form:option value="custom">Estudiante</form:option>
+						</form:select>
+					
+					</div>
+		
+		            <div>
+						<form:label path="titulo">Titulo del proyecto</form:label>
+						<form:input path="titulo" class="form-control"/>
+						<form:errors path="titulo" class="text-danger"></form:errors>
+					</div>
+					<div>
+						<form:label path="descripcion">Descripcion del proyecto</form:label>
+						<form:textarea path="descripcion" class="form-control"/>
+						<form:errors path="descripcion" class="text-danger"></form:errors>
+					</div>
+					<div>
+						<form:label path="fecha">Fecha de entrega</form:label>
+						<form:input type="date" path="fecha" class="form-control"/>
+						<form:errors path="fecha" class="text-danger"></form:errors>
+					</div>
+		               <form:hidden path="creador" value="${usuario.id}"/>
                 <button type="submit">Enviar</button>
            
            </form:form>
