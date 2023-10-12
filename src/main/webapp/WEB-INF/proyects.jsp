@@ -4,18 +4,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title><!--Css-->
-<link rel="stylesheet" type="text/css" href="/css/style.css">
-<!--boxicons-->
+<title>Tus Proyectos</title>
+<link rel="stylesheet" type="text/css" href="cssproyecto/style.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 </head>
 <body>
     <nav class="sidebar close">
          <header>
+         
             <div class="image-text">
                 <span class="image">
-                    <img src="/images/LOL_Logo.webp" alt="logo">
+                    <img src="/imagesproyecto/LOL_Logo.webp" alt="logo">
                 </span>
 
                 <div class="text header-text">
@@ -23,6 +22,7 @@
                     <span class="profession">Luxoi</span>
                 </div>
             </div>
+            
             <i class='bx bx-chevron-right toggle'></i>
         </header>
 
@@ -50,6 +50,8 @@
                             <span class="text nav-text">Proyects</span>
                         </a>
                     </li>
+                 
+                
                  
                     <li class="nav-link">
                         <a href="#">
@@ -84,26 +86,28 @@
     </nav>
 
     <section class="home">
-        <div class="text">
-            <h1></h1>
-       
-
-                <div class="principal">
-                    <span><h1>Bienvenido a nuestro gestor de proyectos</h1></span>
-                    <p>Aprende a organizarte de manera muy facil y didactica con nosotros, podras hacer seguimiento a tus tareas y diferentes proyectos en equipo</p>
-                    <img src="/images/wewewe.png" class="org">
-                </div>
-                <div class="principalderecha">
-                                        <h3>Si es tu primera vez en la pagina, puedes empezar creando un proyecto nuevo!</h3>
-                                        <div class="boton">
-                                       	 <a href="" > <span>Click aqui para Empezar</span> </a>
-										</div>
-                </div>
-        
-        </div>
-        
+        <div class="text">Tus Proyectos</div>
+        <main>
+            
+            <div class="tabla">
+                <table>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                        <th>Fecha de Finalizacion</th>
+                        <th>Acciones</th>
+                    </tr>
+                    <tr>
+                        <td>Proyecto 1</td>
+                        <td>Descripción del Proyecto 1</td>
+                        <td>01/10/2023</td>
+                        <td>Detalles</td>
+                    </tr>
+                </table>
+            </div>
+        </main>
     </section>
 
-    <script src="/js/script.js"></script>
+    <script type="text/javascript" src="/jsproyecto/script.js"></script>
 </body>
 </html>

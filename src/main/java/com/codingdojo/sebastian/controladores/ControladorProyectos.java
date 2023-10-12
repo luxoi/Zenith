@@ -70,4 +70,9 @@ public class ControladorProyectos {
 	    return "dashboard.jsp"; 
 	}
 
+	@GetMapping("/proyectos")
+	public String proyectos() {
+		return "proyects.jsp";
+	}
+	
 }
