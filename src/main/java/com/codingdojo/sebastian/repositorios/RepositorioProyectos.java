@@ -12,4 +12,7 @@ public interface RepositorioProyectos extends CrudRepository<Proyecto, Long>{
 	
 	List <Proyecto> findAll();
 	
+	List<Proyecto> findByCreador_Id(Long creadorId);
+
+	
 }

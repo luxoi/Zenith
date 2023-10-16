@@ -33,6 +33,8 @@ public class Pagina {
 	
 	
     private String descripcion;
+    
+    private String tipoPagina;
 	
 	@Column(updatable=false) //Este atributo solamente se ingresa una vez, y NUNCA se actualiza
 	@DateTimeFormat(pattern="yyyy-MM-dd")
@@ -77,6 +79,14 @@ public class Pagina {
 
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	
+	public String getTipoPagina() {
+		return tipoPagina;
+	}
+
+	public void setTipoPagina(String tipoPagina) {
+		this.tipoPagina = tipoPagina;
 	}
 
 	public Date getCreatedAt() {
