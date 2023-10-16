@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.codingdojo.sebastian.excepciones.PaginaLimiteExcedidoException;
 import com.codingdojo.sebastian.modelos.Pagina;
 import com.codingdojo.sebastian.modelos.Plantilla;
 import com.codingdojo.sebastian.modelos.Proyecto;
@@ -100,6 +101,11 @@ public class ServicioProyectos {
         Usuario obtenerCreador = ru.findById(idCreador).orElse(null);
         Proyecto proyectoDondeSeCreaLaPagina = rp.findById(idProyecto).orElse(null);
         List<Pagina> paginasDelUsuario = proyectoDondeSeCreaLaPagina.getProyectoPaginas();
+        
+        if(paginasDelUsuario.size() > 5) {
+        	
+        	throw new PaginaLimiteExcedidoException("El proyecto ya tiene el límite máximo de 5 páginas.");
+        }
 
         if (obtenerCreador == null || proyectoDondeSeCreaLaPagina == null) {
             return null;
