@@ -91,18 +91,22 @@
             
             <div class="tabla">
                 <table>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Fecha de Finalizacion</th>
-                        <th>Acciones</th>
-                    </tr>
-                    <tr>
-                        <td>Proyecto 1</td>
-                        <td>Descripción del Proyecto 1</td>
-                        <td>01/10/2023</td>
-                        <td>Detalles</td>
-                    </tr>
+	                <thead>
+	                    <tr>
+	                        <th>Nombre</th>
+	                        <th>Descripción</th>
+	                        <th>Fecha de Finalizacion</th>
+	                        <th>Acciones</th>
+	                    </tr>
+	                </thead>
+		               <c:forEach items="${tareas}" var="tarea">
+	                    <tr>
+	                        <td>Proyecto 1</td>
+	                        <td>Descripción del Proyecto 1</td>
+	                        <td>01/10/2023</td>
+	                        <td>Detalles</td>
+	                    </tr>
+	                   </c:forEach>
                 </table>
             </div>
         </main>

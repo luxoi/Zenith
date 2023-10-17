@@ -92,17 +92,20 @@
         <div class="form">
            <form:form action="/crearProyecto" method="POST" modelAttribute="nuevoProyecto">
            
-            		<div>
-            		
-						<form:label path="plantilla">Plantilla</form:label>
-						<form:select path="plantilla">
-							<form:option value="estudiante">Estudiante</form:option>
-							<form:option value="gimnasio">Gimnasio</form:option>
-							<form:option value="pyme">PYME</form:option>
-							<form:option value="custom">Custom</form:option>
-						</form:select>
-					
+            		<div class="botones">
+					    <label for="estudiante">Estudiante</label>
+					    <input type="radio" id="estudiante" name="plantilla" value="estudiante">
+					    
+					    <label for="gimnasio">Gimnasio</label>
+					    <input type="radio" id="gimnasio" name="plantilla" value="gimnasio">
+					    
+					    <label for="pyme">PYME</label>
+					    <input type="radio" id="pyme" name="plantilla" value="pyme">
+					    
+					    <label for="custom">Personalizado</label>
+					    <input type="radio" id="custom" name="plantilla" value="custom">
 					</div>
+
 		
 		            <div>
 						<form:label path="titulo">Titulo del proyecto</form:label>
