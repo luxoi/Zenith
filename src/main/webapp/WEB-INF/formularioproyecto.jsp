@@ -92,18 +92,30 @@
         <div class="form">
            <form:form action="/crearProyecto" method="POST" modelAttribute="nuevoProyecto">
            
-            		<div class="botones">
-					    <label for="estudiante">Estudiante</label>
-					    <input type="radio" id="estudiante" name="plantilla" value="estudiante">
-					    
-					    <label for="gimnasio">Gimnasio</label>
-					    <input type="radio" id="gimnasio" name="plantilla" value="gimnasio">
-					    
-					    <label for="pyme">PYME</label>
-					    <input type="radio" id="pyme" name="plantilla" value="pyme">
-					    
-					    <label for="custom">Personalizado</label>
-					    <input type="radio" id="custom" name="plantilla" value="custom">
+					  <div class="botones">
+							    <div class="cajitas">
+							        <input type="radio" id="estudiante" name="plantilla" value="estudiante">
+							        <label for="estudiante">Estudiante</label>
+							        <img alt="Libro" src="/images/6475884.png">
+							    </div>
+							
+							    <div class="cajitas">
+							        <input type="radio" id="gimnasio" name="plantilla" value="gimnasio">
+							        <label for="gimnasio">Gimnasio</label>
+							        <img alt="Gimnasio" src="/images/pngtree-gym-dumbbell-vector-icon-png-image_2460436.jpg">
+							    </div>
+							
+							    <div class="cajitas">
+							        <input type="radio" id="pyme" name="plantilla" value="pyme">
+							        <label for="pyme">PYME</label>
+							        <img alt="Pyme" src="/images/6698536.png">
+							    </div>
+							
+							    <div class="cajitas">
+							        <input type="radio" id="custom" name="plantilla" value="custom">
+							        <label for="custom">Personalizado</label>
+							        <img alt="Personalizado" src="/images/487622.png">
+							    </div>
 					</div>
 
 		

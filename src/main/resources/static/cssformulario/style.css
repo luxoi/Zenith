@@ -296,7 +296,7 @@ body.dark .switch::before{
 }
 
 .form {
-    max-width: 400px;
+    max-width: 500px;
     margin: 0 auto;
     background-color: #f8f8f8;
     border-radius: 8px;
@@ -343,4 +343,32 @@ input[type="radio"] {
 }
 .botones{
 	display: flex;
+	justify-content: center;
 }
+.cajitas {
+  
+    margin: 10px;
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.3s;
+}
+
+/* Estilo para el radio button (oculto) */
+.cajitas input[type="radio"] {
+    margin-right: 10px; /* Espacio entre el botón de radio y el texto o imagen */
+}
+
+/* Cambiar el estilo de la caja cuando el radio button está seleccionado */
+.cajitas input[type="radio"]:checked + label {
+    border: 2px solid #007bff;
+}
+
+/* Estilo para el efecto de "hover" */
+.cajitas:hover {
+    transform: scale(1.05); /* Cambia el tamaño al hacer hover */
+}
+
+.cajitas img {
+    max-width: 100%;
+    height: auto;
+}
+
