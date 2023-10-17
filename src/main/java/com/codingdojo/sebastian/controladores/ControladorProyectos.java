@@ -119,7 +119,6 @@ public class ControladorProyectos {
 	        return "redirect:/";  
 	    }
 	    // Verificar que el usuario esté en sesión
-
 	    // Obtener el proyecto con el ID proporcionado
 	    Proyecto proyecto = sp.encontrarProyecto(proyectoId); 
 	    
@@ -128,7 +127,7 @@ public class ControladorProyectos {
 	        // Verificar la plantilla elegida
 	        String tipoPlantilla = proyecto.getPlantilla();
 	        if ("estudiante".equals(tipoPlantilla) || "gimnasio".equals(tipoPlantilla)) {
-	            // Redirigir a la primera página de la plantilla de hábitos
+	            // Redirigir a la primera	 página de la plantilla de hábitos
 	            return "redirect:/proyectos/" + proyectoId + "/" + tipoPlantilla + "/habitos";
 	        }
 	    }
@@ -139,7 +138,6 @@ public class ControladorProyectos {
 
 	@GetMapping("/proyectos/{proyectoId}/estudiante/habitos")
 	public String mostrarPaginaHabitosEstudiante(@PathVariable Long proyectoId, Model model) {
-	  String nombrePagina = "Habitos semana"; 
 	  Proyecto nuevoProyecto = sp.encontrarProyecto(proyectoId);
 	  List<Pagina> listaPaginas = nuevoProyecto.getProyectoPaginas();
 	  for(Pagina pagina:listaPaginas) {
@@ -149,8 +147,6 @@ public class ControladorProyectos {
 	  }
 	    return "habitosestudiante.jsp";
 	}
-
-
 	
 	@GetMapping("/proyectos/{proyectoId}/gimnasio/habitos")
 	public String mostrarPaginaHabitosGimnasio(@PathVariable Long proyectoId, Model model) {

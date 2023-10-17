@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +11,12 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-12 text-center">
-                <h1>${nombrePagina}</h1>
+                <h1>${paginaHabitos.nombre}</h1>
             </div>
         </div>
         <div class="row">
             <div class="col-12 bg-light p-3">
-                <p>${proyecto.descripcion}</p>
+                <p>${paginaHabitos.descripcion}</p>
             </div>
         </div>
         <div class="row mt-3">
@@ -25,7 +27,7 @@
 	<div class="row">
     <div class="col-12">
         <div class="row">
-            <c:forEach items="${tareas}" var="tarea">
+            <c:forEach items="${paginaHabitos.tareasPagina}" var="tarea">
                 <div class="col-12 col-md-6 col-lg-4 mb-3">
                     <div class="card">
                         <div class="card-body">
