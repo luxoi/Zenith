@@ -48,3 +48,10 @@ modeSwitch.addEventListener("click", () => {
 
 // Llama a la función para cargar el estado del modo oscuro al cargar la página
 loadDarkModeState();
+
+
+
+
+
+
+
