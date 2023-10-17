@@ -39,7 +39,7 @@ public class ControladorProyectos {
         }
         //Verificar usuario en sesion//
         
-        List<Proyecto> proyectos = sp.listaProyectos();
+        List<Proyecto> proyectos = sp.listaProyectoPorUsuario(usuarioTemporal);
         model.addAttribute("proyectos", proyectos);
 
         return "dashboard.jsp";
@@ -69,7 +69,7 @@ public class ControladorProyectos {
         }
         if(result.hasErrors()) {
             
-            List<Proyecto> proyectos = sp.listaProyectos();
+            List<Proyecto> proyectos = sp.listaProyectoPorUsuario(usuarioTemporal);
             model.addAttribute("proyectos", proyectos);
 
             return "dashboard.jsp";
@@ -79,7 +79,7 @@ public class ControladorProyectos {
         	sp.crearProyectos(nuevoProyecto);
 
         	// Obtener la lista de proyectos actualizada
-        	List<Proyecto> proyectos = sp.listaProyectos();
+        	List<Proyecto> proyectos = sp.listaProyectoPorUsuario(usuarioTemporal);
 
         	// Agregar la lista actualizada de proyectos al modelo
         	model.addAttribute("proyectos", proyectos);
@@ -89,7 +89,7 @@ public class ControladorProyectos {
 	}
 
 	@GetMapping("/proyectos")
-	public String proyectos(HttpSession session) {
+	public String proyectos(HttpSession session,Model model) {
 		
 		//Verificar usuario en sesion//
         Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
@@ -97,6 +97,9 @@ public class ControladorProyectos {
             return "redirect:/";
         }
 		
+        List<Proyecto> proyectosUsuario = sp.listaProyectoPorUsuario(usuarioTemporal);
+        
+        model.addAttribute("proyecto",proyectosUsuario);
 		return "proyects.jsp";
 	}
 	
