@@ -7,6 +7,7 @@ import java.util.List;
 import com.codingdojo.sebastian.servicios.ServicioProyectos;
 
 public class Plantilla {
+	
     // Plantilla genérica para crear proyectos con tareas predefinidas
     public static Proyecto crearProyectoConPlantilla(Proyecto nuevoProyecto, ServicioProyectos servicio, String nombrePagina, String descripcionPagina, List<String> tareas, String tareasTipo) {
         List<Pagina> listaPagina = new ArrayList<>();
@@ -61,5 +62,6 @@ public class Plantilla {
         List<String> tareas = Arrays.asList("Realizar Estiramientos", "Entrenar hoy", "Dieta de hoy!", "Meditación", "Sueño Reparador");
         return crearProyectoConPlantilla(nuevoProyecto, servicio, nombrePagina, descripcionPagina, tareas, "checkbox");
     }
+    
 }
 
