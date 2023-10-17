@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,18 +92,22 @@
             
             <div class="tabla">
                 <table>
-                    <tr>
-                        <th>Nombre</th>
-                        <th>Descripción</th>
-                        <th>Fecha de Finalizacion</th>
-                        <th>Acciones</th>
-                    </tr>
-                    <tr>
-                        <td>Proyecto 1</td>
-                        <td>Descripción del Proyecto 1</td>
-                        <td>01/10/2023</td>
-                        <td>Detalles</td>
-                    </tr>
+	                <thead>
+	                    <tr>
+	                        <th>Nombre</th>
+	                        <th>Descripción</th>
+	                        <th>Fecha de Finalizacion</th>
+	                        <th>Acciones</th>
+	                    </tr>
+	                </thead>
+		               <c:forEach items="${proyecto}" var="proyectos">
+	                    <tr>
+	                        <td>${proyectos.titulo}</td>
+	                        <td>${proyectos.descripcion}</td>
+	                        <td>${proyectos.fecha}</td>
+	                        <td>Detalles</td>
+	                    </tr>
+	                   </c:forEach>
                 </table>
             </div>
         </main>
