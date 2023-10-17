@@ -1,4 +1,4 @@
-package com.codingdojo.sebastian.controladores;
+	package com.codingdojo.sebastian.controladores;
 
 import java.util.List;
 
@@ -32,15 +32,21 @@ public class ControladorProyectos {
     						 @ModelAttribute("nuevaProyecto") Proyecto NuevoProyecto,
     						 Model model) {
 
-		//Verificar usuario en sesion//
+		//*----Verificar usuario en sesion----*//
         Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
         if(usuarioTemporal == null) {
             return "redirect:/";
         }
-        //Verificar usuario en sesion//
+        //*----Verificar usuario en sesion----*//
         
-        List<Proyecto> proyectos = sp.listaProyectos();
-        model.addAttribute("proyectos", proyectos);
+        //Lista de todos los proyectos
+        List<Proyecto> todosLosProyectos = sp.listaTodosLosProyectos();
+        //Lista de proyectos del usuario
+        List<Proyecto> proyectosDelUsuario = sp.listaProyectoPorUsuario(usuarioTemporal);
+
+        model.addAttribute("todosLosProyectos", todosLosProyectos);
+        model.addAttribute("proyectosDelUsuario", proyectosDelUsuario);
+
 
         return "dashboard.jsp";
     }
@@ -48,11 +54,12 @@ public class ControladorProyectos {
 	@GetMapping("/crear/proyectos")
 	public String crearProyectos(HttpSession session ,@ModelAttribute("nuevoProyecto") Proyecto nuevoProyecto ) {
 		
-		//Verificar usuario en sesion//
+		//*----Verificar usuario en sesion----*//
         Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
         if(usuarioTemporal == null) {
             return "redirect:/";
         }
+        //*----Verificar usuario en sesion----*//
         
         return "formularioproyecto.jsp";
 		
@@ -62,14 +69,15 @@ public class ControladorProyectos {
 	public String crearProyecto(HttpSession session,
 								@Valid @ModelAttribute("nuevoProyecto") Proyecto nuevoProyecto,
 								Model model,BindingResult result) {
-		//Verificar usuario en sesion//
+		//*----Verificar usuario en sesion---*//
         Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
         if(usuarioTemporal == null) {
             return "redirect:/";
         }
+        //*----Verificar usuario en sesion----*//
         if(result.hasErrors()) {
             
-            List<Proyecto> proyectos = sp.listaProyectos();
+            List<Proyecto> proyectos = sp.listaTodosLosProyectos();
             model.addAttribute("proyectos", proyectos);
 
             return "dashboard.jsp";
@@ -79,7 +87,7 @@ public class ControladorProyectos {
         	sp.crearProyectos(nuevoProyecto);
 
         	// Obtener la lista de proyectos actualizada
-        	List<Proyecto> proyectos = sp.listaProyectos();
+        	List<Proyecto> proyectos = sp.listaTodosLosProyectos();
 
         	// Agregar la lista actualizada de proyectos al modelo
         	model.addAttribute("proyectos", proyectos);
@@ -91,12 +99,12 @@ public class ControladorProyectos {
 	@GetMapping("/proyectos")
 	public String proyectos(HttpSession session) {
 		
-		//Verificar usuario en sesion//
+		 //*----Verificar usuario en sesion----*//
         Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
         if(usuarioTemporal == null) {
             return "redirect:/";
         }
-		
+        //*----Verificar usuario en sesion----*//
 		return "proyects.jsp";
 	}
 	

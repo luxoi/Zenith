@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,38 +20,43 @@
                 </span>
 
                 <div class="text header-text">
-                    <span class="name">Ligoleyen</span>
-                    <span class="profession">Luxoi</span>
+                    <span class="name">Zenith</span>
+                    <span class="profession">Bienvenido!</span>
                 </div>
             </div>
             <i class='bx bx-chevron-right toggle'></i>
         </header>
 
         <div class="menu-bar">
-
-
             <div class="menu">
                         <li class="search-box">                  
                                 <i class='bx bx-search-alt-2 icon' ></i>
                                 <input type="search" placeholder="Search">
                         </li>
-
-
                     <ul class="menu-links">
-                        <li class="nav-link">
-                            <a href="/dashboard">
-                                <i class='bx bx-home-alt icon' ></i>
-                                <span class="text nav-text">Dashboard</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <li class="nav-link">
-                        <a href="/proyectos">
-                            <i class='bx bxs-popsicle icon' ></i>
-                            <span class="text nav-text">Proyects</span>
-                        </a>
-                    </li>
-                 
+				    <li class="nav-link">
+				        <a href="/dashboard">
+				            <i class='bx bx-home-alt icon'></i>
+				            <span class="text nav-text">Dashboard</span>
+				        </a>
+				    </li>
+				    <li class="nav-link">
+				        <a href="/proyectos">
+				            <i class='bx bxs-popsicle icon'></i>
+				            <span class="text nav-text">Proyectos</span>
+				        </a>
+				        <ul class="sub-menu">
+				        <!-- Itera a través de todos los proyectos -->
+				            <c:forEach items="${todosLosProyectos}" var="proyecto">
+				                <li class="sub-menu-link">
+				                    <a href="/proyectos/${proyecto.id}">
+				                        <i class='bx bx-task icon'></i>
+				                        <span class="text sub-menu-text">${proyecto.titulo}</span>
+				                    </a>
+				                </li>
+				            </c:forEach>
+				        </ul>
+				    </li>   
                     <li class="nav-link">
                         <a href="#">
                             <i class='bx bx-wallet icon' ></i>
@@ -59,7 +65,6 @@
                     </li>
             
             </div>
-
             <div class="bottom-content">
                 <li class="nav-link">
                     <a href="/logout">

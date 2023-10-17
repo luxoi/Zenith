@@ -33,33 +33,33 @@ public class ServicioProyectos {
     @Autowired
     private RepositorioPaginas rpag;
     
+    //*SERVICIOS PROYECTOS*//
     
-
-    //Proyectos
+    //1.-Guardar Proyecto
     public Proyecto guardarProyecto(Proyecto nuevoProyecto) {
         return rp.save(nuevoProyecto);
     }
-    
+    //2.-Encontrar Proyecto
     public Proyecto encontrarProyecto(Long id) {
         return rp.findById(id).orElse(null);
     }
-
+    //3.-Eliminar Proyecto
     public void eliminarProyecto(Long id) {
     	 rp.deleteById(id);
     }
-
+    //4.-Lista de todos los proyectos.
     public List <Proyecto> listaTodosLosProyectos(){
     	return rp.findAll();
     }
-    
+    //5.-Listar proyectos en base al Usuario.
     public List<Proyecto> listaProyectoPorUsuario(Usuario usuarioEnSesion){
     	
     	Long idUsuario = usuarioEnSesion.getId();
     	
     	return rp.findByCreador_Id(idUsuario);
     }
-    
-    public Proyecto crearProyectos(Proyecto nuevoProyecto) {			//servicio para crear proyectos
+    //6.- Crear proyectos
+    	public Proyecto crearProyectos(Proyecto nuevoProyecto) {			
     	
     	String plantilla = nuevoProyecto.getPlantilla();
     	
@@ -73,22 +73,42 @@ public class ServicioProyectos {
     		return null;
     	}
     }
+
     
+    //*SERVICIOS PAGINAS*//
+    
+    //1.-Guardar Pagina
     public Pagina guardarPagina(Pagina nuevaPagina) {
     	return rpag.save(nuevaPagina);
     }
+    //2.-Encontrar Pagina
+    public Pagina encontrarPagina(Long id) {
+    	return rpag.findById(id).orElse(null);
+    }
+    //3.-Eliminar Pagina
+    public void eliminarPagina(Long id) {
+    	rpag.deleteById(id);
+    }
+    //4.- Listar Paginas
+    public List<Pagina> listaPagina(){
+    	return rpag.findAll();
+    }
     
+    //5.-Relacionar Paginas y Proyectos
     public Pagina guardarPaginaYRelaciones(Usuario usuarioRelacion, Proyecto proyectoRelacion, Pagina nuevaPagina) {
-    	
+    	//relacion entre (proyecto/pagina) & (usuario/pagina)
     	nuevaPagina.setProyectoPagina(proyectoRelacion);
     	nuevaPagina.setUsuarioPagina(usuarioRelacion);
     	
+    	//Obtiene lista de paginas asociadas al proyecto y agrega la pagina al proyecto.
     	List<Pagina> paginaProyecto = proyectoRelacion.getProyectoPaginas();
     	paginaProyecto.add(nuevaPagina);
     	
+    	//Obtiene la lista de paginas asociadas al usuario y agrega la pagina al usuario.
     	List<Pagina> paginaUsuario = usuarioRelacion.getMisPaginas();
     	paginaUsuario.add(nuevaPagina);
     	
+    	//Actualiza la lista de páginas  asociadas con el proyecto y el usuario para reflejar los cambios.
     	proyectoRelacion.setProyectoPaginas(paginaProyecto);
     	usuarioRelacion.setMisPaginas(paginaUsuario);
     	
@@ -97,6 +117,7 @@ public class ServicioProyectos {
     	return guardarPagina(nuevaPagina);
     }
     
+    //6.-Crear Paginas
     public Pagina crearNuevaPagina(String tipoPagina, String nombre, Long idProyecto, Long idCreador) {
         Usuario obtenerCreador = ru.findById(idCreador).orElse(null);
         Proyecto proyectoDondeSeCreaLaPagina = rp.findById(idProyecto).orElse(null);
@@ -149,29 +170,21 @@ public class ServicioProyectos {
     }
 
 
-    public Pagina encontrarPagina(Long id) {
-    	return rpag.findById(id).orElse(null);
-    }
+    //*SERVICIOS TAREAS*//
     
-    public void eliminarPagina(Long id) {
-    	rpag.deleteById(id);
-    }
-    
-    public List<Pagina> listaPagina(){
-    	return rpag.findAll();
-    }
+    //1.-Guardar Tarea
     public Tarea guardarTarea(Tarea nuevaTarea) {
     	return rt.save(nuevaTarea);
     }
-    
+    //2.-Encontrar Tarea por Id
     public Tarea encontrarTarea(Long id) {
     	return rt.findById(id).orElse(null);
     }
-    
+    //3- Eliminar Tarea
     public void eliminarTarea(Long id) {
     	rt.deleteById(id);
     }
-    
+    //4.-Listar Tareas
     public List <Tarea> listaTarea(){
     	return rt.findAll();
     }
