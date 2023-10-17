@@ -47,7 +47,7 @@
 				        </a>
 				        <ul class="sub-menu">
 				        <!-- Itera a través de todos los proyectos -->
-				            <c:forEach items="${todosLosProyectos}" var="proyecto">
+				            <c:forEach items="${proyectos}" var="proyecto">
 				                <li class="sub-menu-link">
 				                    <a href="/proyectos/${proyecto.id}">
 				                        <i class='bx bx-task icon'></i>
@@ -91,19 +91,17 @@
     <section class="home">
         <div class="text">
             <h1></h1>
-       
-
                 <div class="principal">
                     <span><h1>Bienvenido a nuestro gestor de proyectos</h1></span>
                     <p>Aprende a organizarte de manera muy facil y didactica con nosotros, podras hacer seguimiento a tus tareas y diferentes proyectos en equipo</p>
                     <img src="/images/wewewe.png" class="org">
                 </div>
                 <div class="principalderecha">
-                                        <h3>Si es tu primera vez en la pagina, puedes empezar creando un proyecto nuevo!</h3>
-                                        <div class="boton">
-                                       	 <a href="/crear/proyectos" > <span>Click aqui para Empezar</span> </a>
-										</div>
-                </div>
+                	<h3>Si es tu primera vez en la pagina, puedes empezar creando un proyecto nuevo!</h3>
+                 <div class="boton">
+	             	<a href="/crear/proyectos" > <span>Crear proyecto</span> </a>
+				</div>
+                </div>	
         
         </div>
         
