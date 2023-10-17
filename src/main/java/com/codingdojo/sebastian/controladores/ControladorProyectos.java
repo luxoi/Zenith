@@ -37,8 +37,6 @@ public class ControladorProyectos {
         if(usuarioTemporal == null) {
             return "redirect:/";
         }
-        Usuario miUsuario = su.encontrarUsuario(usuarioTemporal.getId());
-        model.addAttribute("usuario", miUsuario);
         //Verificar usuario en sesion//
         
         List<Proyecto> proyectos = sp.listaProyectos();
@@ -70,17 +68,12 @@ public class ControladorProyectos {
             return "redirect:/";
         }
         if(result.hasErrors()) {
-        	Usuario miUsuario = su.encontrarUsuario(usuarioTemporal.getId());
-            model.addAttribute("usuario", miUsuario);
             
             List<Proyecto> proyectos = sp.listaProyectos();
             model.addAttribute("proyectos", proyectos);
 
             return "dashboard.jsp";
         } else {
-        	Usuario miUsuario = su.encontrarUsuario(usuarioTemporal.getId());
-        	model.addAttribute("usuario", miUsuario);
-        	//Verificar usuario en sesion//
         
         	// guardar proyecto nuevo
         	sp.crearProyectos(nuevoProyecto);
