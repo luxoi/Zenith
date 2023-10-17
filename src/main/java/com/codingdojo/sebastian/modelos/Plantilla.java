@@ -9,12 +9,13 @@ import com.codingdojo.sebastian.servicios.ServicioProyectos;
 public class Plantilla {
 	
     // Plantilla genérica para crear proyectos con tareas predefinidas
-    public static Proyecto crearProyectoConPlantilla(Proyecto nuevoProyecto, ServicioProyectos servicio, String nombrePagina, String descripcionPagina, List<String> tareas, String tareasTipo) {
+    public static Proyecto crearProyectoConPlantilla(Proyecto nuevoProyecto, ServicioProyectos servicio, String nombrePagina, String descripcionPagina,String tipoPagina, List<String> tareas, String tareasTipo) {
         List<Pagina> listaPagina = new ArrayList<>();
         List<Tarea> tareasParaProyecto = new ArrayList<>();
         Pagina pagina = new Pagina();
         pagina.setNombre(nombrePagina);
         pagina.setDescripcion(descripcionPagina);
+        pagina.setTipoPagina(tipoPagina);
 
         for (String dia : Arrays.asList("Lunes", "Martes", "Miércoles", "Jueves", "Viernes")) {
             for (String tareaContenido : tareas) {
@@ -52,7 +53,7 @@ public class Plantilla {
         String nombrePagina = "Habitos semana";
         String descripcionPagina = "En este apartado podrás crear los hábitos para la semana, podrás cambiarlos y actualizarlos a tu gusto. ¡Mucha suerte!";
         List<String> tareas = Arrays.asList("Asistir a clases", "Estudiar", "Hacer tareas", "Prepararse para el examen", "Tomarse un descanso");
-        return crearProyectoConPlantilla(nuevoProyecto, servicio, nombrePagina, descripcionPagina, tareas, "checkbox" );
+        return crearProyectoConPlantilla(nuevoProyecto, servicio, nombrePagina, descripcionPagina,"habitos", tareas, "checkbox" );
     }
 
     // Plantilla específica para gimnasio
@@ -60,7 +61,7 @@ public class Plantilla {
         String nombrePagina = "Habitos semana";
         String descripcionPagina = "En este apartado podrás crear los hábitos para la semana, podrás cambiarlos y actualizarlos a tu gusto. ¡Mucha suerte!";
         List<String> tareas = Arrays.asList("Realizar Estiramientos", "Entrenar hoy", "Dieta de hoy!", "Meditación", "Sueño Reparador");
-        return crearProyectoConPlantilla(nuevoProyecto, servicio, nombrePagina, descripcionPagina, tareas, "checkbox");
+        return crearProyectoConPlantilla(nuevoProyecto, servicio, nombrePagina, descripcionPagina,"habitos", tareas, "checkbox");
     }
     
 }

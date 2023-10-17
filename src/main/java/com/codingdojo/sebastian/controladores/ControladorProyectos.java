@@ -143,7 +143,9 @@ public class ControladorProyectos {
 	  Proyecto nuevoProyecto = sp.encontrarProyecto(proyectoId);
 	  List<Pagina> listaPaginas = nuevoProyecto.getProyectoPaginas();
 	  for(Pagina pagina:listaPaginas) {
-		  
+		  if(pagina.getTipoPagina().equals("habitos")) {
+			  model.addAttribute("paginaHabitos",pagina);
+		  }
 	  }
 	    return "habitosestudiante.jsp";
 	}
