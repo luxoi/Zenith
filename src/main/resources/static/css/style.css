@@ -352,7 +352,6 @@ a span{
 
 .sidebar .sub-menu {
     margin-top: 10px; /* Espacio entre "Proyectos" y la lista de proyectos */
-    display: none; /* Oculta inicialmente la lista de proyectos */
 }
 
 .sidebar li:hover .sub-menu {
