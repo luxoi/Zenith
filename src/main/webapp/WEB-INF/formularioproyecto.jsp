@@ -48,12 +48,27 @@
                             </a>
                         </li>
                     </ul>
-                    <li class="nav-link">
-                        <a href="/proyectos">
-                            <i class='bx bxs-popsicle icon' ></i>
-                            <span class="text nav-text">Proyects</span>
-                        </a>
-                    </li>
+                    
+                    
+                    
+                   
+						    <li class="nav-link">
+							    <a href="/proyectos">
+							        <i class='bx bxs-popsicle icon'></i>
+							        <span class="text nav-text">Proyectos</span>
+							    </a>
+							</li>
+							<ul class="sub-menu">
+							    <c:forEach items="${proyectos}" var="proyecto">
+							        <li class="sub-menu-link">
+							            <a href="/proyectos/${proyecto.id}">
+							                <i class='bx bx-task icon'></i>
+							                <span class="text sub-menu-text">${proyecto.titulo}</span>
+							            </a>
+							        </li>
+							    </c:forEach>
+							</ul>
+					
                   
                     <li class="nav-link">
                         <a href="#">
