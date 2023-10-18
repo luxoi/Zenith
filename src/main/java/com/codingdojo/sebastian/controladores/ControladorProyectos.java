@@ -150,11 +150,13 @@ public class ControladorProyectos {
 	
 	@GetMapping("/proyectos/{proyectoId}/gimnasio/habitos")
 	public String mostrarPaginaHabitosGimnasio(@PathVariable Long proyectoId, Model model) {
-	    return "habitosgimnasio.jsp";  
+		  Proyecto nuevoProyecto = sp.encontrarProyecto(proyectoId);
+		  List<Pagina> listaPaginas = nuevoProyecto.getProyectoPaginas();
+		  for(Pagina pagina:listaPaginas) {
+			  if(pagina.getTipoPagina().equals("habitos")) {
+				  model.addAttribute("paginaHabitos",pagina);
+			  }
+		  }
+		    return "habitosgimnasio	.jsp";
 	}
-	
-
-
-	
-	
 }
