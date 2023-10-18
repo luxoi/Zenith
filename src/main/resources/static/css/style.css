@@ -348,3 +348,17 @@ a span{
 .boton{
     margin-top: 200px;
 }
+
+
+.sidebar .sub-menu {
+    margin-top: 10px; /* Espacio entre "Proyectos" y la lista de proyectos */
+    display: none; /* Oculta inicialmente la lista de proyectos */
+}
+
+.sidebar li:hover .sub-menu {
+    display: block; /* Muestra la lista de proyectos al pasar el mouse sobre "Proyectos" */
+}
+
+.sub-menu-link{
+	font-size: 5px;
+}
