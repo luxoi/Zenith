@@ -46,8 +46,17 @@ modeSwitch.addEventListener("click", () => {
     }
 });
 
+document.addEventListener("click", function (event) {
+    if (event.target.classList.contains("custom-checkbox")) {
+        event.target.classList.toggle("checked");
+    } else if (event.target.classList.contains("custom-list")) {
+        event.target.classList.toggle("checked");
+    }
+});
+
 // Llama a la función para cargar el estado del modo oscuro al cargar la página
 loadDarkModeState();
+
 
 
 

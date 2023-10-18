@@ -2,6 +2,7 @@ package com.codingdojo.sebastian.servicios;
 
 
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -189,5 +190,47 @@ public class ServicioProyectos {
     public List <Tarea> listaTarea(){
     	return rt.findAll();
     }
+    //5.-Crear Tareas
+    public Tarea crearTarea(Long idPagina , String Contenido , String Dia ,String Tipo, LocalDate fechaLimite) {
+    	
+    	Pagina paginaTarea = rpag.findById(idPagina).orElse(null);
+    	if(paginaTarea == null) {
+    		
+    		return null;
+    		
+    	} else {
+    		
+    		List<Tarea> tareasPagina = paginaTarea.getTareasPagina();
+    		
+    		List<Tarea> tareaProyecto = paginaTarea.getProyectoPagina().getProyectoTareas();
+    		
+    		List<Tarea> tareaUsuario = paginaTarea.getUsuarioPagina().getMisTareas();
+    		
+    		Tarea tareaAgregar = new Tarea();
+    		tareaAgregar.setContenido(Contenido);
+    		tareaAgregar.setDia(Dia);
+    		tareaAgregar.setTipo(Tipo);
+    		tareaAgregar.setFechaLimite(fechaLimite);
+    		tareaAgregar.setPaginaDeTarea(paginaTarea);
+    		tareaAgregar.setTareasProyecto(paginaTarea.getProyectoPagina());
+    		tareaAgregar.setUsuarioAsignado(paginaTarea.getUsuarioPagina());
+    		
+    		tareasPagina.add(tareaAgregar);
+    		
+    		tareaProyecto.add(tareaAgregar);
+    		
+    		tareaUsuario.add(tareaAgregar);
+    		
+    		ru.save(paginaTarea.getUsuarioPagina());
+    		
+    		rp.save(paginaTarea.getProyectoPagina());
+    		
+    		rpag.save(paginaTarea);
+    		
+    		return rt.save(tareaAgregar);
+    	}
+    	
+    }
+
     
 }

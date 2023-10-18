@@ -1,15 +1,22 @@
 package com.codingdojo.sebastian.controladores;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.codingdojo.sebastian.modelos.Pagina;
 import com.codingdojo.sebastian.modelos.Proyecto;
+import com.codingdojo.sebastian.modelos.Usuario;
 import com.codingdojo.sebastian.servicios.ServicioProyectos;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 
 @Controller
@@ -34,6 +41,28 @@ public class ControladorPrueba {
 			servicio.guardarProyecto(proyectoPlantilla);
 			return "redirect:/";
 		}
+	}
+	
+	@GetMapping("/pruebaDoc")
+	public String pruebaDoc(Model model,HttpSession session) {
+		
+		Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
+        if(usuarioTemporal == null) {
+            return "redirect:/";
+        }
+		
+        Pagina paginaprimera = servicio.encontrarPagina(7L);
+        model.addAttribute("pagina",paginaprimera);
+        
+		return "pruebaDoc.jsp";
+	}
+	
+	@PostMapping("/bloc")
+	public String crearDoc(@RequestParam("tipoTexto")String TipoTexto,@RequestParam("contenido")String contenido,@RequestParam("pagina")Long pagina) {
+		
+		servicio.crearTarea(pagina, contenido, null, TipoTexto, null);
+		
+		return "redirect:/pruebaDoc";
 	}
 	
 	//prueba a crear documento 
