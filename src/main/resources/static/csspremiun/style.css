@@ -278,8 +278,6 @@ body.dark .switch::before{
     background: var(--body-color);
     transition: var(--tran-05);
     border: 1px solid gray;
-    
-   
 }
 
 .home .text{
@@ -287,61 +285,118 @@ body.dark .switch::before{
     font-weight: 500;
     color: var(--text-color);
     padding: 8px 40px;
+    display: flex;
+    height: 100%;
 }
+
 
 .sidebar.close ~ .home{
     left: 88px;
     height: 100vh;
 }
-/*================================================================/**/
-main{
+
+
+.pricing-table{
+    background-color: var(--body-color);
+    padding: 40px 0px;
+}
+.pricing-table .details{
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+.pricing-table .details h2{
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.pricing-table .details p{
+    font-size: 15px;
+    color: var(--text-color);
+}
+
+.pricing-table .grid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px 0px;
+    padding: 20px;
+}
+
+.pricing-table .grid .box{
+    width: 250px;
+    border: 1px solid #eee;
+    text-align: center;
+    padding: 20px;
+    background:#fff;
+    border-radius: 10px;
+    box-shadow: 0px 2px 10px 5px rgba(0,0,0,0.05);
+}
+
+.pricing-table .grid .box.title{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.pricing-table .grid .box .price{
+    margin-bottom: 20px;
+}
+
+.pricing-table .grid .box .price b{
+    display: block;
+    font-size: 40px;
+    margin-bottom: -5px
+}
+.pricing-table .grid .box .features > *{
+    color: #555;
+    padding: 8px 0px;
+    border-bottom: 1px solid rgba(0,0,0,0.02);
+}
+.pricing-table .grid .box .button button{
     width: 100%;
-    height: 100%;
-   display: flex;
-   justify-content: center;
-}
-
-
- .table-container {
-    width: 80%;
-    margin: 20px auto;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-table th, table td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #e1e1e1;
-}
-
-table th {
-    background: var(--primary-color);
+    margin: 25px 0px 0px;
+    padding: 10px;
+    background: linear-gradient(to bottom, #3a7bd5, #3a6073);
     color: #fff;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+.pricing-table .grid .box.professional {
+    transform: scale(1.1);
+    background: linear-gradient(to bottom, #3a7bd5, #3a6073);;
 }
 
+.pricing-table .grid .box.professional .title{
+    color:#eee;
+     
+}
+.pricing-table .grid .box.professional .price{
+    color: #fff;
 
-table th:nth-child(1) {
-    width: 20%;
+}
+.pricing-table .grid .box.professional .features > *{
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
-table th:nth-child(2) {
-    width: 40%;
+.pricing-table .grid .box.professional .button button{
+    background: #fff;
+    color: #3a6073;
 }
 
-table th:nth-child(3) {
-    width: 40%;
-} 
-
-table th, table td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #000000; /* Borde inferior en las celdas */
-    border-right: 1px solid #060101; /* Borde derecho en las celdas */
+@media (max-width: 804px){
+    .pricing-table .grid{
+        gap:20px;
+    }
+    .pricing-table .grid .box.professional{
+        transform: scale(1);
+    }
 }
-

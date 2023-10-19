@@ -71,7 +71,7 @@
 					
                   
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="/premiun">
                             <i class='bx bx-wallet icon' ></i>
                             <span class="text nav-text">Premiun</span>
                         </a>

@@ -68,7 +68,7 @@
                 
                  
                 <li class="nav-link">
-                	<a href="#">
+                	<a href="/premiun">
                     	<i class='bx bx-wallet icon' ></i>
                         <span class="text nav-text">Premiun</span>
                     </a>
@@ -103,7 +103,7 @@
         <div class="text">Tus Proyectos</div>
         <main>
             
-            <div class="tabla">
+            <div class="table-container">
                 <table>
 	                <thead>
 	                    <tr>

@@ -155,4 +155,16 @@ public class ControladorProyectos {
 		
 		return "redirect:/paginas/"+pagina;
 	}
+	@GetMapping("/premiun")
+	public String premiun(HttpSession session) {
+		// Verificar que el usuario esté en sesión
+	    Usuario usuarioTemporal = (Usuario) session.getAttribute("usuarioEnSesion");
+	    if (usuarioTemporal == null) {
+	        return "redirect:/";  
+	    }
+	    // Verificar que el usuario esté en sesión
+		
+		return "premiun.jsp";
+	}
+	
 }
