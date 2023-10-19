@@ -155,29 +155,4 @@ public class ControladorProyectos {
 		
 		return "redirect:/paginas/"+pagina;
 	}
-
-
-	@GetMapping("/proyectos/{proyectoId}/estudiante/habitos")
-	public String mostrarPaginaHabitosEstudiante(@PathVariable Long proyectoId, Model model) {
-	  Proyecto nuevoProyecto = sp.encontrarProyecto(proyectoId);
-	  List<Pagina> listaPaginas = nuevoProyecto.getProyectoPaginas();
-	  for(Pagina pagina:listaPaginas) {
-		  if(pagina.getTipoPagina().equals("habitos")) {
-			  model.addAttribute("paginaHabitos",pagina);
-		  }
-	  }
-	    return "habitosestudiante.jsp";
-	}
-	
-	@GetMapping("/proyectos/{proyectoId}/gimnasio/habitos")
-	public String mostrarPaginaHabitosGimnasio(@PathVariable Long proyectoId, Model model) {
-		  Proyecto nuevoProyecto = sp.encontrarProyecto(proyectoId);
-		  List<Pagina> listaPaginas = nuevoProyecto.getProyectoPaginas();
-		  for(Pagina pagina:listaPaginas) {
-			  if(pagina.getTipoPagina().equals("habitos")) {
-				  model.addAttribute("paginaHabitos",pagina);
-			  }
-		  }
-		    return "habitosgimnasio	.jsp";
-	}
 }
