@@ -97,7 +97,7 @@
     <section class="home">
         <div class="bloc">
 			<div class="blocEscritura">
-				<c:forEach items="${pagina.tareasPagina}" var="tareas">
+				<c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
 					<c:if test="${tareas.tipo == 'titulo'}">
 						<h1 class="blocTitulo">${tareas.contenido}</h1>
 					</c:if>
@@ -126,7 +126,7 @@
 						<textarea class="textoB" name="contenido" placeholder="Escribe aqui"></textarea>
 					</div>
 					<div class="botonBloc">
-						<input type="hidden" name="pagina" value="7">
+						<input type="hidden" name="pagina" value="${paginaMostrar.id}">
 						<input type="submit" value="Guardar">
 					</div>
 				</form>

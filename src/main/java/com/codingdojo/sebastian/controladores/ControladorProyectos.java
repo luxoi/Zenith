@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.sebastian.modelos.Pagina;
 import com.codingdojo.sebastian.modelos.Proyecto;
@@ -62,7 +63,7 @@ public class ControladorProyectos {
 	
 	@PostMapping("/crearProyecto")
 	public String crearProyecto(HttpSession session,
-								@Valid @ModelAttribute("nuevoProyec	to") Proyecto nuevoProyecto,
+								@Valid @ModelAttribute("nuevoProyecto") Proyecto nuevoProyecto,
 								Model model,BindingResult result) {
 		//Verificar usuario en sesion//
         Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
@@ -75,7 +76,7 @@ public class ControladorProyectos {
             model.addAttribute("proyectos", proyectos);
 
             return "dashboard.jsp";
-        } else {
+        }
         
         	// guardar proyecto nuevo
         	sp.crearProyectos(nuevoProyecto);
@@ -84,15 +85,14 @@ public class ControladorProyectos {
         	// Agregar la lista actualizada de proyectos al modelo
         	model.addAttribute("proyectos", proyectos);
 	       
-        	String tipoPlantilla = nuevoProyecto.getPlantilla();
-
-        	if ("estudiante".equals(tipoPlantilla)) {
-        	    return "redirect:/proyectos/" + nuevoProyecto.getId() + "/estudiante/habitos";
-        	} else if ("gimnasio".equals(tipoPlantilla)) {
-        	    return "redirect:/proyectos/" + nuevoProyecto.getId() + "/gimnasio/habitos";
+        	// Redireccion a habitos por primera vez
+        	List<Pagina> listaPaginasUsuario = nuevoProyecto.getProyectoPaginas();
+        	for(Pagina pagina:listaPaginasUsuario) {
+        		if(pagina.getTipoPagina().equals("habitos")) {
+        			return "redirect:/paginas/"+pagina.getId();
+        		}
         	}
-            return "redirect:/dashboard";  // Por ejemplo, redirigir de nuevo al dashboard.
-        }
+        	return "redirect:/dashboard";
 	}
 
 	@GetMapping("/proyectos")
@@ -111,8 +111,23 @@ public class ControladorProyectos {
 		return "proyects.jsp";
 	}
 	
-	@GetMapping("/proyectos/{proyectoId}/habitos")
-	public String irAPrimeraPagina(@PathVariable Long proyectoId, HttpSession session) {
+	@GetMapping("/proyectos/{proyectoId}")
+	public String paginaProyectos(HttpSession session,Model model,@PathVariable("proyectoId") Long proyectoId) {
+		// Verificar que el usuario esté en sesión
+		Usuario usuarioTemporal = (Usuario) session.getAttribute("usuarioEnSesion");
+		   if (usuarioTemporal == null) {
+		       return "redirect:/";  
+		   }
+		   
+		Proyecto proyectoQueMostrar = sp.encontrarProyecto(proyectoId);
+		model.addAttribute("proyectoMostrar",proyectoQueMostrar);
+		
+		return "paginas.jsp";
+		
+	}
+	
+	@GetMapping("/paginas/{paginaId}")
+	public String irAPrimeraPagina(@PathVariable("paginaId") Long paginaId, HttpSession session, Model model) {
 	    // Verificar que el usuario esté en sesión
 	    Usuario usuarioTemporal = (Usuario) session.getAttribute("usuarioEnSesion");
 	    if (usuarioTemporal == null) {
@@ -120,19 +135,25 @@ public class ControladorProyectos {
 	    }
 	    // Verificar que el usuario esté en sesión
 	    // Obtener el proyecto con el ID proporcionado
-	    Proyecto proyecto = sp.encontrarProyecto(proyectoId); 
+	    Pagina paginaAEntrar = sp.encontrarPagina(paginaId);
+	    model.addAttribute("paginaMostrar",paginaAEntrar);
 	    
 	    // Verificar si el proyecto pertenece al usuario en sesión
-	    if (proyecto != null && proyecto.getCreador().equals(usuarioTemporal)) {
-	        // Verificar la plantilla elegida
-	        String tipoPlantilla = proyecto.getPlantilla();
-	        if ("estudiante".equals(tipoPlantilla) || "gimnasio".equals(tipoPlantilla)) {
-	            // Redirigir a la primera	 página de la plantilla de hábitos
-	            return "redirect:/proyectos/" + proyectoId + "/" + tipoPlantilla + "/habitos";
-	        }
+	    if(paginaAEntrar.getTipoPagina().equals("habitos")) {
+	    	return "paginaHabitos.jsp";
+	    } else if(paginaAEntrar.getTipoPagina().equals("bloc")) {
+	    	return "paginaBloc.jsp";
+	    } else {
+	    	return "redirect:/dashboard"; 
 	    }
-	    
-	    return "redirect:/dashboard"; 
+	}
+	
+	@PostMapping("/bloc")
+	public String crearDoc(@RequestParam("tipoTexto")String tipoTexto, @RequestParam("contenido")String contenido,@RequestParam("pagina")Long pagina) {
+		
+		sp.crearTarea(pagina, contenido, null, tipoTexto, null);
+		
+		return "redirect:/paginas/"+pagina;
 	}
 
 

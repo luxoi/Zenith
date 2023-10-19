@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Tus Proyectos</title>
+<title>Tus Paginas</title>
 <link rel="stylesheet" type="text/css" href="/cssproyecto/style.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -55,11 +55,11 @@
 					</a>
 				</li>
 				<ul class="sub-menu">
-					<c:forEach items="${proyectos}" var="proyecto">
+					<c:forEach items="${proyectoMostrar.proyectoPaginas}" var="paginas">
 						<li class="sub-menu-link">
-							<a href="/proyectos/${proyecto.id}">
+							<a href="/paginas/${paginas.id}">
 								<i class='bx bx-task icon'></i>
-								<span class="text sub-menu-text">${proyecto.titulo}</span>
+								<span class="text sub-menu-text">${paginas.nombre}</span>
 							</a>
 						</li>
 					</c:forEach>
@@ -100,7 +100,7 @@
     </nav>
 
     <section class="home">
-        <div class="text">Tus Proyectos</div>
+        <div class="text">Tus Paginas</div>
         <main>
             
             <div class="tabla">
@@ -109,16 +109,22 @@
 	                    <tr>
 	                        <th>Nombre</th>
 	                        <th>Descripción</th>
-	                        <th>Fecha de Finalizacion</th>
+	                        <th>Cantidad de tareas</th>
 	                        <th>Acciones</th>
 	                    </tr>
 	                </thead>
 	                <tbody>
-		               <c:forEach items="${proyecto}" var="proyectos">
+		               <c:forEach items="${proyectoMostrar.proyectoPaginas}" var="paginas">
 	                    <tr>
-	                        <td><a href="/proyectos/${proyectos.id}">${proyectos.titulo}</a></td>
-	                        <td>${proyectos.descripcion}</td>
-	                        <td>${proyectos.fecha}</td>
+	                        <td><a href="/paginas/${paginas.id}">${paginas.nombre}</a></td>
+	                        <td>${paginas.descripcion}</td>
+	                        <td>
+            					<c:set var="count" value="0" />
+            					<c:forEach items="${paginas.tareasPagina}" var="tarea">
+                					<c:set var="count" value="${count + 1}" />
+            					</c:forEach>
+            					${count}
+        					</td>
 	                        <td>Detalles</td>
 	                    </tr>
 	                   </c:forEach>

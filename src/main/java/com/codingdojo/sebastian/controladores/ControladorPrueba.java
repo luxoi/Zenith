@@ -57,14 +57,14 @@ public class ControladorPrueba {
 		return "pruebaDoc.jsp";
 	}
 	
-	@PostMapping("/bloc")
+	/*@PostMapping("/bloc")
 	public String crearDoc(@RequestParam("tipoTexto")String TipoTexto,@RequestParam("contenido")String contenido,@RequestParam("pagina")Long pagina) {
 		
 		servicio.crearTarea(pagina, contenido, null, TipoTexto, null);
 		
 		return "redirect:/pruebaDoc";
 	}
-	
+	*/
 	//prueba a crear documento 
 	
 	@GetMapping("/documento")
