@@ -1,45 +1,163 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title><!--Css-->
+<link rel="stylesheet" type="text/css" href="/cssregistro/style.css">
+<!--boxicons-->
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
 </head>
 <body>
-    <div class="container mt-5">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h1>${paginaMostrar.nombre}</h1>
+    <nav class="sidebar close">
+         <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="/imagesproyecto/LOL_Logo.webp" alt="logo">
+                </span>
+
+                <div class="text header-text">
+                    <span class="name">Ligoleyen</span>
+                    <span class="profession">Luxoi</span>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+
+        <div class="menu-bar">
+
+
+            <div class="menu">
+                        <li class="search-box">                  
+                                <i class='bx bx-search-alt-2 icon' ></i>
+                                <input type="search" placeholder="Search">
+                        </li>
+
+
+                    <ul class="menu-links">
+                        <li class="nav-link">
+                            <a href="/dashboard">
+                                <i class='bx bx-home-alt icon' ></i>
+                                <span class="text nav-text">Dashboard</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <li class="nav-link">
+                        <a href="/proyectos">
+                            <i class='bx bxs-popsicle icon' ></i>
+                            <span class="text nav-text">Proyects</span>
+                        </a>
+                    </li>
+                  
+                    
+                 
+                    <li class="nav-link">
+                        <a href="#">
+                            <i class='bx bx-wallet icon' ></i>
+                            <span class="text nav-text">Premiun</span>
+                        </a>
+                    </li>
+            
+            </div>
+
+            <div class="bottom-content">
+                <li class="nav-link">
+                    <a href="/logout">
+                        <i class='bx bx-log-out icon' ></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+
+                <li class="mode">
+                <div class="moon-sun">
+                    <i class='bx bx-moon icon moon' ></i>
+                    <i class='bx bx-sun icon sun' ></i>
+                </div>
+                <span class="mode-text text">Dark mode</span>
+
+                <div class="toggle-switch">
+                    <span class="switch"></span>
+                </div>
+                </li>
             </div>
         </div>
-        <div class="row">
-            <div class="col-12 bg-light p-3">
-                <p>${paginaMostrar.descripcion}</p>
+    </nav>
+
+    <section class="home">
+     
+        <main>
+            <div class="titulo">
+                <h1 class="text">${paginaMostrar.nombre}</h1>
+                <p></p>
             </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-12 text-center">
-                <h2>Semana - Hábitos</h2>
-            </div>
-        </div>      
-	<div class="row">
-    <div class="col-12">
-        <div class="row">
-            <c:forEach items="${paginaMostrar.tareasPagina}" var="tarea">
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">${tarea.contenido}</h5> <!-- Muestra el contenido de la tarea -->
-                            <!-- Agrega un emoji aquí -->
-                            <input type="checkbox" id="${tarea.id}" name="tareas" value="${tarea.contenido}">
-                        </div>
+                <div class="descripcion">
+					<p>${paginaMostrar.descripcion}</p>
+                </div>
+                <div class="container">
+                    
+                    <div class="dias text">
+                        <h3>Lunes</h3>
+                        <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
+                        	<c:if test="${tareas.dia =='Lunes'}">
+                        		<h6>${tareas.contenido}</h6>
+                        	</c:if>
+                        </c:forEach>
+                    </div>
+                    <div class="dias text">
+                        <h3>Martes</h3>
+                        <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
+                        	<c:if test="${tareas.dia =='Martes'}">
+                        		<h6>${tareas.contenido}</h6>
+                        	</c:if>
+                        </c:forEach>
+                    </div>
+                    <div class="dias text">
+                        <h3>Miercoles</h3>
+                        <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
+                        	<c:if test="${tareas.dia =='Miercoles'}">
+                        		<h6>${tareas.contenido}</h6>
+                        	</c:if>
+                        </c:forEach>
+                    </div>
+                    <div class="dias text">
+                        <h3>Jueves</h3>
+                        <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
+                        	<c:if test="${tareas.dia =='Jueves'}">
+                        		<h6>${tareas.contenido}</h6>
+                        	</c:if>
+                        </c:forEach>
+                    </div>
+                    <div class="dias text">
+                        <h3>Viernes</h3>
+                        <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
+                        	<c:if test="${tareas.dia =='Viernes'}">
+                        		<h6>${tareas.contenido}</h6>
+                        	</c:if>
+                        </c:forEach>
+                    </div>
+                    <div class="dias text">
+                        <h3>Sabado</h3>
+                        <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
+                        	<c:if test="${tareas.dia =='Sabado'}">
+                        		<h6>${tareas.contenido}</h6>
+                        	</c:if>
+                        </c:forEach>
+                    </div>
+                    <div class="dias text">
+                        <h3>Domingo</h3>
+                        <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
+                        	<c:if test="${tareas.dia =='Domingo'}">
+                        		<h6>${tareas.contenido}</h6>
+                        	</c:if>
+                        </c:forEach>
                     </div>
                 </div>
-            </c:forEach>
-        </div>
-    </div>
-</div>
-</div>
+        </main>
+    </section>
+
+    <script type="text/javascript" src="/jsproyecto/script.js"></script>
 </body>
 </html>
