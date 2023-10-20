@@ -111,23 +111,21 @@ public class Servicio {
 			List<Tarea> tareasEliminar = usuarioEliminar.getMisTareas();
 			List<Pagina> paginasEliminar = usuarioEliminar.getMisPaginas();
 			
-			proyectosEliminar.clear();
-			tareasEliminar.clear();
-			paginasEliminar.clear();
-			
+			for(Proyecto proyecto:proyectosEliminar) {
+				rp.delete(proyecto);
+			}
+			for(Pagina pagina:paginasEliminar) {
+				rpag.delete(pagina);
+			}
 			for(Tarea tarea:tareasEliminar) {
 				rt.delete(tarea);
 			}
 			
-			for(Pagina pagina:paginasEliminar) {
-				rpag.delete(pagina);
-			}
-			
-			for(Proyecto proyecto:proyectosEliminar) {
-				rp.delete(proyecto);
-			}
 			
 			repoUsuario.delete(usuarioEliminar);
+			
+		} else {
+			System.out.println("El usuario a eliminar no existe");
 		}
 	}
 	

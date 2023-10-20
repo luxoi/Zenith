@@ -28,6 +28,7 @@ public class Plantilla {
         pagina.setNombre(nombrePagina);
         pagina.setDescripcion(descripcionPagina);
         pagina.setTipoPagina(tipoPagina);
+        
 
         // Seteo de parámetros para tareas
         for (String dia : Arrays.asList("Lunes", "Martes", "Miércoles", "Jueves", "Vie	rnes")) {

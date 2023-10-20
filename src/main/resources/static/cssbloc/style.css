@@ -112,3 +112,7 @@
     width: 1em;
     margin-right: 5px;
 }
+
+.checked.custom-checkbox::before {
+	background-color: black;
+}
