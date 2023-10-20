@@ -15,12 +15,13 @@
          
             <div class="image-text">
                 <span class="image">
-                    <img src="/imagesproyecto/LOL_Logo.webp" alt="logo">
+                   <a href="/dashboard"><img src="/imagesproyecto/logo.png" alt="logo"></a> 
                 </span>
 
+
                 <div class="text header-text">
-                    <span class="name">Ligoleyen</span>
-                    <span class="profession">Luxoi</span>
+                    <span class="name">Zenith</span>
+                    <span class="profession"></span>
                 </div>
             </div>
             
@@ -50,7 +51,7 @@
                     
 				<li class="nav-link">
 					<a href="/proyectos">
-						<i class='bx bxs-popsicle icon'></i>
+						<i class='bx bxs-folder icon'></i>
 						<span class="text nav-text">Proyectos</span>
 					</a>
 				</li>
@@ -58,7 +59,7 @@
 					<c:forEach items="${proyectoMostrar.proyectoPaginas}" var="paginas">
 						<li class="sub-menu-link">
 							<a href="/paginas/${paginas.id}">
-								<i class='bx bx-task icon'></i>
+								<i class='bx bxs-memory-card icon'></i>
 								<span class="text sub-menu-text">${paginas.nombre}</span>
 							</a>
 						</li>

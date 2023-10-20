@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-
 import org.springframework.format.annotation.DateTimeFormat;
 
 import jakarta.persistence.Column;
@@ -35,8 +34,15 @@ public class Tarea {
 	
 	private String tipo;
 	
+	private String estado;
+	
+	private String tag;
+	
+	@DateTimeFormat(pattern="dd-MM-yyyy")
+	private LocalDate fechaCreacion;
+	
 	@Future
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@DateTimeFormat(pattern="dd-MM-yyyy")
 	private LocalDate fechaLimite;
 	
 	@Column(updatable=false)
@@ -133,11 +139,6 @@ public class Tarea {
 		this.updatedAt = updatedAt;
 	}
 
-	@PrePersist
-	protected void onCreated() {
-		this.createdAt = new Date();
-	}
-	
 	public Pagina getPaginaDeTarea() {
 		return paginaDeTarea;
 	}
@@ -146,11 +147,39 @@ public class Tarea {
 		this.paginaDeTarea = paginaDeTarea;
 	}
 
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
+
+	public String getTag() {
+		return tag;
+	}
+
+	public void setTag(String tag) {
+		this.tag = tag;
+	}
+
+	public LocalDate getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(LocalDate fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
+
 	@PreUpdate
 	protected void onUpdate() {
 		this.updatedAt = new Date();
 	}
 	
+	@PrePersist
+	protected void onCreated() {
+		this.createdAt = new Date();
+	}
 
 	public String getFechaLimiteFormatted() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");

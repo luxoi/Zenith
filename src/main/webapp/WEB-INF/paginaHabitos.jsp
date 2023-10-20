@@ -16,12 +16,12 @@
          <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="/imagesproyecto/LOL_Logo.webp" alt="logo">
+                   <a href="/dashboard"><img src="/imagesproyecto/logo.png" alt="logo"></a> 
                 </span>
 
                 <div class="text header-text">
-                    <span class="name">Ligoleyen</span>
-                    <span class="profession">Luxoi</span>
+                    <span class="name">Zenith</span>
+                    <span class="profession"></span>
                 </div>
             </div>
             <i class='bx bx-chevron-right toggle'></i>

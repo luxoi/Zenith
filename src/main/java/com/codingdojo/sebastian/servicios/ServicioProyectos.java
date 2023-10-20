@@ -68,8 +68,8 @@ public class ServicioProyectos {
     		
     		return Plantilla.plantillaEstudianteAutomatica(nuevoProyecto,this);
     		
-    	} else if(plantilla.equals("gimnasio")) {
-    		return Plantilla.plantillaGimnasioAutomatica(nuevoProyecto,this);
+    	//} else if(plantilla.equals("gimnasio")) {
+    		//return Plantilla.plantillaGimnasioAutomatica(nuevoProyecto,this);//
     	}else {
     		return null;
     	}
@@ -190,47 +190,50 @@ public class ServicioProyectos {
     public List <Tarea> listaTarea(){
     	return rt.findAll();
     }
-    //5.-Crear Tareas
-    public Tarea crearTarea(Long idPagina , String Contenido , String Dia ,String Tipo, LocalDate fechaLimite) {
-    	
-    	Pagina paginaTarea = rpag.findById(idPagina).orElse(null);
-    	if(paginaTarea == null) {
-    		
-    		return null;
-    		
-    	} else {
-    		
-    		List<Tarea> tareasPagina = paginaTarea.getTareasPagina();
-    		
-    		List<Tarea> tareaProyecto = paginaTarea.getProyectoPagina().getProyectoTareas();
-    		
-    		List<Tarea> tareaUsuario = paginaTarea.getUsuarioPagina().getMisTareas();
-    		
-    		Tarea tareaAgregar = new Tarea();
-    		tareaAgregar.setContenido(Contenido);
-    		tareaAgregar.setDia(Dia);
-    		tareaAgregar.setTipo(Tipo);
-    		tareaAgregar.setFechaLimite(fechaLimite);
-    		tareaAgregar.setPaginaDeTarea(paginaTarea);
-    		tareaAgregar.setTareasProyecto(paginaTarea.getProyectoPagina());
-    		tareaAgregar.setUsuarioAsignado(paginaTarea.getUsuarioPagina());
-    		
-    		tareasPagina.add(tareaAgregar);
-    		
-    		tareaProyecto.add(tareaAgregar);
-    		
-    		tareaUsuario.add(tareaAgregar);
-    		
-    		ru.save(paginaTarea.getUsuarioPagina());
-    		
-    		rp.save(paginaTarea.getProyectoPagina());
-    		
-    		rpag.save(paginaTarea);
-    		
-    		return rt.save(tareaAgregar);
-    	}
-    	
-    }
-
+    //5.-Crear Tarea
     
+    public Tarea crearTarea(
+    		Long idPagina,
+    		String contenido,
+    		String dia,
+    		String tipo,
+    		LocalDate fechaCreacion,
+    		LocalDate fechaLimite,
+    		String estado) {
+    	
+        Pagina paginaTarea = rpag.findById(idPagina).orElse(null);
+
+        if (paginaTarea == null) {
+            return null;
+        } else {
+            List<Tarea> tareasPagina = paginaTarea.getTareasPagina();
+            List<Tarea> tareaProyecto = paginaTarea.getProyectoPagina().getProyectoTareas();
+            List<Tarea> tareaUsuario = paginaTarea.getUsuarioPagina().getMisTareas();
+
+            Tarea tareaAgregar = new Tarea();
+            tareaAgregar.setContenido(contenido);
+            tareaAgregar.setDia(dia);
+            tareaAgregar.setTipo(tipo);
+            tareaAgregar.setFechaLimite(fechaLimite);
+            tareaAgregar.setFechaCreacion(fechaCreacion);
+            tareaAgregar.setPaginaDeTarea(paginaTarea);
+            tareaAgregar.setTareasProyecto(paginaTarea.getProyectoPagina());
+            tareaAgregar.setUsuarioAsignado(paginaTarea.getUsuarioPagina());
+
+            // Configura los atributos de la tarea, como fecha de creación y estado
+            tareaAgregar.setFechaCreacion(LocalDate.now()); // Fecha de creación actual
+            tareaAgregar.setEstado(estado);
+
+            tareasPagina.add(tareaAgregar);
+            tareaProyecto.add(tareaAgregar);
+            tareaUsuario.add(tareaAgregar);
+
+            ru.save(paginaTarea.getUsuarioPagina());
+            rp.save(paginaTarea.getProyectoPagina());
+            rpag.save(paginaTarea);
+
+            return rt.save(tareaAgregar);
+        }
+    }
+   
 }

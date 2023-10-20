@@ -17,13 +17,13 @@
     <nav class="sidebar close">
          <header>
             <div class="image-text">
-                <span class="image">
-                    <img src="/imagesproyecto/LOL_Logo.webp" alt="logo">
+			<span class="image">
+                   <a href="/dashboard"><img src="/imagesproyecto/logo.png" alt="logo"></a> 
                 </span>
 
                 <div class="text header-text">
-                    <span class="name">Ligoleyen</span>
-                    <span class="profession">Luxoi</span>
+                    <span class="name">Zenith</span>
+                    <span class="profession">Bienvenido</span>
                 </div>
             </div>
             <i class='bx bx-chevron-right toggle'></i>
@@ -49,7 +49,7 @@
                     </ul>
                     <li class="nav-link">
                         <a href="/proyectos">
-                            <i class='bx bxs-popsicle icon' ></i>
+                            <i class='bx bxs-folder icon' ></i>
                             <span class="text nav-text">Proyects</span>
                         </a>
                     </li>

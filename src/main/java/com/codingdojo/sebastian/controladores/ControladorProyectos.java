@@ -1,5 +1,6 @@
 package com.codingdojo.sebastian.controladores;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.sebastian.modelos.Pagina;
 import com.codingdojo.sebastian.modelos.Proyecto;
+import com.codingdojo.sebastian.modelos.Tarea;
 import com.codingdojo.sebastian.modelos.Usuario;
 import com.codingdojo.sebastian.servicios.Servicio;
 import com.codingdojo.sebastian.servicios.ServicioProyectos;
@@ -141,20 +143,26 @@ public class ControladorProyectos {
 	    // Verificar si el proyecto pertenece al usuario en sesión
 	    if(paginaAEntrar.getTipoPagina().equals("habitos")) {
 	    	return "paginaHabitos.jsp";
+	    	
 	    } else if(paginaAEntrar.getTipoPagina().equals("bloc")) {
 	    	return "paginaBloc.jsp";
-	    } else {
-	    	return "redirect:/dashboard"; 
+	    	
+	    }else if(paginaAEntrar.getTipoPagina().equals("gestor")) {
+	    	return "tareas.jsp"; 
+	    }else {
+	    	
+	    	return "redirect:/dashboard";
 	    }
 	}
 	
 	@PostMapping("/bloc")
 	public String crearDoc(@RequestParam("tipoTexto")String tipoTexto, @RequestParam("contenido")String contenido,@RequestParam("pagina")Long pagina) {
 		
-		sp.crearTarea(pagina, contenido, null, tipoTexto, null);
+		//sp.crearTarea(pagina, contenido, null, tipoTexto, null);
 		
 		return "redirect:/paginas/"+pagina;
 	}
+
 	@GetMapping("/premiun")
 	public String premiun(HttpSession session) {
 		// Verificar que el usuario esté en sesión
@@ -166,5 +174,34 @@ public class ControladorProyectos {
 		
 		return "premiun.jsp";
 	}
+
+	
+	@PostMapping("/nueva_pagina/crear_tarea")
+	public String crearTareaEnNuevaPagina(
+	    @RequestParam("contenido") String contenido,
+	    @RequestParam("estado") String estado,
+	    @RequestParam("fechaCreacion") LocalDate fechaCreacion,
+	    @RequestParam("fechaLimite") LocalDate fechaLimite,
+	    @RequestParam("id-pagina") Long idPagina
+	) {
+	    // Llama al servicio para crear la tarea en la nueva página
+	   sp.crearTarea(idPagina,contenido,"","",fechaCreacion, fechaLimite, estado);
+
+	    // Redirige a la página de la nueva página o a donde desees que el usuario vaya después de crear la tarea
+	    return "redirect:/tareas";
+	}
+
+	 @GetMapping("/tareas")
+	    public String mostrarTareas(Model model) {
+	        // Obtén la lista de tareas desde tu servicio
+	        List<Tarea> tareas = sp.listaTarea();
+
+	        // Agrega la lista de tareas al modelo
+	        model.addAttribute("tareas", tareas);
+
+	        // Devuelve el nombre de tu JSP
+	        return "tareas.jsp";
+	    }
 	
 }
+
