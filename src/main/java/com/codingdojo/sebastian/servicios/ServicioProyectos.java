@@ -46,7 +46,29 @@ public class ServicioProyectos {
     }
     //3.-Eliminar Proyecto
     public void eliminarProyecto(Long id) {
-    	 rp.deleteById(id);
+    	 
+    	Proyecto proyectoAEliminar = rp.findById(id).orElse(null);
+    	
+    	if(proyectoAEliminar != null) {
+    		Usuario usuarioRelacion = proyectoAEliminar.getCreador();
+    		List<Pagina> paginasRelacion = proyectoAEliminar.getProyectoPaginas();
+    		List<Tarea> tareaRelacion = proyectoAEliminar.getProyectoTareas();
+    	
+    		usuarioRelacion.getMisProyectos().remove(proyectoAEliminar);
+    		proyectoAEliminar.setCreador(null);
+    		
+    		for(Tarea tarea:tareaRelacion) {
+    			rt.delete(tarea);
+    		}
+    		for(Pagina pagina:paginasRelacion) {
+    			rpag.delete(pagina);
+    		}
+    		
+    		rp.delete(proyectoAEliminar);
+    		
+    	}else {
+    		System.out.println("No existe el proyecto a eliminar");
+    	}
     }
     //4.-Lista de todos los proyectos.
     public List <Proyecto> listaTodosLosProyectos(){
@@ -89,7 +111,29 @@ public class ServicioProyectos {
     }
     //3.-Eliminar Pagina
     public void eliminarPagina(Long id) {
-    	rpag.deleteById(id);
+    	
+    	Pagina paginaAEliminar = rpag.findById(id).orElse(null);
+    	
+    	if(paginaAEliminar != null) {
+    		Usuario usuarioRelacion = paginaAEliminar.getUsuarioPagina();
+    		Proyecto proyectoRelacion = paginaAEliminar.getProyectoPagina();
+    		List<Tarea> tareasRelacion = paginaAEliminar.getTareasPagina();
+    	
+    		usuarioRelacion.getMisPaginas().remove(paginaAEliminar);
+    		proyectoRelacion.getProyectoPaginas().remove(paginaAEliminar);
+    		paginaAEliminar.setProyectoPagina(null);
+    		paginaAEliminar.setUsuarioPagina(null);
+    	
+    		for(Tarea tarea:tareasRelacion) {
+    			rt.delete(tarea);
+    		}
+    	
+    		rpag.delete(paginaAEliminar);
+    	
+    	}else {
+    		System.out.println("La pagina que se quiere borrar no existe");
+    	}
+    	
     }
     //4.- Listar Paginas
     public List<Pagina> listaPagina(){
@@ -184,7 +228,28 @@ public class ServicioProyectos {
     }
     //3- Eliminar Tarea
     public void eliminarTarea(Long id) {
-    	rt.deleteById(id);
+    	
+    	Tarea tareaAEliminar = rt.findById(id).orElse(null);
+    	
+    	if(tareaAEliminar != null) {
+    		Usuario usuarioRelacion = tareaAEliminar.getUsuarioAsignado();
+    		Proyecto proyectoRelacion = tareaAEliminar.getTareasProyecto();
+    		Pagina paginaRelacion = tareaAEliminar.getPaginaDeTarea();
+    	
+    		usuarioRelacion.getMisTareas().remove(tareaAEliminar);
+    		proyectoRelacion.getProyectoTareas().remove(tareaAEliminar);
+    		paginaRelacion.getTareasPagina().remove(tareaAEliminar);
+    	
+    		tareaAEliminar.setUsuarioAsignado(null);
+    		tareaAEliminar.setPaginaDeTarea(null);
+    		tareaAEliminar.setTareasProyecto(null);
+    	
+    		rt.delete(tareaAEliminar);
+    		
+    	} else {
+    		System.out.println("La tarea a eliminar no existe");
+    	}
+    	
     }
     //4.-Listar Tareas
     public List <Tarea> listaTarea(){

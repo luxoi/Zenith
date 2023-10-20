@@ -1,5 +1,6 @@
 	package com.codingdojo.sebastian.modelos;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,6 +17,7 @@ public class Plantilla {
         pagina.setNombre(nombrePagina);
         pagina.setDescripcion(descripcionPagina);
         pagina.setTipoPagina(tipoPagina);
+        
 
         for (String dia : Arrays.asList("Lunes", "Martes", "Miércoles", "Jueves", "Viernes")) {
             for (String tareaContenido : tareas) {
