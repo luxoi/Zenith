@@ -14,7 +14,8 @@
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDDD;
     --text-color: #707070;
-
+	--footer-background-light: #695cfe;
+    --footer-background-dark: #000000;
     --tran-02: all 0.2s ease;
     --tran-03: all 0.3s ease;
     --tran-04: all 0.4s ease;
@@ -53,10 +54,10 @@ body.dark{
 
 /*================================================================/**/
 .sidebar{
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
-    height: 100%;
+    height: 99vh;
     width: 250px;
     padding: 10px 14;
     background: var(--sidebar-color);
@@ -142,6 +143,7 @@ header .image-text .header-text{
     
 }
 
+
 body.dark .sidebar header .toggle{
    
     color: var(--text-color)
@@ -196,7 +198,7 @@ body.dark .sidebar li a:hover .text{
 }
 
 .sidebar .menu-bar{
-    height: calc(100% - 50px);
+    height: 93.6%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -272,9 +274,8 @@ body.dark .switch::before{
 
 .home{
     position: relative;
-    left: 250px;
     height: 100vh;
-    width: calc(100% - 250px);
+    width: 100vw;
     background: var(--body-color);
     transition: var(--tran-05);
   
@@ -291,7 +292,6 @@ body.dark .switch::before{
 
 
 .sidebar.close ~ .home{
-    left: 88px;
     height: 100vh;
 }
 
@@ -304,12 +304,8 @@ body.dark .switch::before{
    
 }
 
-.home{
-    border: 1px solid gray;
-}
-
 .principal img{
-    width: 600px;
+    width: 50%;
 }
 
 .principalderecha {
@@ -358,3 +354,63 @@ a span{
     display: block; /* Muestra la lista de proyectos al pasar el mouse sobre "Proyectos" */
 }
 
+.container{
+	height: 100vh;
+	width: 98.79vw;
+	display: flex;
+}
+
+.footer{
+	width: 98.79vw;
+	height: 45vh;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.subFooter{
+	height: 100%;
+	width: 33.3%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-top: 0.4%;
+	
+}
+.imageFooter{
+	height: 40%;
+}
+
+.tituloFooter{
+	display: inline;
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin-bottom: 1%;
+}
+
+.textoFooter{
+    text-align: center;
+    font-size: small;
+    color: white;
+    padding: 0px 10px 0px 10px;
+}
+
+.contactoFooterImages{
+	width: 30px;
+	height: 30px;
+}
+
+.Footerimages{
+	width: 80%;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+}
+
+.footerContacto{
+	width: 59%;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: start;
+	align-items: center;
+}
