@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Tus Paginas</title>
 <link rel="stylesheet" type="text/css" href="/cssproyecto/style.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -109,7 +109,7 @@
 	                <thead>
 	                    <tr>
 	                        <th>Nombre</th>
-	                        <th>Descripción</th>
+	                        <th>DescripciÃ³n</th>
 	                        <th>Cantidad de tareas</th>
 	                        <th>Acciones</th>
 	                    </tr>

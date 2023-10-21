@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
@@ -20,8 +20,8 @@
                 <tr>
                     <th>Contenido</th>
                     <th>Estado</th>
-                    <th>Fecha de Creación</th>
-                    <th>Fecha Límite</th>
+                    <th>Fecha de CreaciÃ³n</th>
+                    <th>Fecha LÃ­mite</th>
                 </tr>
             </thead>
             <tbody>
@@ -66,11 +66,11 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="fechaCreacion">Fecha de Creación</label>
+                <label for="fechaCreacion">Fecha de CreaciÃ³n</label>
                 <input type="date" class="form-control" id="fechaCreacion" name="fechaCreacion" required>
             </div>
             <div class="form-group">
-                <label for="fechaLimite">Fecha Límite</label>
+                <label for="fechaLimite">Fecha LÃ­mite</label>
                 <input type="date" class="form-control" id="fechaLimite" name="fechaLimite" required>
             </div>
             <input type="hidden" name="id-pagina" value="4">

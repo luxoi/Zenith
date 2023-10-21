@@ -117,15 +117,17 @@ public class ControladorProyectos {
 	public String paginaProyectos(HttpSession session,Model model,@PathVariable("proyectoId") Long proyectoId) {
 		// Verificar que el usuario esté en sesión
 		Usuario usuarioTemporal = (Usuario) session.getAttribute("usuarioEnSesion");
-		   if (usuarioTemporal == null) {
-		       return "redirect:/";  
-		   }
+		if (usuarioTemporal == null) {
+			return "redirect:/";  
+		}
 		   
 		Proyecto proyectoQueMostrar = sp.encontrarProyecto(proyectoId);
-		model.addAttribute("proyectoMostrar",proyectoQueMostrar);
-		
-		return "paginas.jsp";
-		
+		if (proyectoQueMostrar != null && proyectoQueMostrar.getCreador().getId() == usuarioTemporal.getId()) {
+	        model.addAttribute("proyectoMostrar", proyectoQueMostrar);
+	        return "paginas.jsp";
+	    } else {
+	        return "redirect:/dashboard"; // Redirigir al usuario a su dashboard si no es el creador
+	    }
 	}
 	
 	@GetMapping("/paginas/{paginaId}")
@@ -138,27 +140,35 @@ public class ControladorProyectos {
 	    // Verificar que el usuario esté en sesión
 	    // Obtener el proyecto con el ID proporcionado
 	    Pagina paginaAEntrar = sp.encontrarPagina(paginaId);
-	    model.addAttribute("paginaMostrar",paginaAEntrar);
 	    
-	    // Verificar si el proyecto pertenece al usuario en sesión
-	    if(paginaAEntrar.getTipoPagina().equals("habitos")) {
-	    	return "paginaHabitos.jsp";
+	    if(paginaAEntrar != null && paginaAEntrar.getUsuarioPagina().getId() == usuarioTemporal.getId()) {
+	    	model.addAttribute("paginaMostrar",paginaAEntrar);
+	    	if(paginaAEntrar.getTipoPagina().equals("habitos")) {
+	    		return "paginaHabitos.jsp";
 	    	
-	    } else if(paginaAEntrar.getTipoPagina().equals("bloc")) {
-	    	return "paginaBloc.jsp";
+	    	} else if(paginaAEntrar.getTipoPagina().equals("bloc")) {
+	    		return "paginaBloc.jsp";
 	    	
-	    }else if(paginaAEntrar.getTipoPagina().equals("gestor")) {
-	    	return "tareas.jsp"; 
-	    }else {
+	    	}else if(paginaAEntrar.getTipoPagina().equals("gestor")) {
+	    		return "tareas.jsp"; 
+	    	}else {
 	    	
+	    	return "redirect:/dashboard";
+	    } 
+	    } else {
 	    	return "redirect:/dashboard";
 	    }
 	}
 	
 	@PostMapping("/bloc")
-	public String crearDoc(@RequestParam("tipoTexto")String tipoTexto, @RequestParam("contenido")String contenido,@RequestParam("pagina")Long pagina) {
+	public String crearDoc(@RequestParam("tipoTexto")String tipoTexto, @RequestParam("contenido")String contenido,@RequestParam("pagina")Long pagina,HttpSession session) {
 		
-		//sp.crearTarea(pagina, contenido, null, tipoTexto, null);
+		Usuario usuarioTemporal = (Usuario) session.getAttribute("usuarioEnSesion");
+	    if (usuarioTemporal == null) {
+	        return "redirect:/";  
+	    }
+		
+		sp.crearTarea(pagina, contenido, null, tipoTexto, null, null, null);
 		
 		return "redirect:/paginas/"+pagina;
 	}
@@ -182,10 +192,16 @@ public class ControladorProyectos {
 	    @RequestParam("estado") String estado,
 	    @RequestParam("fechaCreacion") LocalDate fechaCreacion,
 	    @RequestParam("fechaLimite") LocalDate fechaLimite,
-	    @RequestParam("id-pagina") Long idPagina
+	    @RequestParam("id-pagina") Long idPagina,
+	    HttpSession session
 	) {
+		
+		Usuario usuarioTemporal = (Usuario) session.getAttribute("usuarioEnSesion");
+	    if (usuarioTemporal == null) {
+	        return "redirect:/";  
+	    }
 	    // Llama al servicio para crear la tarea en la nueva página
-	   sp.crearTarea(idPagina,contenido,"","",fechaCreacion, fechaLimite, estado);
+	   sp.crearTarea(idPagina,contenido, null, null,fechaCreacion, fechaLimite, estado);
 
 	    // Redirige a la página de la nueva página o a donde desees que el usuario vaya después de crear la tarea
 	    return "redirect:/tareas";
