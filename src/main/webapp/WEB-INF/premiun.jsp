@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Pagos</title>
 
 <!--Css-->
 <link rel="stylesheet" href="/csspremiun/style.css">

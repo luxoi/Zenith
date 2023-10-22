@@ -19,7 +19,7 @@
                 </span>
                 <div class="text header-text">
                     <span class="name">Zenith</span>
-                    <span class="profession"></span>
+                    <span class="profession">Tus Proyectos</span>
                 </div>
             </div>
             
@@ -49,7 +49,7 @@
                     
 				<li class="nav-link">
 					<a href="/proyectos">
-						<i class='bx bxs-popsicle icon'></i>
+						<i class='bx bxs-folder icon'></i>
 						<span class="text nav-text">Proyectos</span>
 					</a>
 				</li>

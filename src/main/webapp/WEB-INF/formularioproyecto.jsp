@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title><!--Css-->
+<title>Crear Proyecto</title><!--Css-->
 <link rel="stylesheet" type="text/css" href="/cssformulario/style.css">
 <!--boxicons-->
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -19,12 +19,12 @@
          <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="/images/LOL_Logo.webp" alt="logo">
+                    <img src="/imagesproyecto/logo.png" alt="logo">
                 </span>
 
                 <div class="text header-text">
-                    <span class="name">Ligoleyen</span>
-                    <span class="profession">Luxoi</span>
+                    <span class="name">Zenith</span>
+                    <span class="profession">Crea tu proyecto!</span>
                 </div>
             </div>
             <i class='bx bx-chevron-right toggle'></i>
@@ -47,14 +47,10 @@
                                 <span class="text nav-text">Dashboard</span>
                             </a>
                         </li>
-                    </ul>
-                    
-                    
-                    
-                   
+                    </ul>  
 						    <li class="nav-link">
 							    <a href="/proyectos">
-							        <i class='bx bxs-popsicle icon'></i>
+							        <i class='bx bxs-folder icon'></i>
 							        <span class="text nav-text">Proyectos</span>
 							    </a>
 							</li>
@@ -144,11 +140,7 @@
 						<form:textarea path="descripcion" class="form-control"/>
 						<form:errors path="descripcion" class="text-danger"></form:errors>
 					</div>
-					<div>
-						<form:label path="fecha">Fecha de entrega</form:label>
-						<form:input type="date" path="fecha" class="form-control"/>
-						<form:errors path="fecha" class="text-danger"></form:errors>
-					</div>
+
 		               <form:hidden path="creador" value="${usuarioEnSesion.id}"/>
                 <button type="submit">Enviar</button>
            

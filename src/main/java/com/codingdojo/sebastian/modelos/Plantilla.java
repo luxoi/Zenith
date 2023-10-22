@@ -13,7 +13,7 @@ public class Plantilla {
         ServicioProyectos servicio,
         String nombrePagina,
         String descripcionPagina,
-        String tipoPagina,
+        String tipoPagina,	
         List<String> tareas,
         List<String> estados, 
         List<String> etiquetas, 
