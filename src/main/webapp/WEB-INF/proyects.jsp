@@ -10,6 +10,7 @@
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
+    <div class="container">
     <nav class="sidebar close">
          <header>
          
@@ -19,7 +20,7 @@
                 </span>
                 <div class="text header-text">
                     <span class="name">Zenith</span>
-                    <span class="profession"></span>
+                    <span class="profession">Bienvenido!</span>
                 </div>
             </div>
             
@@ -39,7 +40,7 @@
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="/dashboard">
-                            <i class='bx bx-home-alt icon' ></i>
+                            <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
@@ -49,15 +50,15 @@
                     
 				<li class="nav-link">
 					<a href="/proyectos">
-						<i class='bx bxs-popsicle icon'></i>
+						<i class='bx bxs-folder icon'></i>
 						<span class="text nav-text">Proyectos</span>
 					</a>
 				</li>
-				<ul class="sub-menu">
+				<ul class="nav-link">
 					<c:forEach items="${proyectos}" var="proyecto">
 						<li class="sub-menu-link">
 							<a href="/proyectos/${proyecto.id}">
-								<i class='bx bx-task icon'></i>
+								<i class='bx bxs-memory-card icon'></i>
 								<span class="text sub-menu-text">${proyecto.titulo}</span>
 							</a>
 						</li>
@@ -126,7 +127,42 @@
             </div>
         </main>
     </section>
-
+    </div>
+    <div class="footer">
+    	<div class="subFooter">
+    		<h4 class="tituloFooter">SOBRE NOSOTROS</h4>
+    		<img class="imageFooter" src="/imagesproyecto/logo.png" alt="logo">
+    		<p class="textoFooter">En Zenith Organización, estamos comprometidos a proporcionarte una plataforma de gestión de tareas simple y versátil que simplifica la forma en que te organizas, colaboras y logras tus metas. Diseñada para satisfacer las necesidades de todo tipo de público, nuestra plataforma combina la potencia de las herramientas de organización con una interfaz amigable y accesible.</p>
+    	</div>
+    	<div class="subFooter">
+    		<h4 class="tituloFooter">NUESTRA MISIÓN</h4>
+    		<p class="textoFooter">Queremos ayudarte a ser más productivo, a mantenerte enfocado en tus objetivos y a colaborar de manera eficaz con tu equipo. En Zenith, creemos que la gestión de tareas no debería ser complicada y que la organización debería estar al alcance de todos.</p>
+    		<h4 class="tituloFooter">ÚNETE A ZENITH</h4>
+    		<p class="textoFooter">Únete a la creciente comunidad de usuarios de Zenith Organización y descubre una nueva forma de organizarte y alcanzar tus metas. Tanto si eres un profesional ocupado, un estudiante con muchas tareas o simplemente alguien que busca simplificar su vida, Zenith tiene algo que ofrecer.</p>
+    	</div>
+    	<div class="subFooter">
+    		<h4 class="tituloFooter">CONTÁCTANOS</h4>
+    		<div class="Footerimages">
+    			<img class="contactoFooterImages" alt="Twitter" src="/imagesproyecto/twitter.webp">
+    			<img class="contactoFooterImages" alt="Instagram" src="/imagesproyecto/instagram.webp">
+    			<img class="contactoFooterImages" alt="Github" src="/imagesproyecto/github.png">
+    			<img class="contactoFooterImages" alt="Facebook" src="/imagesproyecto/facebook.png">
+    		</div>
+    		<div class="footerContacto">
+    			<img class="contactoFooterImages" alt="locacion" src="/imagesproyecto/location.png">
+    			<p class="textoFooter">:  Maipú 714, Concepción, Chile</p>
+    		</div>
+    		<div class="footerContacto">
+    			<img class="contactoFooterImages" alt="celular" src="/imagesproyecto/cell.png">
+    			<p class="textoFooter">:  +56973550175</p>
+    		</div>
+    		<div class="footerContacto">
+    			<img class="contactoFooterImages" alt="email" src="/imagesproyecto/email.png">
+    			<p class="textoFooter">:  zenithorganization@gmail.com</p>
+    		</div>
+    	</div>
+    
+    </div>
     <script type="text/javascript" src="/jsproyecto/script.js"></script>
 </body>
 </html>

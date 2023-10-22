@@ -7,13 +7,16 @@
 
 .container{
     height: 100vh;
-    width: 100vw;
+    width: 98.79vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
    
     background: linear-gradient(to bottom,  #ebe9f9 0%,#d8d0ef 8%,#e4e9f7 70%,#c1bfea 100%); 
 
     background-position: center;
     background-size: cover;
-    position: absolute;
+    position: relative;
 }
 
 .form-box{
@@ -117,4 +120,59 @@ span{
 
 #registrar{
     left: 450px;
+}
+.footer{
+	width: 98.79vw;
+	height: 45vh;
+	display: flex;
+	flex-wrap: wrap;
+    background-color: #695cfe;
+}
+
+.subFooter{
+	height: 98%;
+	width: 33.3%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding-top: 0.4%;
+	
+}
+.imageFooter{
+	height: 40%;
+}
+
+.tituloFooter{
+	display: inline;
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin-bottom: 1%;
+}
+
+.textoFooter{
+    text-align: center;
+    font-size: small;
+    color: white;
+    padding: 0px 10px 0px 10px;
+}
+
+.contactoFooterImages{
+	width: 30px;
+	height: 30px;
+}
+
+.Footerimages{
+	width: 80%;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+}
+
+.footerContacto{
+	width: 59%;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: start;
+	align-items: center;
 }

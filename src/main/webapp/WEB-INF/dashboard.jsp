@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title><!--Css-->
+<title>Dashboard</title><!--Css-->
 <link rel="stylesheet" type="text/css" href="/css/style.css?1">
 <!--boxicons-->
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -36,7 +36,6 @@
                         	</li>
                     	<ul class="menu-links">
                     
-                    
 				    	<li class="nav-link">
 				        	<a href="/dashboard">
 				            	<i class='bx bx-home-alt icon'></i>
@@ -53,7 +52,7 @@
 				        	</a>
 				       
 				    	</li>   
-				     	<ul class="nav-link" >
+				     	<ul class="nav-link">
 				     
 				            	<c:forEach items="${proyectos}" var="proyecto">
 				                	<li class="sub-menu-link">
