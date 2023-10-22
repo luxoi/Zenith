@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title><!--Css-->
+<title>Crear Proyecto</title><!--Css-->
 <link rel="stylesheet" type="text/css" href="/cssformulario/style.css">
 <!--boxicons-->
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -25,7 +25,7 @@
 
                 <div class="text header-text">
                     <span class="name">Zenith</span>
-                    	<span class="profession">Bienvenido!</span>
+                    <span class="profession">Crea tu proyecto!</span>
                 </div>
             </div>
             <i class='bx bx-chevron-right toggle'></i>
@@ -48,13 +48,10 @@
                                 <span class="text nav-text">Dashboard</span>
                             </a>
                         </li>
-                    </ul>
-                    
-                    
-                    
-                   
+                    </ul>  
 						    <li class="nav-link">
 							    <a href="/proyectos">
+							        <i class='bx bxs-folder icon'></i>
 							        <i class='bx bxs-folder icon'></i>
 							        <span class="text nav-text">Proyectos</span>
 							    </a>

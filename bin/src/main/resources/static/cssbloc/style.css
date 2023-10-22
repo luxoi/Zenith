@@ -1,4 +1,4 @@
-@charset "ISO-8859-1";
+@charset "UTF-8";
 
 .bloc{
 	display: flex;
@@ -111,4 +111,8 @@
     display: inline-block;
     width: 1em;
     margin-right: 5px;
+}
+
+.checked.custom-checkbox::before {
+	background-color: black;
 }

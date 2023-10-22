@@ -1,12 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>    
 <!DOCTYPE html>
 
 <html lang="en">
 <head>
-    <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="csslogin/estilos.css">
@@ -23,7 +23,7 @@
             </div>
          <div class="redes-sociales"> 
 		    <a href="/login/oauth2/authorization/google">
-		        <img src="imglogin/gp.png" alt="icono_Googleplus"> Iniciar sesión con Google
+		        <img src="imglogin/gp.png" alt="icono_Googleplus"> Iniciar sesiÃ³n con Google
 		    </a>
 		</div>
            <form action="/login" method="post" class="input-group" id="login">
@@ -35,7 +35,7 @@
 					</div>
 					<div>
 					
-						<input type="password" class="input-field" name="password" placeholder="Contraseña">
+						<input type="password" class="input-field" name="password" placeholder="ContraseÃ±a">
 					</div>
                 <button type="submit" class="submit-btn" >Acceder</button>
             </form>
@@ -58,13 +58,13 @@
                 </div>
                 
           		<div>
-				<form:password path="password" class="input-field" placeholder="Contraseña" />
+				<form:password path="password" class="input-field" placeholder="ContraseÃ±a" />
 				<p><form:errors path="password" class="text-danger"/></p>
                 </div>
 				
                 
               	<div>
-				<form:password path="confirmPassword" class="input-field" placeholder="Confirmar Contraseña"/>
+				<form:password path="confirmPassword" class="input-field" placeholder="Confirmar ContraseÃ±a"/>
 				<p><form:errors path="confirmPassword" class="text-danger"/></p>
                 </div>
                 

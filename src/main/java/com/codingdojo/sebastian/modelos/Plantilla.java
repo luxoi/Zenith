@@ -13,7 +13,7 @@ public class Plantilla {
         ServicioProyectos servicio,
         String nombrePagina,
         String descripcionPagina,
-        String tipoPagina,
+        String tipoPagina,	
         List<String> tareas,
         List<String> estados, 
         List<String> etiquetas, 
@@ -31,7 +31,7 @@ public class Plantilla {
         
 
         // Seteo de parámetros para tareas
-        for (String dia : Arrays.asList("Lunes", "Martes", "Miércoles", "Jueves", "Vie	rnes")) {
+        for (String dia : Arrays.asList("Lunes", "Martes", "Miércoles", "Jueves", "Viernes")) {
             for (int i = 0; i < tareas.size(); i++) {
                 String tareaContenido = tareas.get(i);
                 String tareaEstado = estados.get(i);

@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-        <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title><!--Css-->
 <link rel="stylesheet" type="text/css" href="/cssregistro/style.css">
 <!--boxicons-->
@@ -16,12 +16,12 @@
          <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="/imagesproyecto/LOL_Logo.webp" alt="logo">
+                   <a href="/dashboard"><img src="/imagesproyecto/logo.png" alt="logo"></a> 
                 </span>
 
                 <div class="text header-text">
-                    <span class="name">Ligoleyen</span>
-                    <span class="profession">Luxoi</span>
+                    <span class="name">Zenith</span>
+                    <span class="profession"></span>
                 </div>
             </div>
             <i class='bx bx-chevron-right toggle'></i>

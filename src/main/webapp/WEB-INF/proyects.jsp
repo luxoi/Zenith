@@ -20,7 +20,7 @@
                 </span>
                 <div class="text header-text">
                     <span class="name">Zenith</span>
-                    <span class="profession">Bienvenido!</span>
+                    <span class="profession">Tus Proyectos</span>
                 </div>
             </div>
             

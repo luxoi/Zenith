@@ -96,7 +96,25 @@ public class ServicioProyectos {
     		return null;
     	}
     }
-    	
+    //7.- Editar Proyecto
+    	public Proyecto editarProyecto(Proyecto proyectoEditado) {
+    	    Proyecto proyectoExistente = rp.findById(proyectoEditado.getId()).orElse(null);
+
+    	    if (proyectoExistente != null) {
+
+    	        proyectoExistente.setTitulo(proyectoEditado.getTitulo());
+    	        proyectoExistente.setDescripcion(proyectoEditado.getDescripcion());
+    	        // Actualiza otros atributos según sea necesario
+
+    	        // Guarda el proyecto editado en la base de datos
+    	        return rp.save(proyectoExistente);
+    	    } else {
+    	        // Manejo de error si el proyecto no se encuentra
+    	        return null;
+    	    }
+    	}
+
+
     	
 
     //*SERVICIOS PAGINAS*//
@@ -214,6 +232,22 @@ public class ServicioProyectos {
         nuevaPagina.setNombre(nombrePagina);
         return guardarPaginaYRelaciones(obtenerCreador, proyectoDondeSeCreaLaPagina, nuevaPagina);
     }
+    
+    //Editar pagina
+    public Pagina editarPagina(Pagina paginaEditada) {
+        Pagina paginaExistente = rpag.findById(paginaEditada.getId()).orElse(null);
+
+        if (paginaExistente != null) {
+            // Realiza las actualizaciones en los atributos de la paginaExistente
+            paginaExistente.setNombre(paginaEditada.getNombre());
+            // Actualiza otros atributos según sea necesario         
+            return rpag.save(paginaExistente);
+        } else {
+            
+            return null;
+        }
+    }
+
 
 
     //*SERVICIOS TAREAS*//
@@ -300,5 +334,30 @@ public class ServicioProyectos {
             return rt.save(tareaAgregar);
         }
     }
+    
+    //6.- Editar tarea
+    public Tarea editarTarea(Tarea tareaEditada) {
+        Tarea tareaExistente = rt.findById(tareaEditada.getId()).orElse(null);
+
+        if (tareaExistente != null) {
+            // Realiza las actualizaciones en los atributos de la tareaExistente
+            tareaExistente.setContenido(tareaEditada.getContenido());
+            tareaExistente.setDia(tareaEditada.getDia());
+            tareaExistente.setTipo(tareaEditada.getTipo());
+            tareaExistente.setEstado(tareaEditada.getEstado());
+            tareaExistente.setTag(tareaEditada.getTag());
+            tareaExistente.setFechaCreacion(tareaEditada.getFechaCreacion());
+            tareaExistente.setFechaLimite(tareaEditada.getFechaLimite());
+            // Actualiza otros atributos según sea necesario
+
+            // Guarda la tarea editada en la base de datos
+            return rt.save(tareaExistente);
+        } else {
+            // Manejo de error si la tarea no se encuentra
+            return null;
+        }
+    }
+
+    
    
 }

@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Insert title here</title><!--Css-->
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <!--boxicons-->
@@ -16,7 +16,7 @@
          <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="/images/LOL_Logo.webp" alt="logo">
+                   <a href="/dashboard"><img src="/imagesproyecto/logo.png" alt="logo"></a> 
                 </span>
 
                 <div class="text header-text">
@@ -47,7 +47,7 @@
 				    
 				    <li class="nav-link">
 				        <a href="/proyectos">
-				            <i class='bx bxs-popsicle icon'></i>
+				            <i class='bx bxs-folder icon'></i>
 				            <span class="text nav-text">Proyectos</span>
 				        </a>
 				       
@@ -57,7 +57,7 @@
 				            <c:forEach items="${proyectos}" var="proyecto">
 				                <li class="sub-menu-link">
 				                    <a href="/proyectos/${proyecto.id}">
-				                        <i class='bx bx-task icon'></i>
+				                        <i class='bx bxs-memory-card icon'></i>
 				                        <span class="text sub-menu-text">${proyecto.titulo}</span>
 				                    </a>
 				                </li>
