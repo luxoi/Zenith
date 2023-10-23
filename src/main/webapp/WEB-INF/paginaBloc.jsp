@@ -121,11 +121,11 @@
 				<form action="/bloc" method="post">
 					<div class="selectorTipoBloc">
 						<select name="tipoTexto">
-							<option value="texto" style="background: #4b0082; color: white; text-align: center;">+</option>
-    						<option value="titulo" style="background: #8a2be2; color: white; text-align: center;">Titulo</option>
-    						<option value="checkbox" style="background: #800080; color: white; text-align: center;">Checkbox</option>
-    						<option value="lista" style="background: #9932cc; color: white; text-align: center;">Lista</option>
-						</select>
+							<option value="texto" style="background: #ad32cc; color: white; text-align: center;">+</option>
+							<option value="titulo" style="background: #9932cc; color: white; text-align: center;">Titulo</option>
+							<option value="checkbox" style="background: #6a2ca8; color: white; text-align: center;">Checkbox</option>
+							<option value="lista" style="background: #4b0082; color: white; text-align: center;">Lista</option>
+						</select>										
 					</div>
 					<div class="textoBloc">
 						<textarea class="textoB" name="contenido" placeholder="Escribe aqui"></textarea>
