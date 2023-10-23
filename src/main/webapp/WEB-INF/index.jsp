@@ -23,7 +23,7 @@
             </div>
          <div class="redes-sociales"> 
 		    <a href="/login/oauth2/authorization/google">
-		        <img src="imglogin/gp.png" alt="icono_Googleplus"> Iniciar sesión con Google
+		        <img src="imglogin/gp.png" alt="icono_Googleplus"> 
 		    </a>
 		</div>
            <form action="/login" method="post" class="input-group" id="login">
