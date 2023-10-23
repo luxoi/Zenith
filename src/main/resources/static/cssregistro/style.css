@@ -14,8 +14,7 @@
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDDD;
     --text-color: #707070;
-    --footer-background-light: #695cfe;
-    --footer-background-dark: #000000;
+
     --tran-02: all 0.2s ease;
     --tran-03: all 0.3s ease;
     --tran-04: all 0.4s ease;
@@ -54,10 +53,10 @@ body.dark{
 
 /*================================================================/**/
 .sidebar{
-    position: relative;
+    position: fixed;
     top: 0;
     left: 0;
-    height: 99vh;
+    height: 100%;
     width: 250px;
     padding: 10px 14;
     background: var(--sidebar-color);
@@ -105,7 +104,6 @@ body.dark{
 .sidebar .image-text img{
     width: 40px;
     border-radius: 6px;
-    margin-top: 20%;
 }
 .sidebar header .image-text{
     display: flex;
@@ -198,7 +196,7 @@ body.dark .sidebar li a:hover .text{
 }
 
 .sidebar .menu-bar{
-    height: 93.6%;
+    height: calc(100% - 50px);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -274,88 +272,69 @@ body.dark .switch::before{
 
 .home{
     position: relative;
+    left: 250px;
     height: 100vh;
-    width: 100vw;
+    width: calc(100% - 250px);
     background: var(--body-color);
     transition: var(--tran-05);
+    border: 1px solid gray;
+    
+   
 }
 
 .home .text{
     font-size: 30px;
     font-weight: 500;
     color: var(--text-color);
-    padding: 8px 40px;
-    display: flex;
-    height: 100%;
 }
 
 .sidebar.close ~ .home{
+    left: 88px;
     height: 100vh;
 }
 /*================================================================/**/
-main{
-    width: 100%;
-    height: 100%;
-
-   justify-content: center;
-}
-
- /* Estilos de la tabla */
- table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-    border: 1px solid #dddddd;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* Estilos para la tabla en tu página */
-.tabla {
-    width: 80%;
-    margin: 0 auto;
-}
-
-/*================================================================/**/
-.dias{
-    border: 1px solid var(--primary-color);
+/* Estilos para la sección principal */
+main {
+    background-color: var(--body-color); 
+    padding: 20px; 
     display: flex;
-    margin: 8px;
-    height: 250px;
-    width: 400px;
-    margin-top: 50px;
-}
-
-.dias text{
-    color: var(--text-color);
+    height: 100%;
+    width: 100%;
 }
 
 .container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: var(--text-color);
 }
-.titulo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.titulo {
+    background-color: var(--body-color); 
+  
+    padding: 10px; 
+    border-radius: 5px; 
 }
-.descripcion{
-    margin: 0 auto;
-    border: 1px solid var(--primary-color);
-    width: 90%;
-    height: 200px;
+
+.descripcion {
+    margin-top: 10px; 
 }
+
+
+.dias {
+    background-color: var(--body-color);
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    margin: 5px; 
+   height: 400px;
+}
+
+.tareas-list {
+    list-style: none; 
+    padding: 0; 
+}
+
+.tareas-list li {
+    margin: 5px 0; 
+}
+
 
 .container{
 	height: 100vh;
@@ -364,6 +343,7 @@ tr:nth-child(even) {
 }
 
 .footer{
+	border: 1px solid darkgray;
 	width: 98.79vw;
 	height: 45vh;
 	display: flex;
@@ -387,14 +367,14 @@ tr:nth-child(even) {
 	display: inline;
     width: 100%;
     text-align: center;
-    color: white;
+    color: var(--text-color);
     margin-bottom: 1%;
 }
 
 .textoFooter{
     text-align: center;
     font-size: small;
-    color: white;
+    color: var(--text-color);
     padding: 0px 10px 0px 10px;
 }
 
@@ -416,4 +396,7 @@ tr:nth-child(even) {
 	flex-wrap: nowrap;
 	justify-content: start;
 	align-items: center;
+}
+.Footerimages img{
+	width: 15px;
 }

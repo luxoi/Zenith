@@ -46,15 +46,20 @@
 				    
 				    
 				    	<li class="nav-link">
-				        	<a href="/proyectos">
-				            	<i class='bx bxs-folder icon'></i>
-				        	    	<span class="text nav-text">Proyectos</span>
+				    		<a href="/proyectos">
+				        	
+				            	<i class='bx bxs-popsicle icon' ></i>
+				        	    	<span class="text nav-text">Proyects</span>
 				        	</a>
 				       
 				    	</li>   
-				     	<ul class="nav-link">
-				     
-				            	<c:forEach items="${proyectos}" var="proyecto">
+					     	<li class="nav-link has-submenu">
+		                        <a href="#">
+		                            <i class='bx bxs-folder icon'></i>
+		                            <span class="text nav-text">Desplegar Proyectos</span>
+		                        </a>
+		                        <ul class="menu-vertical">
+		                            <c:forEach items="${proyectos}" var="proyecto">
 				                	<li class="sub-menu-link">
 				                    	<a href="/proyectos/${proyecto.id}">
 				                        	<i class='bx bxs-memory-card icon'></i>
@@ -62,7 +67,8 @@
 				                    	</a>
 				                	</li>
 				            	</c:forEach>
-				        	</ul>
+		                        </ul>
+                   		 </li>
 				    
 				    
 				    
@@ -74,26 +80,27 @@
                     	</li>
             
             	</div>
-            	<div class="bottom-content">
-                	<li class="nav-link">
-                    	<a href="/logout">
-                        	<i class='bx bx-log-out icon' ></i>
-                        	<span class="text nav-text">Logout</span>
-                    	</a>
-                	</li>
-
-               	 <li class="mode">
-                	<div class="moon-sun">
-                    	<i class='bx bx-moon icon moon' ></i>
-                   	 	<i class='bx bx-sun icon sun' ></i>
-                	</div>
-                	<span class="mode-text text">Dark mode</span>
-
-                	<div class="toggle-switch">
-                    	<span class="switch"></span>
-                	</div>
-                	</li>
-            	</div>
+            	
+	            	<div class="bottom-content">
+		                <li class="nav-link">
+		                    <a href="/logout">
+		                        <i class='bx bx-log-out icon' ></i>
+		                        <span class="text nav-text">Logout</span>
+		                    </a>
+		                </li>
+		
+		                <li class="mode">
+		                <div class="moon-sun">
+		                    <i class='bx bx-moon icon moon' ></i>
+		                    <i class='bx bx-sun icon sun' ></i>
+		                </div>
+		                <span class="mode-text text">Dark mode</span>
+		
+		                <div class="toggle-switch">
+		                    <span class="switch"></span>
+		                </div>
+		                </li>
+          		  </div>
         	</div>
     	</nav>
 
@@ -113,10 +120,11 @@
                 	</div>	
         
         	</div>
-        
-    	</section>
-    </div>
-    <div class="footer">
+        	
+        	
+        	
+        	
+        	<div class="footer">
     	<div class="subFooter">
     		<h4 class="tituloFooter">SOBRE NOSOTROS</h4>
     		<img class="imageFooter" src="/imagesproyecto/logo.png" alt="logo">
@@ -151,6 +159,9 @@
     	</div>
     
     </div>
+    	</section>
+    </div>
+    
     <script src="/jsproyecto/script.js"></script>
 </body>
 </html>

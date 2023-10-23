@@ -50,22 +50,29 @@
                         </li>
                     </ul>  
 						    <li class="nav-link">
-							    <a href="/proyectos">
-							        <i class='bx bxs-folder icon'></i>
-							        <i class='bx bxs-folder icon'></i>
-							        <span class="text nav-text">Proyectos</span>
-							    </a>
-							</li>
-							<ul class="nav-link">
-							    <c:forEach items="${proyectos}" var="proyecto">
-							        <li class="sub-menu-link">
-							            <a href="/proyectos/${proyecto.id}">
-							                <i class='bx bxs-memory-card icon'></i>
-							                <span class="text sub-menu-text">${proyecto.titulo}</span>
-							            </a>
-							        </li>
-							    </c:forEach>
-							</ul>
+				    		<a href="/proyectos">
+				        	
+				            	<i class='bx bxs-popsicle icon' ></i>
+				        	    	<span class="text nav-text">Proyects</span>
+				        	</a>
+				       
+				    	</li>   
+					     	<li class="nav-link has-submenu">
+		                        <a href="#">
+		                            <i class='bx bxs-folder icon'></i>
+		                            <span class="text nav-text">Desplegar Proyectos</span>
+		                        </a>
+		                        <ul class="menu-vertical">
+		                            <c:forEach items="${proyectos}" var="proyecto">
+				                	<li class="sub-menu-link">
+				                    	<a href="/proyectos/${proyecto.id}">
+				                        	<i class='bx bxs-memory-card icon'></i>
+				                        	<span class="text sub-menu-text">${proyecto.titulo}</span>
+				                    	</a>
+				                	</li>
+				            	</c:forEach>
+		                        </ul>
+                   		 </li>
 					
                   
                     <li class="nav-link">
