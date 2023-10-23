@@ -10,6 +10,7 @@ function enableDarkMode() {
     body.classList.add("dark");
     modeText.innerText = "Light Mode";
     localStorage.setItem('darkModeEnabled', 'true');
+    updateFooterBackground()
 }
 
 // Función para deshabilitar el modo oscuro
@@ -17,6 +18,17 @@ function disableDarkMode() {
     body.classList.remove("dark");
     modeText.innerText = "Dark Mode";
     localStorage.setItem('darkModeEnabled', 'false');
+    updateFooterBackground()
+}
+
+// Función para actualizar el color de fondo del footer
+function updateFooterBackground() {
+    const footer = document.querySelector('.footer');
+    if (body.classList.contains('dark')) {
+        footer.style.backgroundColor = 'var(--footer-background-dark)';
+    } else {
+        footer.style.backgroundColor = 'var(--footer-background-light)';
+    }
 }
 
 // Función para cargar el estado del modo oscuro al cargar la página
@@ -25,6 +37,7 @@ function loadDarkModeState() {
     if (darkModeEnabled === 'true') {
         enableDarkMode();
     }
+    updateFooterBackground()
 }
 
 // Toggle para abrir y cerrar la barra lateral
@@ -49,6 +62,17 @@ modeSwitch.addEventListener("click", () => {
 // Llama a la función para cargar el estado del modo oscuro al cargar la página
 loadDarkModeState();
 
-document.querySelector(".has-submenu").addEventListener("click", () => {
-    document.querySelector(".has-submenu").classList.toggle("open");
-})
+document.querySelectorAll(".has-submenu").forEach((element) => {
+    element.addEventListener("click", () => {
+        // Cierra todos los menús desplegables
+        document.querySelectorAll(".has-submenu.open").forEach((openElement) => {
+            if (openElement !== element) {
+                openElement.classList.remove("open");
+            }
+        });
+
+        // Abre el menú desplegable clicado
+        element.classList.toggle("open");
+    });
+});
+

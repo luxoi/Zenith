@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,18 +100,16 @@
     </nav>
 
     <section class="home">
-    
-     			<div class="titulo">
-	                <h1 class="text">${paginaMostrar.nombre}</h1>
-	                <p></p>
-	            </div>
-	            
+     
+        <main>
+            <div class="titulo">
+                <h1 class="text">${paginaMostrar.nombre}</h1>
+                <p></p>
+            </div>
                 <div class="descripcion">
 					<p>${paginaMostrar.descripcion}</p>
                 </div>
-                
-        <main>
-	            
+                <div class="container">
                     
                     <div class="dias text">
                         <h3>Lunes</h3>
@@ -170,9 +167,11 @@
                         	</c:if>
                         </c:forEach>
                     </div>
+                </div>
         </main>
-        
-        	<div class="footer">
+    </section>
+    </div>
+    <div class="footer">
     	<div class="subFooter">
     		<h4 class="tituloFooter">SOBRE NOSOTROS</h4>
     		<img class="imageFooter" src="/imagesproyecto/logo.png" alt="logo">
@@ -207,10 +206,6 @@
     	</div>
     
     </div>
-    </section>
-   
-    </div>
-    
     <script type="text/javascript" src="/jsproyecto/script.js"></script>
 </body>
 </html>

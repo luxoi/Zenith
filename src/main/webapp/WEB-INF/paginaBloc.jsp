@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title><!--Css-->
+<title>${paginaMostrar.nombre}</title><!--Css-->
 <link rel="stylesheet" type="text/css" href="/css/style.css">
 <link rel="stylesheet" type="text/css" href="/cssbloc/style.css?1">
 <!--boxicons-->
@@ -174,5 +174,6 @@
     	</div>
 	</div>
     <script src="/jsproyecto/script.js"></script>
+    <script src="/jsbloc/script.js"></script>
 </body>
 </html>
