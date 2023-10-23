@@ -106,8 +106,12 @@
 						<p>${tareas.contenido}</p>
 					</c:if>
 					<c:if test="${tareas.tipo == 'checkbox'}">
-    					<p class="custom-checkbox">${tareas.contenido}</p>
-					</c:if>
+       	 				<div>
+            				<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
+            				onclick="marcarTarea(this, '${tareas.id}')">
+            				<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
+        				</div>
+    				</c:if>
 					<c:if test="${tareas.tipo == 'lista'}">
     					<p class="custom-list">${tareas.contenido}</p>
 					</c:if>
@@ -117,10 +121,10 @@
 				<form action="/bloc" method="post">
 					<div class="selectorTipoBloc">
 						<select name="tipoTexto">
-							<option value="texto">+</option>
-							<option value="titulo">Titulo</option>
-							<option value="checkbox">Checkbox</option>
-							<option value="lista">Lista</option>
+							<option value="texto" style="background: #4b0082; color: white; text-align: center;">+</option>
+    						<option value="titulo" style="background: #8a2be2; color: white; text-align: center;">Titulo</option>
+    						<option value="checkbox" style="background: #800080; color: white; text-align: center;">Checkbox</option>
+    						<option value="lista" style="background: #9932cc; color: white; text-align: center;">Lista</option>
 						</select>
 					</div>
 					<div class="textoBloc">

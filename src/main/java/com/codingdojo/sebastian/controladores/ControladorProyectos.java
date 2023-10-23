@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -171,6 +172,16 @@ public class ControladorProyectos {
 		sp.crearTarea(pagina, contenido, null, tipoTexto, null, null, null);
 		
 		return "redirect:/paginas/"+pagina;
+	}
+	
+	@PostMapping("/guardar-tarea")
+	public ResponseEntity<String> guardarTarea(@RequestParam("tareaId") Long tareaId, @RequestParam("marcada") String marcada) {
+		
+		Tarea tareaCheckbox = sp.encontrarTarea(tareaId);
+		tareaCheckbox.setEstado(marcada);
+		sp.guardarTarea(tareaCheckbox);
+
+	    return ResponseEntity.ok("Tarea actualizada");
 	}
 
 	@GetMapping("/premiun")

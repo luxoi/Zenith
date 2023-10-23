@@ -357,7 +357,28 @@ public class ServicioProyectos {
             return null;
         }
     }
-
+    
+    //7.- Editar tarea sin modelo
+    public Tarea actualizarTareaSinModelo(Long idPagina, String contenido, String dia, String tipo, LocalDate fechaCreacion, LocalDate fechaLimite, String estado) {
+    	Tarea tareaAEditar = rt.findById(idPagina).orElse(null);
+    	
+    	if(tareaAEditar != null) {
+    		
+    		tareaAEditar.setContenido(contenido);
+    		tareaAEditar.setDia(dia);
+    		tareaAEditar.setTipo(tipo);
+    		tareaAEditar.setFechaCreacion(fechaCreacion);
+    		tareaAEditar.setFechaLimite(fechaLimite);
+    		tareaAEditar.setEstado(estado);
+    		return rt.save(tareaAEditar);
+    		
+    	} else {
+    		
+    		return null;
+    		
+    	}
+    	
+    }
     
    
 }
