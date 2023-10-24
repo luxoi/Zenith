@@ -32,10 +32,12 @@
 
 
             <div class="menu">
-                        <li class="search-box">                  
-                                <i class='bx bx-search-alt-2 icon' ></i>
-                                <input type="search" placeholder="Search">
-                        </li>
+                        <form action="barraDeBusqueda" method="post">
+                        	<li class="search-box">                  
+                                	<i class='bx bx-search-alt-2 icon' ></i>
+                                	<input name="busqueda" type="search" placeholder="Buscar pagina">
+                        	</li>
+                        </form>
 
 
                     <ul class="menu-links">

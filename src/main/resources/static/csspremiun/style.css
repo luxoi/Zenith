@@ -384,6 +384,61 @@ body.dark .switch::before{
     border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
+a:hover{
+    background: var(--primary-color);
+    color: var(--text-color);
+    letter-spacing: 0.12em;
+    box-shadow: 0 0 35px var(--primary-color);
+}
+a span{
+    position: relative;
+    z-index: 1;
+}
+.boton{
+    margin-top: 200px;
+}
+
+.menu-vertical {
+    display: none;
+    position: static;
+    background-color: var(--primary-color-light); 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.menu-vertical li {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0; 
+}
+
+.menu-vertical li:last-child {
+    border-bottom: none; 
+}
+
+.nav-link.open .menu-vertical {
+    display: block;
+}
+
+.nav-link.open {
+    height: auto;
+    display: block;
+}
+
+
+.menu-vertical a {
+    text-decoration: none;
+    color: var(--text-color); 
+    display: inline-block;
+    padding: 10px;
+}
+
+
+.menu-vertical a:hover {
+    background-color: var(--body-color); 
+}
+
 .pricing-table .grid .box.professional .button button{
     background: #fff;
     color: #3a6073;
@@ -397,6 +452,31 @@ body.dark .switch::before{
         transform: scale(1);
     }
 }
+a:hover{
+    background: var(--primary-color);
+    color: var(--text-color);
+    letter-spacing: 0.12em;
+    box-shadow: 0 0 35px var(--primary-color);
+}
+
+
+a span{
+    position: relative;
+    z-index: 1;
+}
+.boton{
+    margin-top: 200px;
+}
+
+
+.sidebar .sub-menu {
+    margin-top: 10px; /* Espacio entre "Proyectos" y la lista de proyectos */
+}
+
+.sidebar li:hover .sub-menu {
+    display: block; /* Muestra la lista de proyectos al pasar el mouse sobre "Proyectos" */
+}
+
 .container{
 	height: 100vh;
 	width: 98.79vw;

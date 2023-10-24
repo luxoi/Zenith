@@ -52,13 +52,16 @@ public class ControladorProyectos {
     }
 	
 	@GetMapping("/crear/proyectos")
-	public String crearProyectos(HttpSession session ,@ModelAttribute("nuevoProyecto") Proyecto nuevoProyecto ) {
+	public String crearProyectos(HttpSession session ,@ModelAttribute("nuevoProyecto") Proyecto nuevoProyecto, Model model ) {
 		
 		//Verificar usuario en sesion//
         Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
         if(usuarioTemporal == null) {
             return "redirect:/";
         }
+        List<Proyecto> proyectos = sp.listaProyectoPorUsuario(usuarioTemporal);
+        model.addAttribute("proyectos", proyectos);
+        
         //Verificar usuario en sesion//
         return "formularioproyecto.jsp";
 		
@@ -110,7 +113,7 @@ public class ControladorProyectos {
 
         List<Proyecto> proyectosUsuario = sp.listaProyectoPorUsuario(usuarioTemporal);
         
-        model.addAttribute("proyecto",proyectosUsuario);
+        model.addAttribute("proyectos",proyectosUsuario);
 		return "proyects.jsp";
 	}
 	
@@ -121,7 +124,8 @@ public class ControladorProyectos {
 		if (usuarioTemporal == null) {
 			return "redirect:/";  
 		}
-		   
+		List<Proyecto> proyectosUsuario = sp.listaProyectoPorUsuario(usuarioTemporal);
+        model.addAttribute("proyectos",proyectosUsuario);
 		Proyecto proyectoQueMostrar = sp.encontrarProyecto(proyectoId);
 		if (proyectoQueMostrar != null && proyectoQueMostrar.getCreador().getId() == usuarioTemporal.getId()) {
 	        model.addAttribute("proyectoMostrar", proyectoQueMostrar);
@@ -141,7 +145,8 @@ public class ControladorProyectos {
 	    // Verificar que el usuario esté en sesión
 	    // Obtener el proyecto con el ID proporcionado
 	    Pagina paginaAEntrar = sp.encontrarPagina(paginaId);
-	    
+	    List<Proyecto> proyectosUsuario = sp.listaProyectoPorUsuario(usuarioTemporal);
+        model.addAttribute("proyectos",proyectosUsuario);
 	    if(paginaAEntrar != null && paginaAEntrar.getUsuarioPagina().getId() == usuarioTemporal.getId()) {
 	    	model.addAttribute("paginaMostrar",paginaAEntrar);
 	    	if(paginaAEntrar.getTipoPagina().equals("habitos")) {
@@ -185,7 +190,7 @@ public class ControladorProyectos {
 	}
 
 	@GetMapping("/premiun")
-	public String premiun(HttpSession session) {
+	public String premiun(HttpSession session,Model model) {
 		// Verificar que el usuario esté en sesión
 	    Usuario usuarioTemporal = (Usuario) session.getAttribute("usuarioEnSesion");
 	    if (usuarioTemporal == null) {
@@ -193,6 +198,9 @@ public class ControladorProyectos {
 	    }
 	    // Verificar que el usuario esté en sesión
 		
+	    List<Proyecto> proyectosUsuario = sp.listaProyectoPorUsuario(usuarioTemporal);
+        model.addAttribute("proyectos",proyectosUsuario);
+	    
 		return "premiun.jsp";
 	}
 

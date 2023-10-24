@@ -326,6 +326,60 @@ table th {
     background: var(--primary-color);
     color: #fff;
 }
+a:hover{
+    background: var(--primary-color);
+    color: var(--text-color);
+    letter-spacing: 0.12em;
+    box-shadow: 0 0 35px var(--primary-color);
+}
+a span{
+    position: relative;
+    z-index: 1;
+}
+.boton{
+    margin-top: 200px;
+}
+
+.menu-vertical {
+    display: none;
+    position: static;
+    background-color: var(--primary-color-light); 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+
+.menu-vertical li {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0; 
+}
+
+.menu-vertical li:last-child {
+    border-bottom: none; 
+}
+
+.nav-link.open .menu-vertical {
+    display: block;
+}
+
+.nav-link.open {
+    height: auto;
+    display: block;
+}
+
+
+.menu-vertical a {
+    text-decoration: none;
+    color: var(--text-color); 
+    display: inline-block;
+    padding: 10px;
+}
+
+
+.menu-vertical a:hover {
+    background-color: var(--body-color); 
+}
 
 
 table th:nth-child(1) {
@@ -345,6 +399,31 @@ table th, table td {
     text-align: left;
     border-bottom: 1px solid #000000; /* Borde inferior en las celdas */
     border-right: 1px solid #060101; /* Borde derecho en las celdas */
+}
+
+a:hover{
+    background: var(--primary-color);
+    color: var(--text-color);
+    letter-spacing: 0.12em;
+    box-shadow: 0 0 35px var(--primary-color);
+}
+
+
+a span{
+    position: relative;
+    z-index: 1;
+}
+.boton{
+    margin-top: 200px;
+}
+
+
+.sidebar .sub-menu {
+    margin-top: 10px; /* Espacio entre "Proyectos" y la lista de proyectos */
+}
+
+.sidebar li:hover .sub-menu {
+    display: block; /* Muestra la lista de proyectos al pasar el mouse sobre "Proyectos" */
 }
 
 .container{
