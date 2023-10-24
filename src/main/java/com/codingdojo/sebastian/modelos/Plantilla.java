@@ -34,6 +34,11 @@ public class Plantilla {
         pagina2.setDescripcion("Aqui puedes anotar tus metas y progresos!");
         pagina2.setTipoPagina("bloc");
         
+        Pagina pagina3 = new Pagina();
+        pagina3.setNombre("Tus tareas");
+        pagina3.setDescripcion("Aqui estan tus tareas!");
+        pagina3.setTipoPagina("gestor");
+        
 
         // Seteo de parámetros para tareas
         for (String dia : Arrays.asList("Lunes", "Martes", "Miércoles", "Jueves", "Viernes")) {
