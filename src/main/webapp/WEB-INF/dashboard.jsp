@@ -33,10 +33,12 @@
 
         	<div class="menu-bar">
             	<div class="menu">
-                        	<li class="search-box">                  
-                                	<i class='bx bx-search-alt-2 icon' ></i>
-                                	<input type="search" placeholder="Search">
-                        	</li>
+					<form action="barraDeBusqueda" method="post">
+						<li class="search-box">                  
+								<i class='bx bx-search-alt-2 icon' ></i>
+								<input name="busqueda" type="search" placeholder="Buscar pagina">
+						</li>
+					</form>
                     	<ul class="menu-links">
                     
 				    	<li class="nav-link">
@@ -56,10 +58,13 @@
 				       
 				    	</li>   
 						<c:forEach items="${proyectos}" var="proyecto">
-    						<li class="nav-link has-submenu">
+    						<li class="nav-link has-submenu" data-id="${proyecto.id}" data-titulo="${proyecto.titulo}" data-descripcion="${proyecto.descripcion}">
         						<a href="#">
             						<i class='bx bxs-folder icon'></i>
+            						<div style="display: flex; justify-content: space-between; width: 100%;">
             						<span class="text nav-text">${proyecto.titulo}</span>
+            						<i class='bx bxs-edit icon'></i> <!-- Aquí está el botón de edición -->
+            						</div>
         						</a>
         						<ul class="menu-vertical">
             						<c:forEach items="${proyecto.proyectoPaginas}" var="paginas">
@@ -137,6 +142,25 @@
         	</div>
         
     	</section>
+		<div id="editModal" class="modal">
+			<div class="formularioModal">
+				<form action="/editarProyecto" method="post">
+					<input type="hidden" name="_method" value="put">
+					<h2>Edita tu proyecto</h2>
+					<label>Titulo del proyecto</label>
+					<br>
+					<input type="text" name="titulo">
+					<br>
+					<label>Descripcion del proyecto:</label>
+					<br>
+					<input type="text" name="descripcion">
+					<br>
+					<input type="hidden" name="proyectoId" id="proyectoId">
+					<input class="botonSubmit" type="submit" value="Guadar proyecto">
+				</form>
+			
+			</div>
+	  </div>
     </div>
     <div class="footer">
     	<div class="subFooter">
@@ -174,6 +198,6 @@
     
     </div>
     <script src="/jsproyecto/script.js"></script>
-    <script src="/jshabitos/script.js"></script>
+    <script src="/jsmodal/script.js"></script>
 </body>
 </html>
