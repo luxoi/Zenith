@@ -3,12 +3,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page isErrorPage="true" %>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Dashboard</title><!--Css-->
-<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css?1">
 <!--boxicons-->
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -32,12 +33,10 @@
 
         	<div class="menu-bar">
             	<div class="menu">
-                        <form action="barraDeBusqueda" method="post">
                         	<li class="search-box">                  
                                 	<i class='bx bx-search-alt-2 icon' ></i>
-                                	<input name="busqueda" type="search" placeholder="Buscar pagina">
+                                	<input type="search" placeholder="Search">
                         	</li>
-                        </form>
                     	<ul class="menu-links">
                     
 				    	<li class="nav-link">
@@ -57,13 +56,10 @@
 				       
 				    	</li>   
 						<c:forEach items="${proyectos}" var="proyecto">
-    						<li class="nav-link has-submenu" data-id="${proyecto.id}" data-titulo="${proyecto.titulo}" data-descripcion="${proyecto.descripcion}">
+    						<li class="nav-link has-submenu">
         						<a href="#">
             						<i class='bx bxs-folder icon'></i>
-            						<div style="display: flex; justify-content: space-between; width: 100%;">
             						<span class="text nav-text">${proyecto.titulo}</span>
-            						<i class='bx bxs-edit icon'></i> <!-- Aquí está el botón de edición -->
-            						</div>
         						</a>
         						<ul class="menu-vertical">
             						<c:forEach items="${proyecto.proyectoPaginas}" var="paginas">
@@ -115,40 +111,32 @@
         	<div class="text">
             	<h1></h1>
                 	<div class="principal">
-                    	<span><h1>Bienvenido a nuestro gestor de proyectos</h1></span>
-                    	<p>Aprende a organizarte de manera muy facil y didactica con nosotros, podras hacer seguimiento a tus tareas y diferentes proyectos en equipo</p>
-                    	<img src="/images/wewewe.png" class="org">
+                    	<span><h1>Bienvenido a Zenith</h1></span>
+                        <div class="descripcion">
+                    	<p>Aprende a organizarte de manera muy facil y didactica con nosotros</p>
+                        </div>
+                        <div class="descripcion">
+                            <p>podras hacer seguimiento a tus tareas y diferentes proyectos en equipo</p>
+                        </div>
+                        <div class="descripcion">
+                            <p>Si es tu primera vez en la pagina, puedes empezar creando un proyecto nuevo!.</p>
+                            </div>
+                    	
+                        
+                        <div class="principalderecha">
+                     
+                            <div class="boton">
+                                <a href="/crear/proyectos" > <span>Crear proyecto</span> </a>
+                           </div>
+                        </div>	
                 	</div>
-                	<div class="principalderecha">
-                		<h3>Si es tu primera vez en la pagina, puedes empezar creando un proyecto nuevo!</h3>
-                 	<div class="boton">
-	             		<a href="/crear/proyectos" > <span>Crear proyecto</span> </a>
-					</div>
-                	</div>	
+                    <div class="principalderecha">
+                        <img src="/images/wiwi.png" alt="">
+                    </div>
         
         	</div>
         
     	</section>
-    	<div id="editModal" class="modal">
-  			<div class="formularioModal">
-  				<form action="/editarProyecto" method="post">
-  					<input type="hidden" name="_method" value="put">
-  					<h2>Edita tu proyecto</h2>
-  					<label>Titulo del proyecto</label>
-  					<br>
-  					<input type="text" name="titulo">
-  					<br>
-  					<label>Descripcion del proyecto:</label>
-  					<br>
-  					<input type="text" name="descripcion">
-  					<br>
-  					<input type="hidden" name="proyectoId" id="proyectoId">
-  					<input class="botonSubmit" type="submit" value="Guadar proyecto">
-  				</form>
-  			
-  			</div>
-		</div>
-    	
     </div>
     <div class="footer">
     	<div class="subFooter">
@@ -186,6 +174,6 @@
     
     </div>
     <script src="/jsproyecto/script.js"></script>
-	<script src="/jsmodal/script.js"></script>
+    <script src="/jshabitos/script.js"></script>
 </body>
 </html>
