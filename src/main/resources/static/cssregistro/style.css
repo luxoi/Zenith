@@ -14,7 +14,7 @@
     --primary-color-light: #F6F5FF;
     --toggle-color: #DDDD;
     --text-color: #707070;
-    --footer-background-light: #695cfe;
+	--footer-background-light: #695cfe;
     --footer-background-dark: #000000;
     --tran-02: all 0.2s ease;
     --tran-03: all 0.3s ease;
@@ -285,76 +285,92 @@ body.dark .switch::before{
     font-weight: 500;
     color: var(--text-color);
     padding: 8px 40px;
-    display: flex;
     height: 100%;
 }
 
 .sidebar.close ~ .home{
     height: 100vh;
 }
-/*================================================================/**/
-main{
-    width: 100%;
-    height: 100%;
 
-   justify-content: center;
-}
-
- /* Estilos de la tabla */
- table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-    border: 1px solid #dddddd;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-/* Estilos para la tabla en tu página */
-.tabla {
-    width: 80%;
-    margin: 0 auto;
-}
-
-/*================================================================/**/
-.dias{
-    border: 1px solid var(--primary-color);
-    display: flex;
-    margin: 8px;
-    height: 250px;
-    width: 400px;
-    margin-top: 50px;
-}
-
-.dias text{
+a:hover{
+    background: var(--primary-color);
     color: var(--text-color);
+    letter-spacing: 0.12em;
+    box-shadow: 0 0 35px var(--primary-color);
+}
+a span{
+    position: relative;
+    z-index: 1;
+}
+.boton{
+    margin-top: 200px;
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.menu-vertical {
+    display: none;
+    position: static;
+    background-color: var(--primary-color-light); 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
-.titulo{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+.menu-vertical li {
+    padding: 10px;
+    border-bottom: 1px solid #e0e0e0; 
 }
-.descripcion{
-    margin: 0 auto;
-    border: 1px solid var(--primary-color);
-    width: 90%;
-    height: 200px;
+
+.menu-vertical li:last-child {
+    border-bottom: none; 
+}
+
+.nav-link.open .menu-vertical {
+    display: block;
+}
+
+.nav-link.open {
+    height: auto;
+    display: block;
+}
+
+
+.menu-vertical a {
+    text-decoration: none;
+    color: var(--text-color); 
+    display: inline-block;
+    padding: 10px;
+}
+
+
+.menu-vertical a:hover {
+    background-color: var(--body-color); 
+}
+
+
+a:hover{
+    background: var(--primary-color);
+    color: var(--text-color);
+    letter-spacing: 0.12em;
+    box-shadow: 0 0 35px var(--primary-color);
+}
+
+
+a span{
+    position: relative;
+    z-index: 1;
+}
+.boton{
+    margin-top: 200px;
+}
+
+
+.sidebar .sub-menu {
+    margin-top: 10px; /* Espacio entre "Proyectos" y la lista de proyectos */
+}
+
+.sidebar li:hover .sub-menu {
+    display: block; /* Muestra la lista de proyectos al pasar el mouse sobre "Proyectos" */
 }
 
 .container{
@@ -363,12 +379,57 @@ tr:nth-child(even) {
 	display: flex;
 }
 
+
+main {
+    background-color: var(--body-color); 
+    padding: 20px; 
+    display: flex;
+    width: 100%;
+}
+
+
+
 .footer{
 	width: 98.79vw;
 	height: 45vh;
 	display: flex;
 	flex-wrap: wrap;
 }
+.titulo {
+    background-color: var(--body-color); 
+  
+    padding: 10px; 
+    border-radius: 5px; 
+}
+
+.descripcion {
+    margin-top: 10px; 
+}
+
+
+.dias {
+    background-color: var(--body-color);
+    border: 1px solid #ddd; 
+    border-radius: 5px; 
+    margin: 5px; 
+    height: 400px;
+}
+
+.tareas-list {
+    list-style: none; 
+    padding: 0; 
+}
+
+.tareas-list li {
+    margin: 5px 0; 
+}
+.container{
+	height: 100vh;
+	width: 98.79vw;
+	display: flex;
+	color: var(--text-color);
+}
+
 
 .subFooter{
 	height: 100%;
