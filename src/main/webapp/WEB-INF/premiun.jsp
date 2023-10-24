@@ -119,9 +119,9 @@
 
 
                     <div class="box basic">
-                        <div class="title">basic</div>
+                        <div class="title">Basic</div>
                         <div class="price">
-                            <b>$24.99</b>
+                            <b>$4.99</b>
                             <span>per month</span>
                         </div>
                         <div class="features">

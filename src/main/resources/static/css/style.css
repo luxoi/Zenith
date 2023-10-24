@@ -293,38 +293,7 @@ body.dark .switch::before{
     height: 100vh;
 }
 
-.principal {
-  
-    width: 50%;
-    height: 100%;
-   
-}
 
-.principal img{
-    width: 50%;
-}
-
-.principalderecha {
-    margin-left: 3px;
-    width: 50%;
-    height: 100%;
-    align-items: center;
-    justify-content: center;
-    margin-right: 10px;
-}
-.principalderecha a{
-    background: var(--body-color);
-    color: var(--text-color);
-    text-decoration: none;
-    text-transform: uppercase;
-    font-size: 1.5em;
-    letter-spacing: 0.1em;
-    font-weight: 150;
-    padding: 10px 30px;
-    transition: 0.5s;
-    margin: 30px;
-    border: 2px solid var(--primary-color);
-}
 a:hover{
     background: var(--primary-color);
     color: var(--text-color);
@@ -335,9 +304,7 @@ a span{
     position: relative;
     z-index: 1;
 }
-.boton{
-    margin-top: 200px;
-}
+
 
 .menu-vertical {
     display: none;
@@ -408,9 +375,17 @@ a span{
     font-weight: 150;
     padding: 10px 30px;
     transition: 0.5s;
-    margin: 30px;
+
     border: 2px solid var(--primary-color);
 }
+
+.principalderecha img{
+    height: 900px;
+    margin-top: 10px;
+    
+}
+
+
 a:hover{
     background: var(--primary-color);
     color: var(--text-color);
@@ -441,6 +416,17 @@ a span{
 	width: 98.79vw;
 	display: flex;
 }
+
+.descripcion{
+    font-size: 25px;
+    color: rgb(10, 10, 10);
+    border-radius: 20px;
+    background-color: #e8f5f9;
+    padding: 10px;
+    margin: 10px;
+    
+}
+
 
 .footer{
 	width: 98.79vw;
@@ -495,78 +481,4 @@ a span{
 	flex-wrap: nowrap;
 	justify-content: start;
 	align-items: center;
-}
-
-.sidebar.close .bx.bxs-edit {
-    display: none;
-}
-
-.modal {
-  display: none; /* Asegúrate de que esto esté configurado en 'none' */
-  position: fixed;
-  z-index: 10;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0,0,0,0.4);
-  
-  /* Añade estas líneas */
-  align-items: center;
-  justify-content: center;
-}
-
-
-/* Contenido del modal */
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto; /* 15% desde arriba y centrado */
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; /* Podrías cambiar esto según tus necesidades */
-}
-
-.formularioModal {
-	width: 25%;
-	height: 50%;
-	background-color: #e0e0e0;
-
-	/* Añade estas líneas */
-	border: 1px solid #888; /* Esto añadirá un borde alrededor de tu formulario */
-	padding: 20px; /* Esto añadirá algo de espacio alrededor de tus elementos de formulario */
-	box-shadow: 0px 0px 10px rgba(0,0,0,0.5); /* Esto añadirá una sombra alrededor de tu formulario */
-	
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-	align-items: center;
-	
-}
-
-.formularioModal h2{
-	margin: 10px 0px 10px 0px;
-}
-
-.formularioModal input{
-	margin-bottom: 7px;
-}
-
-.botonSubmit {
-	background-color: limegreen;
-	color: white;
-	border-radius: 7px;
-} 
-
-.botonDelete{
-	background-color: red;
-	color: white;
-	border-radius: 7px;
-}
-
-a.noHover:hover {
-    background: initial !important;
-    color: initial !important;
-    letter-spacing: initial !important;
-    box-shadow: initial !important;
 }
