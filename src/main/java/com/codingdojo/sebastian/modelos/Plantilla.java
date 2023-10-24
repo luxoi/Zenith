@@ -69,8 +69,11 @@ public class Plantilla {
         pagina.setProyectoPagina(nuevoProyecto);
         pagina2.setUsuarioPagina(nuevoProyecto.getCreador());
         pagina2.setProyectoPagina(nuevoProyecto);
+        pagina3.setUsuarioPagina(nuevoProyecto.getCreador());
+        pagina3.setProyectoPagina(nuevoProyecto);
         listaPagina.add(pagina);
         listaPagina.add(pagina2);
+        listaPagina.add(pagina3);
         nuevoProyecto.setProyectoPaginas(listaPagina);
         nuevoProyecto.setProyectoTareas(tareasParaProyecto);
         servicio.guardarProyecto(nuevoProyecto);
