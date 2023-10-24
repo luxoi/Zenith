@@ -26,6 +26,8 @@ for (var i = 0; i < editIcons.length; i++) {
     // Coloca la información del proyecto en los campos de entrada
     document.querySelector('input[name="titulo"]').value = proyectoTitulo;
     document.querySelector('input[name="descripcion"]').value = proyectoDescripcion;
+    document.querySelector('input[name="proyectoId"]').value = proyectoId;
+
 
     openModal();
   });

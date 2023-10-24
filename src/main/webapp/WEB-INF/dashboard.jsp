@@ -142,6 +142,7 @@
   					<br>
   					<input type="text" name="descripcion">
   					<br>
+  					<input type="hidden" name="proyectoId" id="proyectoId">
   					<input class="botonSubmit" type="submit" value="Guadar proyecto">
   				</form>
   			

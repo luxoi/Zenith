@@ -104,10 +104,6 @@ public class ControladorProyectos {
 
 	@PutMapping("/editarProyecto")
 	public String editarProyecto(@RequestParam("titulo")String titulo, @RequestParam("descripcion")String descripcion, @RequestParam("proyectoId")Long id,HttpSession session){
-		Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
-        if(usuarioTemporal == null) {
-            return "redirect:/";
-        }
 		sp.editarProyecto(id, titulo, descripcion);
 		return "redirect:/dashboard";
 
