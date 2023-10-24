@@ -185,5 +185,6 @@
     
     </div>
     <script src="/jsproyecto/script.js"></script>
+	<script src="/jsmodal/script.js"></script>
 </body>
 </html>

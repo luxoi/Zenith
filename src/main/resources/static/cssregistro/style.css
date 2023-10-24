@@ -281,7 +281,7 @@ body.dark .switch::before{
 }
 
 .home .text{
-    font-size: 30px;
+    font-size: 15px;
     font-weight: 500;
     color: var(--text-color);
     padding: 8px 40px;
@@ -385,6 +385,8 @@ main {
     padding: 20px; 
     display: flex;
     width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 
@@ -412,7 +414,9 @@ main {
     border: 1px solid #ddd; 
     border-radius: 5px; 
     margin: 5px; 
-    height: 400px;
+    width: 20%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .tareas-list {
@@ -477,4 +481,12 @@ main {
 	flex-wrap: nowrap;
 	justify-content: start;
 	align-items: center;
+}
+
+.tachado {
+    text-decoration: line-through;
+}
+
+.habitostarea{
+    width: 100%;
 }

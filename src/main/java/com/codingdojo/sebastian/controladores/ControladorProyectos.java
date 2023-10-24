@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.codingdojo.sebastian.modelos.Pagina;
@@ -99,6 +100,17 @@ public class ControladorProyectos {
         		}
         	}
         	return "redirect:/dashboard";
+	}
+
+	@PutMapping("/editarProyecto")
+	public String editarProyecto(@RequestParam("titulo")String titulo, @RequestParam("descripcion")String descripcion, @RequestParam("proyectoId")Long id,HttpSession session){
+		Usuario usuarioTemporal = (Usuario)session.getAttribute("usuarioEnSesion");
+        if(usuarioTemporal == null) {
+            return "redirect:/";
+        }
+		sp.editarProyecto(id, titulo, descripcion);
+		return "redirect:/dashboard";
+
 	}
 
 	@GetMapping("/proyectos")

@@ -117,57 +117,85 @@
                     <div class="dias text">
                         <h3>Lunes</h3>
                         <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
+							<div class="habitostarea">
                         	<c:if test="${tareas.dia =='Lunes'}">
-                        		<h6>${tareas.contenido}</h6>
+                        		<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
+            					onclick="marcarTarea(this, '${tareas.id}')">
+            					<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
                         	</c:if>
+							</div>
                         </c:forEach>
                     </div>
                     <div class="dias text">
                         <h3>Martes</h3>
                         <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
-                        	<c:if test="${tareas.dia =='Martes'}">
-                        		<h6>${tareas.contenido}</h6>
-                        	</c:if>
+                        	<div class="habitostarea">
+								<c:if test="${tareas.dia =='Martes'}">
+									<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
+									onclick="marcarTarea(this, '${tareas.id}')">
+									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
+								</c:if>
+								</div>
                         </c:forEach>
                     </div>
                     <div class="dias text">
                         <h3>Miercoles</h3>
                         <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
-                        	<c:if test="${tareas.dia =='Miercoles'}">
-                        		<h6>${tareas.contenido}</h6>
-                        	</c:if>
+                        	<div class="habitostarea">
+								<c:if test="${tareas.dia =='Miércoles'}">
+									<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
+									onclick="marcarTarea(this, '${tareas.id}')">
+									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
+								</c:if>
+								</div>
                         </c:forEach>
                     </div>
                     <div class="dias text">
                         <h3>Jueves</h3>
                         <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
-                        	<c:if test="${tareas.dia =='Jueves'}">
-                        		<h6>${tareas.contenido}</h6>
-                        	</c:if>
+                        	<div class="habitostarea">
+								<c:if test="${tareas.dia =='Jueves'}">
+									<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
+									onclick="marcarTarea(this, '${tareas.id}')">
+									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
+								</c:if>
+								</div>
                         </c:forEach>
                     </div>
                     <div class="dias text">
                         <h3>Viernes</h3>
                         <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
-                        	<c:if test="${tareas.dia =='Viernes'}">
-                        		<h6>${tareas.contenido}</h6>
-                        	</c:if>
+                        	<div class="habitostarea">
+								<c:if test="${tareas.dia =='Viernes'}">
+									<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
+									onclick="marcarTarea(this, '${tareas.id}')">
+									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
+								</c:if>
+								</div>
                         </c:forEach>
                     </div>
                     <div class="dias text">
                         <h3>Sabado</h3>
                         <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
-                        	<c:if test="${tareas.dia =='Sabado'}">
-                        		<h6>${tareas.contenido}</h6>
-                        	</c:if>
+                        	<div class="habitostarea">
+								<c:if test="${tareas.dia =='Sabado'}">
+									<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
+									onclick="marcarTarea(this, '${tareas.id}')">
+									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
+								</c:if>
+								</div>
                         </c:forEach>
                     </div>
                     <div class="dias text">
                         <h3>Domingo</h3>
                         <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
-                        	<c:if test="${tareas.dia =='Domingo'}">
-                        		<h6>${tareas.contenido}</h6>
-                        	</c:if>
+                        	<div class="habitostarea">
+								<c:if test="${tareas.dia =='Domingo'}">
+									<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
+									onclick="marcarTarea(this, '${tareas.id}')">
+									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
+								</c:if>
+								</div>
                         </c:forEach>
                     </div>
           </main>
@@ -213,5 +241,6 @@
     
     </div>
     <script src="/jsproyecto/script.js"></script>
+	<script src="/jshabitos/script.js"></script>
 </body>
 </html>

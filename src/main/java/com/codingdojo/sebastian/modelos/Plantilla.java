@@ -27,7 +27,12 @@ public class Plantilla {
         Pagina pagina = new Pagina();
         pagina.setNombre(nombrePagina);
         pagina.setDescripcion(descripcionPagina);
-        pagina.setTipoPagina(tipoPagina);
+        pagina.setTipoPagina("habitos");
+
+        Pagina pagina2 = new Pagina();
+        pagina2.setNombre("Bloc personal");
+        pagina2.setDescripcion("Aqui puedes anotar tus metas y progresos!");
+        pagina2.setTipoPagina("bloc");
         
 
         // Seteo de parámetros para tareas
@@ -57,7 +62,10 @@ public class Plantilla {
         pagina.setTareasPagina(tareasParaProyecto);
         pagina.setUsuarioPagina(nuevoProyecto.getCreador());
         pagina.setProyectoPagina(nuevoProyecto);
+        pagina2.setUsuarioPagina(nuevoProyecto.getCreador());
+        pagina2.setProyectoPagina(nuevoProyecto);
         listaPagina.add(pagina);
+        listaPagina.add(pagina2);
         nuevoProyecto.setProyectoPaginas(listaPagina);
         nuevoProyecto.setProyectoTareas(tareasParaProyecto);
         servicio.guardarProyecto(nuevoProyecto);

@@ -97,13 +97,13 @@ public class ServicioProyectos {
     	}
     }
     //7.- Editar Proyecto
-    	public Proyecto editarProyecto(Proyecto proyectoEditado) {
-    	    Proyecto proyectoExistente = rp.findById(proyectoEditado.getId()).orElse(null);
+    	public Proyecto editarProyecto(Long idProyecto, String titulo, String descripcion) {
+    	    Proyecto proyectoExistente = rp.findById(idProyecto).orElse(null);
 
     	    if (proyectoExistente != null) {
 
-    	        proyectoExistente.setTitulo(proyectoEditado.getTitulo());
-    	        proyectoExistente.setDescripcion(proyectoEditado.getDescripcion());
+    	        proyectoExistente.setTitulo(titulo);
+    	        proyectoExistente.setDescripcion(descripcion);
     	        // Actualiza otros atributos según sea necesario
 
     	        // Guarda el proyecto editado en la base de datos
