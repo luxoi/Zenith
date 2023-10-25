@@ -350,6 +350,9 @@ a span{
   
     width: 50%;
     height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
    
 }
 
@@ -365,7 +368,7 @@ a span{
     justify-content: center;
     margin-right: 10px;
 }
-.principalderecha a{
+.botoncaja a{
     background: var(--body-color);
     color: var(--text-color);
     text-decoration: none;
@@ -375,8 +378,8 @@ a span{
     font-weight: 150;
     padding: 10px 30px;
     transition: 0.5s;
-
     border: 2px solid var(--primary-color);
+    border-radius: 10px;
 }
 
 .principalderecha img{
@@ -558,3 +561,13 @@ a.noHover:hover {
     letter-spacing: initial !important;
     box-shadow: initial !important;
 }
+
+.botoncaja{
+  margin-left: 3px;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+

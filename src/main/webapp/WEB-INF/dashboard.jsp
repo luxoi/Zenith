@@ -125,7 +125,7 @@
                         <div class="descripcion">
                             <p>Si es tu primera vez en la pagina, puedes empezar creando un proyecto nuevo!.</p>
                         </div>
-                        <div class="principalderecha">
+                        <div class="botoncaja">
                             <div class="boton">
                                 <a href="/crear/proyectos" > <span>Crear proyecto</span> </a>
                            </div>
@@ -154,7 +154,6 @@
 					<input type="hidden" name="proyectoId" id="proyectoId">
 					<input class="botonSubmit" type="submit" value="Guadar proyecto">
 				</form>
-			
 			</div>
 	  </div>
     </div>
