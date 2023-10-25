@@ -125,10 +125,7 @@
                             <span>per month</span>
                         </div>
                         <div class="features">
-                            <div>1 CPU</div>
-                            <div>500 gb STORAGE</div>
-                            <div>2 Users Allowed</div>
-                            <div>Sends up to 2 GB</div>
+                            <div>Proximamente</div>
                         </div>
                         <div class="button">
                             <button>Learn More</button>
@@ -139,14 +136,11 @@
                     <div class="box professional">
                         <div class="title">Professional</div>
                         <div class="price">
-                            <b>$49.99</b>
+                            <b>$9.99</b>
                             <span>per month</span>
                         </div>
                         <div class="features">
-                            <div>1 CPU</div>
-                            <div>500 gb STORAGE</div>
-                            <div>2 Users Allowed</div>
-                            <div>Sends up to 2 GB</div>
+                            <div>Proximamente</div>
                         </div>
                         <div class="button">
                             <button>Learn More</button>
@@ -156,14 +150,11 @@
                     <div class="box ninja">
                         <div class="title">Ninja</div>
                         <div class="price">
-                            <b>$99.99</b>
+                            <b>$14.99</b>
                             <span>per month</span>
                         </div>
                         <div class="features">
-                            <div>1 CPU</div>
-                            <div>500 gb STORAGE</div>
-                            <div>2 Users Allowed</div>
-                            <div>Sends up to 2 GB</div>
+                            <div>Proximamente</div>
                         </div>
                         <div class="button">
                             <button>Learn More</button>

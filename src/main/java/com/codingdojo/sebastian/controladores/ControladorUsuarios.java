@@ -22,9 +22,15 @@ public class ControladorUsuarios {
 	@Autowired
 	private Servicio servicio;
 	
-
-	
 	@GetMapping("/")
+	 public String mostrarInicio() {
+
+		 return "paginaInicio.jsp";
+
+		 
+	 }
+	
+	@GetMapping("/inicio")
 	public String index(@ModelAttribute("nuevoUsuario") Usuario nuevoUsuario) {
 		
 		return "index.jsp";

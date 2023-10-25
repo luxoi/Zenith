@@ -114,7 +114,6 @@
 
     	<section class="home">
         	<div class="text">
-            	<h1></h1>
                 	<div class="principal">
                     	<span><h1>Bienvenido a Zenith</h1></span>
                         <div class="descripcion">
@@ -125,11 +124,8 @@
                         </div>
                         <div class="descripcion">
                             <p>Si es tu primera vez en la pagina, puedes empezar creando un proyecto nuevo!.</p>
-                            </div>
-                    	
-                        
+                        </div>
                         <div class="principalderecha">
-                     
                             <div class="boton">
                                 <a href="/crear/proyectos" > <span>Crear proyecto</span> </a>
                            </div>

@@ -246,13 +246,7 @@ public class ControladorProyectos {
 	        return "tareas.jsp";
 	    }
 	 
-	 @GetMapping("/inicio")
-	 public String mostrarInicio() {
-
-		 return "paginaInicio.jsp";
-
-		 
-	 }
+	 
 	 
 	
 }

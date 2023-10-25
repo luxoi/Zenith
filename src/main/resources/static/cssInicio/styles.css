@@ -182,12 +182,13 @@ body {
 
 .btn {
   box-shadow: 0 0.1875rem 0.1875rem 0 rgba(1, 180, 245, 0.1) !important;
-  padding: 1.25rem 2rem;
+  padding: 1.25rem 4rem;
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 80%;
+  font-size: 20px;
   text-transform: uppercase;
   letter-spacing: 0.15rem;
   border: 0;
+  size: 30px;
 }
 
 .masthead {
@@ -204,8 +205,8 @@ body {
 }
 .masthead h1, .masthead .h1 {
   font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 2.5rem;
-  line-height: 2.5rem;
+  font-size: 5rem;
+  line-height: 5rem;
   letter-spacing: 0.8rem;
   background: linear-gradient(rgb(40, 3, 89), rgba(0, 179, 255, 0.081));
   -webkit-text-fill-color: transparent;
@@ -213,13 +214,13 @@ body {
           background-clip: text;
 }
 .masthead h2, .masthead .h2 {
-  max-width: 20rem;
-  font-size: 1rem;
+  max-width: 255rem;
+  font-size: 1.5rem;
 }
 @media (min-width: 768px) {
   .masthead h1, .masthead .h1 {
-    font-size: 4rem;
-    line-height: 4rem;
+    font-size: 6rem;
+    line-height: 6rem;
   }
 }
 @media (min-width: 992px) {
@@ -227,4 +228,61 @@ body {
     height: 100vh;
     padding: 0;
   }
+}
+
+
+.footer{
+    width: 98.79vw;
+    height: 45vh;
+    display: flex;
+    flex-wrap: wrap;
+    background-color:#695cfe;
+}
+
+.subFooter{
+    height: 100%;
+    width: 33.3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-top: 0.4%;
+
+}
+.imageFooter{
+    height: 40%;
+}
+
+.tituloFooter{
+    display: inline;
+    width: 100%;
+    text-align: center;
+    color: white;
+    margin-bottom: 1%;
+}
+
+.textoFooter{
+    text-align: center;
+    font-size: small;
+    color: white;
+    padding: 0px 10px 0px 10px;
+}
+
+.contactoFooterImages{
+    width: 30px;
+    height: 30px;
+}
+
+.Footerimages{
+    width: 80%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+}
+
+.footerContacto{
+    width: 59%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-items: center;
 }
