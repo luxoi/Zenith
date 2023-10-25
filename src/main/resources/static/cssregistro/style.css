@@ -385,7 +385,7 @@ main {
     padding: 20px; 
     display: flex;
     width: 100%;
-    flex-wrap: wrap;
+   
     justify-content: center;
 }
 
@@ -398,19 +398,31 @@ main {
 	flex-wrap: wrap;
 }
 .titulo {
-    background-color: var(--body-color); 
-  
+    
+  	display: flex;
+  	justify-content: center;  	
     padding: 10px; 
-    border-radius: 5px; 
+
 }
 
 .descripcion {
-    margin-top: 10px; 
-}
+  margin-top: 10px;
+  margin-left: 10%;
+  border: 1px solid var(--primary-color-light);
+  width: 80%;
+  height: 7%;
+  color: white;
+  background: var(--primary-color);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  
 
 
 .dias {
-    background-color: var(--body-color);
+    background-color: var(--primary-color-light);
     border: 1px solid #ddd; 
     border-radius: 5px; 
     margin: 5px; 

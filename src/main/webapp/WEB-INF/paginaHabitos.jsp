@@ -103,7 +103,7 @@
     	<section class="home">
         	 
         	 <div class="titulo">
-	                <h1 class="text">${paginaMostrar.nombre}</h1>
+	                <h1>${paginaMostrar.nombre}</h1>
 	                <p></p>
 	            </div>
 	            
@@ -121,7 +121,11 @@
                         	<c:if test="${tareas.dia =='Lunes'}">
                         		<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
             					onclick="marcarTarea(this, '${tareas.id}')">
-            					<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
+            					<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">
+            					
+            					${tareas.contenido}<a href="/delete/${tareas.id}"><i class='bx bxs-trash-alt icon'></i><i class='bx bxs-edit-alt'></i></a>
+            					
+            					</label>
                         	</c:if>
 							</div>
                         </c:forEach>
@@ -133,7 +137,9 @@
 								<c:if test="${tareas.dia =='Martes'}">
 									<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
 									onclick="marcarTarea(this, '${tareas.id}')">
-									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
+									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">
+										${tareas.contenido}<a href="/delete/${tareas.id}"><i class='bx bxs-trash-alt icon'></i><i class='bx bxs-edit-alt'></i></a>
+									</label>
 								</c:if>
 								</div>
                         </c:forEach>
@@ -145,7 +151,9 @@
 								<c:if test="${tareas.dia =='Miércoles'}">
 									<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
 									onclick="marcarTarea(this, '${tareas.id}')">
-									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
+									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">
+										${tareas.contenido}<a href="/delete/${tareas.id}"><i class='bx bxs-trash-alt icon'></i><i class='bx bxs-edit-alt'></i></a>
+									</label>
 								</c:if>
 								</div>
                         </c:forEach>
@@ -157,7 +165,9 @@
 								<c:if test="${tareas.dia =='Jueves'}">
 									<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
 									onclick="marcarTarea(this, '${tareas.id}')">
-									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
+									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">
+										${tareas.contenido}<a href="/delete/${tareas.id}"><i class='bx bxs-trash-alt icon'></i><i class='bx bxs-edit-alt'></i></a>
+									</label>
 								</c:if>
 								</div>
                         </c:forEach>
@@ -169,35 +179,14 @@
 								<c:if test="${tareas.dia =='Viernes'}">
 									<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
 									onclick="marcarTarea(this, '${tareas.id}')">
-									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
+									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">
+										${tareas.contenido}<a href="/delete/${tareas.id}"><i class='bx bxs-trash-alt icon'></i><i class='bx bxs-edit-alt'></i></a>
+									</label>
 								</c:if>
 								</div>
                         </c:forEach>
                     </div>
-                    <div class="dias text">
-                        <h3>Sabado</h3>
-                        <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
-                        	<div class="habitostarea">
-								<c:if test="${tareas.dia =='Sabado'}">
-									<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
-									onclick="marcarTarea(this, '${tareas.id}')">
-									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
-								</c:if>
-								</div>
-                        </c:forEach>
-                    </div>
-                    <div class="dias text">
-                        <h3>Domingo</h3>
-                        <c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
-                        	<div class="habitostarea">
-								<c:if test="${tareas.dia =='Domingo'}">
-									<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
-									onclick="marcarTarea(this, '${tareas.id}')">
-									<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
-								</c:if>
-								</div>
-                        </c:forEach>
-                    </div>
+                   
           </main>
                 	
         </section>
