@@ -151,8 +151,9 @@
         </table>
 
         <!-- Formulario para crear tareas -->
+        <div class="color">
         <h2 style="width: 100%;text-align: center;height: 5px;">Crear Nueva Tarea</h2>
-        <form action="/nueva_pagina/crear_tarea" method="post" style="margin-bottom: 200px;">
+        <form action="/nueva_pagina/crear_tarea" method="post" style="margin-bottom: 200px;width: 30%;">
             <div class="form-group">
                 <label for="contenido">Contenido</label>
                 <input type="text" class="form-control" id="contenido" name="contenido" required>
@@ -166,19 +167,19 @@
                 </select>
             </div>
             <div class="form-group">
-                <label for="fechaCreacion">Fecha de Creación</label>
+                <label for="fechaCreacion">Fecha de Inicio</label>
                 <input type="date" class="form-control" id="fechaCreacion" name="fechaCreacion" required>
             </div>
             <div class="form-group">
                 <label for="fechaLimite">Fecha Límite</label>
                 <input type="date" class="form-control" id="fechaLimite" name="fechaLimite" required>
             </div>
-            <input type="hidden" name="id-pagina" value="4">
+            <input type="hidden" name="id-pagina" value="${paginaMostrar.id}">
             <button type="submit" class="btn btn-primary">Crear Tarea</button>
         </form>
         		
     	</section>
-      
+      </div>
       <div id="editModal" class="modal">
 			<div class="formularioModal">
 				<form action="/editarProyecto" method="post">

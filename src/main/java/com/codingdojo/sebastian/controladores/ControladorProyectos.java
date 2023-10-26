@@ -234,18 +234,6 @@ public class ControladorProyectos {
 	    // Redirige a la página de la nueva página o a donde desees que el usuario vaya después de crear la tarea
 	    return "redirect:/tareas";
 	}
-
-	 @GetMapping("/tareas")
-	    public String mostrarTareas(Model model) {
-	        // Obtén la lista de tareas desde tu servicio
-	        List<Tarea> tareas = sp.listaTarea();
-
-	        // Agrega la lista de tareas al modelo
-	        model.addAttribute("tareas", tareas);
-
-	        // Devuelve el nombre de tu JSP
-	        return "tareas.jsp";
-	    }
 	 
 	 @GetMapping("/delete/{id}")
 	 public String delete(@PathVariable("id")long id) {
