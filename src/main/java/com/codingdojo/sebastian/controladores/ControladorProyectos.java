@@ -232,7 +232,7 @@ public class ControladorProyectos {
 	   sp.crearTarea(idPagina,contenido, null, null,fechaCreacion, fechaLimite, estado);
 
 	    // Redirige a la página de la nueva página o a donde desees que el usuario vaya después de crear la tarea
-	    return "redirect:/tareas";
+	    return "redirect:/paginas/"+idPagina;
 	}
 	 
 	 @GetMapping("/delete/{id}")
