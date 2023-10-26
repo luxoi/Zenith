@@ -247,7 +247,15 @@ public class ServicioProyectos {
             return null;
         }
     }
-
+    
+    //Busqueda por nombre pagina
+    
+    public List<Pagina> buscarPagina(String busqueda){
+    	
+    	List<Pagina> paginasRelacionadas = rpag.findByNombreContainingIgnoreCase(busqueda);
+    	
+    	return paginasRelacionadas;
+    }
 
 
     //*SERVICIOS TAREAS*//

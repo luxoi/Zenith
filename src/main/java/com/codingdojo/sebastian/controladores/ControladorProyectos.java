@@ -242,6 +242,19 @@ public class ControladorProyectos {
 		 return "redirect:/proyectos";
 	 }
 	 
-	
+	@PostMapping("/barraDeBusqueda")
+	 public String busqueda(@RequestParam("busqueda")String busqueda,Model model , HttpSession session) {
+		Usuario usuarioTemporal = (Usuario) session.getAttribute("usuarioEnSesion");
+	    if (usuarioTemporal == null) {
+	        return "redirect:/";  
+	    }
+	    
+	    List<Pagina> paginasRelacionadas = sp.buscarPagina(busqueda);
+	    
+	    model.addAttribute("paginas",paginasRelacionadas);
+	    
+	    return "busqueda.jsp";
+	}
+	 
 }
 

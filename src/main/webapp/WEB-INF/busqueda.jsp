@@ -5,15 +5,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>${paginaMostrar.nombre}</title><!--Css-->
-<link rel="stylesheet" type="text/css" href="/css/style.css">
-<link rel="stylesheet" type="text/css" href="/cssbloc/style.css?1">
-<!--boxicons-->
+<title>Tus Búsqueda</title>
+<link rel="stylesheet" type="text/css" href="/cssproyecto/style.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
+<
 </head>
 <body>
-	<div class="container">
+    <div class="container">
     <nav class="sidebar close">
          	<header>
             	<div class="image-text">
@@ -23,7 +21,7 @@
 
                 	<div class="text header-text">
                     	<span class="name">Zenith</span>
-                    	<span class="profession">Tu bloc!</span>
+                    	<span class="profession">Tus búsqueda!</span>
                 	</div>
             	</div>
             	<i class='bx bx-chevron-right toggle'></i>
@@ -108,50 +106,35 @@
     	</nav>
 
     <section class="home">
-        <div class="bloc">
-			<div class="blocEscritura">
-				<c:forEach items="${paginaMostrar.tareasPagina}" var="tareas">
-					<c:if test="${tareas.tipo == 'titulo'}">
-						<h1 class="blocTitulo">${tareas.contenido}</h1>
-					</c:if>
-					<c:if test="${tareas.tipo == 'texto'}">
-						<p>${tareas.contenido}</p>
-					</c:if>
-					<c:if test="${tareas.tipo == 'checkbox'}">
-       	 				<div>
-            				<input type="checkbox" id="${tareas.id}" value="${tareas.estado}" <c:if test="${tareas.estado == 'checkboxComplete'}">checked</c:if>
-            				onclick="marcarTarea(this, '${tareas.id}')">
-            				<label for="${tareas.id}" class="<c:if test="${tareas.estado == 'checkboxComplete'}">tachado</c:if>">${tareas.contenido}</label>
-        				</div>
-    				</c:if>
-					<c:if test="${tareas.tipo == 'lista'}">
-    					<p class="custom-list">${tareas.contenido}</p>
-					</c:if>
-				</c:forEach>
-			</div>
-			<div class="blocInput">
-				<form action="/bloc" method="post">
-					<div class="selectorTipoBloc">
-						<select name="tipoTexto">
-							<option value="texto" style="background: #ad32cc; color: white; text-align: center;">+</option>
-							<option value="titulo" style="background: #9932cc; color: white; text-align: center;">Titulo</option>
-							<option value="checkbox" style="background: #6a2ca8; color: white; text-align: center;">Checkbox</option>
-							<option value="lista" style="background: #4b0082; color: white; text-align: center;">Lista</option>
-						</select>										
-					</div>
-					<div class="textoBloc">
-						<textarea class="textoB" name="contenido" placeholder="Escribe aqui"></textarea>
-					</div>
-					<div class="botonBloc">
-						<input type="hidden" name="pagina" value="${paginaMostrar.id}">
-						<input type="submit" value="Guardar">
-					</div>
-				</form>
-			</div>
-        </div>
+        <div class="text">Resultado de tu busqueda</div>
+        <main>
+            
+            <div class="table-container">
+                <table>
+	                <thead>
+	                    <tr>
+	                        <th>Nombre</th>
+	                        <th>Descripción</th>
+	                        <th>Tipo de pagina</th>
+	                        <th>Acciones</th>
+	                    </tr>
+	                </thead>
+	                <tbody>
+		               <c:forEach items="${paginas}" var="pagina">
+	                    <tr>
+	                        <td><a href="/paginas/${pagina.id}">${pagina.nombre}</a></td>
+	                        <td>${proyecto.descripcion}</td>
+	                        <td>${proyecto.tipoPagina}</td>
+	                        <td><a href="/delete/${proyecto.id}">Eliminar</a></td>
+	                    </tr>
+	                   </c:forEach>
+	            	</tbody>
+                </table>
+            </div>
+        </main>
     </section>
-	</div>
-	<div class="footer">
+    </div>
+    <div class="footer">
     	<div class="subFooter">
     		<h4 class="tituloFooter">SOBRE NOSOTROS</h4>
     		<img class="imageFooter" src="/imagesproyecto/logo.png" alt="logo">
@@ -184,8 +167,8 @@
     			<p class="textoFooter">:  zenithorganization@gmail.com</p>
     		</div>
     	</div>
-	</div>
-    <script src="/jsproyecto/script.js"></script>
-    <script src="/jsbloc/script.js"></script>
+    
+    </div>
+    <script type="text/javascript" src="/jsproyecto/script.js"></script>
 </body>
 </html>

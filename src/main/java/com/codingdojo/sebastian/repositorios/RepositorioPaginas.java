@@ -9,4 +9,6 @@ import com.codingdojo.sebastian.modelos.Pagina;
 public interface RepositorioPaginas extends CrudRepository<Pagina,Long>{
 	
 	List<Pagina> findAll();
+	
+	List<Pagina> findByNombreContainingIgnoreCase(String busqueda);
 }

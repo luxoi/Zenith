@@ -33,7 +33,7 @@
 
         	<div class="menu-bar">
             	<div class="menu">
-					<form action="barraDeBusqueda" method="post">
+					<form action="/barraDeBusqueda" method="post">
 						<li class="search-box">                  
 								<i class='bx bx-search-alt-2 icon' ></i>
 								<input name="busqueda" type="search" placeholder="Buscar pagina">
